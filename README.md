@@ -113,3 +113,4 @@ New functions for DSC Mk60E5:
 - Bosch Professional Automotive Information: Brakes, Brake Control and Driver Assistance Systems, Konrad Reif, ISBN978-3-658-03977-6
 - [MK60e5 and MK60 ABS retrofit group](https://www.facebook.com/groups/807702710448164)
 - [BMW MK60 Motorsports ABS](https://www.facebook.com/groups/1056638784424876)
+- [Standalone ABS Installs (MK60 and More)](https://grassrootsmotorsports.com/forum/grm/standalone-abs-installs-mk60-and-more/248099/page1/)
