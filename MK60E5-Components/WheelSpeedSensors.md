@@ -11,8 +11,6 @@ A typical feature of the active wheel-speed sensor is the integration of a Hall 
 ![Measuring Wheel Speed](../Pictures/ActiveVSS-02.png)
 
 
-
-
 ## Passive sensors - Type DF6
 
 A sensor of type “DF6” is a passive sensor consisting of a magnet wrapped in a coil in the vicinity of an encoder gear wheel
@@ -59,11 +57,11 @@ The output signals of the DF11i sensor are described in the picture below
 
 ## Active Sensor - Type DF30/VDA
 
-DF30/VDA sensors are also active sensors and, like the “DF11i” sensors, are based on the Hall effect. The following figure shows the output signal of this sensor.
+DF30/VDA sensors are also active sensors and, like the DF11i sensors, are based on the Hall effect. The following figure shows the output signal of this sensor.
 
 ![Alt text](../Pictures/VSS-DF30.png)
 
-The speed pulse is output at every “edge” of the encoder wheel – the current IH of this pulse is four times the low level IL=7mA. An initial bit that sets the current level to IL precedes this pulse. A further nine bits follow the speed pulse with a current level of IH=2IL.
+The speed pulse is output at every edge of the encoder wheel – the current IH (typically 28 mA) of this pulse is four times the low level IL=7mA. An initial bit that sets the current level to IL precedes this pulse. A further nine bits follow the speed pulse with a current level of IH=2*IL (typically 14 mA). The data pulses are Manchester encoded which means the bit information is contained in the edge of the signal within a certain time window, tp; for example, a rising edge may represent '1' and falling edge represents a '0'.
 
 AK protocol contains information related to magnetic strength of the signal, sensor calibration mode, encoder sense of rotation and parity. These data protocol bits are binary in nature and are embedded with information that can be utilized further to develop diagnostics and prognostics around it.
 
@@ -82,3 +80,10 @@ Description of VDA bits outputted from AK Protocol based WSS in the table below.
 |8 |Parity |1 for even parity, P = XOR (bit 0 to bit 7) |
 
 The quality of the wheel speed signal depends on the magnetic strength. Any deterioration in the health of the wheel encoder will also impact the magnetic strength of the signal. Therefore, presence of magnetic debris on the surface of the encoder will hamper the quality of wheel speed signal. VDA bits 5-7 which can be converted to a 3-bit integer (7-Maximum magnetic strength, 0-Minimum magnetic strength) which correlates to the magnetic strength at the interface and shows potential to determine faults at the interface.
+
+## Connectors
+
+|Element|BMW P/N |
+|---|---|
+|Connector housing |61131392246 |
+|Bushing contact |61130005199 |

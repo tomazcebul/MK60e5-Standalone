@@ -13,11 +13,9 @@ DSC Mk60E5 was installed on the following vehicles:
 
 Note: BMW E9x vehicles with all-wheel drive are equipped as standard with Bosch DSC 8Plus.
 
-
-
 ## Active Wheel Speed sensors (VSS)
 
-Installed on BMW E87 with Inline 6 and E9x and later models. A wheel-speed sensor is installed on each wheel. There is a ring of magnets (96 pole) around the wheel bearing (increment wheel). The north and south poles of the increment wheel alternate.
+Installed on BMW E87 with Inline 6 and E9x and later models. A wheel-speed sensor is installed on each wheel. The magnetic ring used in BMW vehicles has 96 poles around the wheel bearing (increment wheel). The north and south poles of the increment wheel alternate.
 One north pole with one south pole constitutes one increment (cf. tooth/gap on an increment gear).
 The wheel-speed sensor consists of the actual sensor and an electronic evaluation unit.
 ![Construction](Pictures/ActiveVSS-01.png)
@@ -30,7 +28,7 @@ The wheel-speed sensor consists of the actual sensor and an electronic evaluatio
 |5 |Signal path |
 |6 |Wheel bearing with magnets |
 
-Each increment generates 2 pulses in the wheel-speed sensor (96 pulses/revolution of wheel). For the data transmission to the control unit, additional data are added alongside the pulse. Functionally, this integrated data processing goes beyond the simple recording of speed of rotation
+Each increment generates 2 pulses in the wheel-speed sensor (96 pulses/revolution of wheel). For the data transmission to the control unit, additional data are added alongside the pulse. Functionally, this integrated data processing goes beyond the simple recording of speed of rotation.
 
 The wheel speed sensor part numbers from BMW ETK Online:
 
@@ -41,7 +39,7 @@ The wheel speed sensor part numbers from BMW ETK Online:
 |E90 M3 LCI 2010 LHD |34527853586 |34526870077 |Front sensor only on M3, rear sensor same on E81, E82, E87, E88 and E9x 6 cylinder gasoline and diesel engines as well as on some N43 and N47 engine cars |
 |E85 Z4  LHD |R:34526792896, L:34526792897 |34526757281 |Front sensor same on all E85, E86 and E46. Rear sensor same on all E85, E86 |
 
-The following page describes additional technical information on various [vheel speed sensors](MK60E5-Components/WheelSpeedSensors.md).
+MK60E5 requires active Hall efect VSS with VDA output data stream. Factory sensors on 6 cylinder E8x and E9x are all designed to work with magnetic rings. The following page describes additional technical information on various [vheel speed sensors](MK60E5-Components/WheelSpeedSensors.md).
 
 ## DSC Sensor
 
@@ -60,16 +58,20 @@ The following page describes additional technical information for [DSC sensor](M
 
 ## DSC Unit
 
-...
+The DSC unit consists of the hydraulic unit with solenoid valves, DSC control unit and return pump. All 5 brake pressure sensors are integrated into the valve block of the DSC unit. The board of the DSC control unit also holds a longitudinal-acceleration sensor, hence the corect orientation is important.
+
+On LHD vehicles, the DSC unit is located: at the front left in the water box, under a cover panel next to the expansion tank. On RHD vehicles, the DSC unit is located at the front right in the water box (turned through 90°).
 
 The DSC unit part numbers from BMW ETK Online:
 
 |Model and Year|Unit |Notes|
 |---|---|---|
-|E90 320i LCI 2010 LHD |34516863354 |Same unit on E81, E82, E87, E88 and E9x 4 cylinder gasoline and diesel engines |
-|E90 335i LCI 2010 LHD |34516863356 |Same unit on E81, E82, E87, E88 and E9x 6 cylinder gasoline and diesel engines as well as on some N43 and N47 engine cars |
-|E90 M3 LCI 2010 LHD |34507841955 |Unit only on M3 (Old part number: 34507841233) |
-|E85 Z4 2008 LHD |34516778490 |Same on all E85, E86 after 2006 |
+|E90 320i LCI 2010 LHD |34516863354 |Same unit on E81, E82, E87, E88 and E9x 4 cylinder gasoline and diesel engines (MK60E) |
+|E90 335i LCI 2010 LHD |34516863356 |Same unit on E81, E82, E87, E88 and E9x 6 cylinder gasoline and diesel engines as well as on some N43 and N47 engine cars (MK60E5) |
+|E90 M3 LCI 2010 LHD |34507841955 |Unit only on M3 (Old part number: 34507841233) (MK60E5)|
+|E85 Z4 2008 LHD |34516778490 |Same on all E85, E86 after 2006 (MK60E5)|
+
+The following page describes additional technical information for [DSC unit](MK60E5-Components/DSCUnit.md)
 
 ## Steering Angle sensor
 
@@ -114,3 +116,7 @@ New functions for DSC Mk60E5:
 - [MK60e5 and MK60 ABS retrofit group](https://www.facebook.com/groups/807702710448164)
 - [BMW MK60 Motorsports ABS](https://www.facebook.com/groups/1056638784424876)
 - [Standalone ABS Installs (MK60 and More)](https://grassrootsmotorsports.com/forum/grm/standalone-abs-installs-mk60-and-more/248099/page1/)
+
+## Disclaimer
+
+For informational purposes only. Please do your own dilligence and research. The information on this repository is provided AS-IS with no warranties, express or implied, and is not guaranteed to be error free, up-to-date or complete. I assume no liability for any loss or damage arising from the use or reliance on the information and content in this repository.
