@@ -119,4 +119,4 @@ New functions for DSC Mk60E5:
 
 ## Disclaimer
 
-For informational purposes only. Please do your own dilligence and research. The information on this repository is provided AS-IS with no warranties, express or implied, and is not guaranteed to be error free, up-to-date or complete. I assume no liability for any loss or damage arising from the use or reliance on the information and content in this repository.
+For informational purposes only. Please read the **License** and do your own dilligence and research.
