@@ -1,0 +1,17 @@
+# Publish only the CAN documentation and the DBC files.
+# Scripts, raw firmware tables, SGBD exports and validation reports stay local.
+*
+!.gitignore
+!MK60E5_DSC–CAN-Interface.md
+!MK60E5_coding.md
+!MK60E5_F-CAN_6862873A.md
+!MK60E5_F-CAN_7846816A.dbc
+!MK60E5_F-CAN_7846816A.md
+!MK60E5_PT-CAN_6862873A.md
+!MK60E5_PT-CAN_7846816A.dbc
+!MK60E5_PT-CAN_7846816A.md
+!BMW_E9x_F-CAN_full.dbc
+!BMW_E9x_full_DBC_report.md
+!BMW_E9x_PT-CAN_full.dbc
+!BMW_E9x_K-CAN_full.dbc
+!BMW_E9x_K-CAN.md

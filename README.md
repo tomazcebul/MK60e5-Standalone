@@ -28,6 +28,8 @@ The DSC unit part numbers from BMW ETK Online:
 |E90 M3 LCI 2010 LHD |34507841955 |Unit only on M3 (Old part number: 34507841233) (MK60E5)|
 |E85 Z4 2008 LHD |34516778490 |Same on all E85, E86 after 2006 (MK60E5)|
 
+The unit used in this project is the M3 version (photos in [Components/DSC](Components/DSC)): BMW 34 51 7 846 816-01, ATE 10.0212-0801.4. The controller label reads 10.0961-0883.3 / 10.0619-3868.1 / 28.5612-6200.3, "7 846 816 Steuergeraet DSC", made in Hungary. Its firmware is 7846816A (SG type `DSCM90`).
+
 The following page describes additional technical information for [DSC unit](MK60E5-Components/DSCUnit.md)
 
 ## Active Wheel Speed sensors (VSS)
@@ -56,7 +58,7 @@ The wheel speed sensor part numbers from BMW ETK Online:
 |E90 M3 LCI 2010 LHD |34527853586 |34526870077 |Front sensor only on M3, rear sensor same on E81, E82, E87, E88 and E9x 6 cylinder gasoline and diesel engines as well as on some N43 and N47 engine cars |
 |E85 Z4  LHD |R:34526792896, L:34526792897 |34526757281 |Front sensor same on all E85, E86 and E46. Rear sensor same on all E85, E86 |
 
-MK60E5 requires active Hall efect VSS with VDA output data stream. Factory sensors on 6 cylinder E8x and E9x are all designed to work with magnetic rings. The following page describes additional technical information on various [vheel speed sensors](MK60E5-Components/WheelSpeedSensors.md).
+MK60E5 requires active Hall efect VSS with VDA output data stream. Factory sensors on 6 cylinder E8x and E9x are all designed to work with magnetic rings. The following page describes additional technical information on various [wheel speed sensors](MK60E5-Components/WheelSpeedSensors.md).
 
 ## DSC Sensor
 
@@ -71,15 +73,25 @@ The DSC sensor part numbers from BMW ETK Online:
 |E90 M3 LCI 2010 LHD |34526850375 |Same unit on E81, E82, E87, E88 and E9x 6 cylinder gasoline and diesel engines |
 |E85 Z4 2008 LHD |34526769174 |Same on all E85, E86 after 2006 |
 
+The sensor used in this project (photos in [Components/YAW](Components/YAW)) is BMW 34 52 6 781 575-01 "SENSORCLUSTER 03", ATE 10.1701-0384.3, DV78H04E1E. It sends its data to the DSC over F-CAN.
+
 The following page describes additional technical information for [DSC sensor](MK60E5-Components/DSCSensor.md)
 
 ## Steering Angle sensor
 
-...
+The steering angle sensor is part of the steering column switch cluster (SZL). It sends the steering angle to the DSC over F-CAN.
+
+The SZL used in this project (photos in [Components/SZL](Components/SZL)) is BMW LZ 9 123 060-02 (Kostal 10 0016 32-01, HW 27 / SW 68), dated 20.12.2007:
+
+- electronics module 392 00 2082 33-02 (HW 027 / SW 068)
+- clock spring BMW 6 989 557-02 (Kostal 04308135-03)
+- stalk modules 01 3081 50, 01 1081 60, 01 2081 95
 
 ## DTC Button
 
-...
+On the E87 and E9x the DTC button is not wired to the DSC. The junction box (JBE) reads the button and sends it to the DSC on PT-CAN in frame 0x316: byte 0 = 0xFC when released and 0xFD while pressed (repeated every 100 ms while held), byte 1 = 0xFF. A short press selects DTC; holding the button switches DSC off. On the E85/E86 the button is wired to DSC pin 41 instead.
+
+In a standalone installation the button has to be read by your own electronics and sent as frame 0x316. See [MK60E5 CAN interface](MK60E5-CAN/MK60E5_DSC–CAN-Interface.md#pt-can--frames-received-by-dsc).
 
 ## DSC system functions
 
@@ -107,6 +119,10 @@ New functions for DSC Mk60E5:
 - Adapted interface for cruise control with brake function (only E90, E91, E92, E93)
 - Adapted interface for active cruise control (only E90, E91, E92, E93)
 - Yaw-moment compensation via active steering (only E87 with 6-cylinder engine, E90, E91, E92, E93)
+
+## CAN interface
+
+MK60E5 is connected to PT-CAN and F-CAN. The full CAN matrix was extracted from the DSC firmware. It covers every frame DSC sends and receives, the signal layout, cycle times, checksum algorithm and monitoring DTCs. See [MK60E5 CAN interface](MK60E5-CAN/MK60E5_DSC–CAN-Interface.md), which includes generated DBC files.
 
 ## References
 

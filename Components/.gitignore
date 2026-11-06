@@ -1,0 +1,3 @@
+# Publish the JPEG copies only. The HEIC originals contain GPS location data
+# and don't render in most browsers.
+*.heic

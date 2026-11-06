@@ -1,0 +1,1415 @@
+VERSION ""
+
+
+NS_ :
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    BA_DEF_DEF_
+    BO_TX_BU_
+
+BS_:
+
+BU_: ACC ACC_Sensor ACSM AFS AHM ARS CAS CCC DKG DME DSC Diagnosetool_PT_CAN EGS FRMFA FZD GWS IHKA JBBF KBM KGM KOMBI LDM MRSZ OBD_ECU_7EC PWML SZL SZM
+
+
+BO_ 141 STAT_ELUP: 8 Vector__XXX
+
+BO_ 168 EngineAndBrake: 8 DME
+ SG_ CHK_SUM_TORQ_1_DME : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ ALIV_TORQ_1_DME : 8|4@1+ (1,0) [0|15] "" DSC
+ SG_ TORQ_AVL : 12|12@1- (0.5,0) [-1024|1023.5] "Nm" DSC
+ SG_ ST_TORQ_AVL : 24|4@1+ (1,0) [0|15] "" DSC
+ SG_ TORQ_AVL_DMEE : 28|12@1- (0.5,0) [-1024|1023.5] "Nm" DSC
+ SG_ S0A8_b40 : 40|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_DMEA_SWO : 44|2@1+ (1,0) [0|3] "" DSC
+ SG_ RCPT_ACC_SWO_SYS_DME : 46|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_RCPT_ENG_ACC : 48|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_RCPT_ENG_ARS : 50|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_RCPT_ENG_DSC : 52|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_RCPT_ENG_EGS : 54|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_OBD_CTFN_GRB : 56|5@1+ (1,0) [0|31] "" DSC
+ SG_ ST_CT_BRPD_DME : 61|3@1+ (1,0) [0|7] "" DSC
+
+BO_ 169 Torque2: 8 DME
+ SG_ CHKSM_TORQ_2_DME : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ ALIV_TORQ_2_DME : 8|4@1+ (1,0) [0|15] "" DSC
+ SG_ ST_SW_LEV_RPM : 12|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_INFS : 14|2@1+ (1,0) [0|3] "" DSC
+ SG_ TORQ_AVL_MIN : 16|12@1- (0.5,0) [-1024|1023.5] "Nm" DSC
+ SG_ TORQ_AVL_MAX : 28|12@1- (0.5,0) [-1024|1023.5] "Nm" DSC
+ SG_ TORQ_AVL_SPAR_NEG : 40|12@1- (0.5,0) [-1024|1023.5] "Nm" DSC
+ SG_ TORQ_AVL_SPAR_POS : 52|12@1- (0.5,0) [-1024|1023.5] "Nm" DSC
+
+BO_ 170 AccPedal: 8 DME
+ SG_ CHKSM_TORQ_3_DME : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ ALIV_TORQ_3_DME : 8|4@1+ (1,0) [0|15] "" DSC
+ SG_ TORQ_DVCH : 12|12@1- (0.5,0) [-1024|1023.5] "Nm" DSC
+ SG_ ANG_ACPD : 24|8@1+ (0.39063,0) [0|99.61065] "%" DSC
+ SG_ RPM_ENG : 32|16@1+ (0.25,0) [0|16383.75] "rpm" DSC
+ SG_ RPM_ENG_ERR : 48|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_IDLG_ENG : 50|2@1+ (1,0) [0|3] "" DSC
+ SG_ ST_CLCTR_V : 52|4@1+ (1,0) [0|15] "" DSC
+ SG_ RQAM_FU : 56|8@1+ (1,0) [0|255] "" DSC
+
+BO_ 172 WheelTorqueDrivetrain2: 8 DME
+ SG_ CHKSM_0AC : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ ALIV_0AC : 8|4@1+ (1,0) [0|15] "" DSC
+ SG_ S0AC_b32 : 32|16@1+ (1,0) [0|65535] "" DSC
+ SG_ S0AC_b48 : 48|16@1+ (1,0) [0|65535] "" DSC
+
+BO_ 180 WheelTorqueDriveTrain1: 8 DME
+ SG_ CHKSM_0B4 : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ ALIV_0B4 : 8|4@1+ (1,0) [0|15] "" DSC
+ SG_ S0B4_b12 : 12|12@1+ (1,0) [0|4095] "" DSC
+ SG_ S0B4_b24 : 24|16@1+ (1,0) [0|65535] "" DSC
+ SG_ S0B4_b40 : 40|12@1+ (1,0) [0|4095] "" DSC
+ SG_ S0B4_b56 : 56|3@1+ (1,0) [0|7] "" DSC
+ SG_ S0B4_b59 : 59|5@1+ (1,0) [0|31] "" DSC
+
+BO_ 181 Torque_request_EGS: 8 EGS
+ SG_ CHKSM_TORQ_EGS : 0|8@1+ (1,0) [0|255] "" DME
+ SG_ ALIV_TORQ_EGS : 8|4@1+ (1,0) [0|15] "" DME
+ SG_ TORQ_TAR_EGS : 12|12@1- (0.5,0) [-1024|1023.5] "Nm" DME
+ SG_ TORQ_TAR_ADJR_POS_EGS : 24|12@1- (0.5,0) [-1024|1023.5] "Nm" DME
+ SG_ ST_TORQ_TAR_EGS : 36|2@1+ (1,0) [0|3] "" DME
+ SG_ ST_OTMP_GRB : 38|2@1+ (1,0) [0|3] "" DME
+ SG_ ST_OBD_GRB : 40|4@1+ (1,0) [0|15] "" DME
+ SG_ ST_OTMP_ERR_GRB : 44|2@1+ (1,0) [0|3] "" DME
+ SG_ ST_LIM_STORQ : 46|2@1+ (1,0) [0|3] "" DME
+ SG_ TORQ_DRAW_GRB : 48|8@1+ (1,0) [0|255] "Nm" DME
+ SG_ TEMP_GRB : 56|8@1+ (1,-40) [-40|215] "degC" DME
+
+BO_ 182 DREHMOMENT_ANF_DSC: 5 DSC
+ SG_ CHKSM_TORQ_DSC : 0|8@1+ (1,0) [0|255] "" DME
+ SG_ ALIV_TORQ_DSC : 8|4@1+ (1,0) [0|15] "" DME
+ SG_ TORQ_TAR_DSC : 12|12@1- (0.5,0) [-1024|1023.5] "Nm" DME
+ SG_ TORQ_TAR_ADJR_POS_DSC : 24|12@1- (0.5,0) [-1024|1023.5] "Nm" DME
+ SG_ ST_TORQ_TAR_DSC : 36|2@1+ (1,0) [0|3] "" DME
+ SG_ S0B6_b38 : 38|2@1+ (1,0) [0|3] "" DME
+
+BO_ 183 Torque_request_ACC: 6 LDM
+ SG_ CHKSM_TORQ_ACC : 0|8@1+ (1,0) [0|255] "" DME
+ SG_ ALIV_TORQ_ACC : 8|4@1+ (1,0) [0|15] "" DME
+ SG_ TORQ_TAR_ACC : 12|12@1- (0.5,0) [-1024|1023.5] "Nm" DME
+ SG_ TORQ_TAR_ADJR_POS_ACC : 24|12@1- (0.5,0) [-1024|1023.5] "Nm" DME
+ SG_ ST_TORQ_TAR_ACC : 36|2@1+ (1,0) [0|3] "" DME
+ SG_ RQ_PREV_INFS_ACC : 38|2@1+ (1,0) [0|3] "" DME
+ SG_ ST_ACC_SWO_SYS_DME : 40|2@1+ (1,0) [0|3] "" DME
+ SG_ ST_ACC_MOD_DME : 42|3@1+ (1,0) [0|7] "" DME
+
+BO_ 184 TorqueTransmisionRequest: 8 EGS
+ SG_ Checksum_184 : 0|8@1+ (1,0) [0|15] "" DME
+ SG_ Counter_184 : 8|4@1+ (1,0) [0|15] "" DME
+
+BO_ 185 Drehmomentanforderung_AFS: 6 AFS
+
+BO_ 186 TransmissionData: 8 EGS
+ SG_ ST_GR_GRB : 0|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ ST_GRLV_ACV : 4|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_CCLT : 6|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ GRDT_REIN : 8|12@1+ (0.125,0) [0|511.875] "rpm" DME,DSC
+ SG_ OutputShaftSpeed : 24|16@1- (0.125,0) [0|255] "rpm" DME,DSC
+ SG_ CHKSM_GRB : 40|8@1+ (1,0) [0|255] "" DME,DSC
+ SG_ ALIV_GRB : 48|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ ST_MOD_GRB : 52|3@1+ (1,0) [0|7] "" DME,DSC
+ SG_ ST_HYPP_ACV : 56|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ S0BA_b62 : 62|2@1+ (1,0) [0|3] "" DME,DSC
+
+BO_ 191 RequestedWheelTorqueDriveTrain: 5 LDM
+ SG_ Checksum_191 : 0|8@1+ (1,0) [0|255] "" DME
+ SG_ Counter_191 : 8|4@1+ (1,0) [0|15] "" DME
+ SG_ S0BF_b12 : 12|4@1+ (1,0) [0|15] "" DME
+ SG_ TorqueReq : 16|16@1- (0.5,350) [-16034|16733.5] "" DME
+ SG_ S0BF_b32 : 32|4@1+ (1,0) [0|15] "" DME
+ SG_ S0BF_b36 : 36|2@1+ (1,0) [0|3] "" DME
+
+BO_ 196 SteeringWheelAngle: 7 DSC
+ SG_ SteeringPosition : 0|16@1- (0.04395,0) [-1440.1536|1440.10965] "deg" DME
+ SG_ S0C4_b16 : 16|2@1+ (1,0) [0|3] "" DME
+ SG_ SteeringSpeed : 24|16@1- (0.04395,0) [-1440.1536|1440.10965] "deg/s" DME
+ SG_ S0C4_b40 : 40|8@1+ (1,0) [0|255] "" DME
+ SG_ S0C4_b48 : 48|2@1+ (1,0) [0|3] "" DME
+ SG_ S0C4_b50 : 50|2@1+ (1,0) [0|3] "" DME
+
+BO_ 200 SteeringWheelAngle_slow: 6 SZL
+ SG_ SteeringPosition : 0|16@1- (0.04395,0) [-1440.1536|1440.10965] "deg" Vector__XXX
+ SG_ Counter_200 : 20|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ SteeringSpeed : 24|16@1- (0.04395,0) [-1440.1536|1440.10965] "deg/s" Vector__XXX
+
+BO_ 206 GESCHWINDIGKEIT_RAD: 8 DSC
+ SG_ V_WHL_FLH : 0|16@1- (0.0625,0) [-2048|2047.9375] "km/h" DME
+ SG_ V_WHL_FRH : 16|16@1- (0.0625,0) [-2048|2047.9375] "km/h" DME
+ SG_ V_WHL_RLH : 32|16@1- (0.0625,0) [-2048|2047.9375] "km/h" DME
+ SG_ V_WHL_RRH : 48|16@1- (0.0625,0) [-2048|2047.9375] "km/h" DME
+
+BO_ 213 Request_wheel_torque_brake: 6 LDM
+ SG_ CHKSM_0D5 : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ ALIV_0D5 : 8|4@1+ (1,0) [0|15] "" DSC
+ SG_ S0D5_b12 : 12|12@1+ (1,0) [0|4095] "" DSC
+ SG_ S0D5_b24 : 24|16@1+ (1,0) [0|65535] "" DSC
+ SG_ S0D5_b40 : 40|2@1+ (1,0) [0|3] "" DSC
+
+BO_ 225 Wheel_torque_brake: 6 DSC
+ SG_ CHKSM_0E1 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ALIV_0E1 : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ S0E1_b12 : 12|12@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ S0E1_b24 : 24|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ S0E1_b40 : 40|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S0E1_b42 : 42|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ S0E1_b45 : 45|3@1+ (1,0) [0|7] "" Vector__XXX
+
+BO_ 273 Unknown_111: 8 DSC
+ SG_ S111_b0 : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 304 TerminalStatus: 5 CAS
+ SG_ ST_KL_R : 0|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_KL_15 : 2|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_KL_50 : 4|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_KEY_VLD : 6|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ NO_KEY : 8|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ ST_KEY_TYP : 12|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ ST_KEY_PLGD : 16|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_VHIM : 18|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_LOKG_STCO : 20|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ IgnitionOff : 22|1@1+ (1,0) [0|3] "" DME,DSC
+ SG_ AccOn : 23|1@1+ (1,0) [0|255] "" DME,DSC
+ SG_ PO_ID_PU : 24|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_PSVA_ACV : 26|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_ILK_COD_BM : 28|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ALIV_KL : 32|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ CHKSM_KL : 36|4@1+ (1,0) [0|15] "" DME,DSC
+
+BO_ 309 CrashDisconnectControl: 2 ACSM
+ SG_ CTR_CR_SWO_EKP : 0|4@1+ (1,0) [0|15] "" DME
+
+BO_ 336 Request_1_ACC: 8 LDM
+ SG_ CHKSM_150 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 339 Request_2_ACC: 7 LDM
+ SG_ CHKSM_153 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 345 Object_data_ACC: 8 ACC_Sensor
+
+BO_ 348 Status_ACC: 8 ACC_Sensor
+
+BO_ 373 Display_motor_data: 3 DME
+
+BO_ 400 display_ACC: 8 LDM
+
+BO_ 402 GearSelectorSwitch_1: 4 SZL
+ SG_ REQ_GEAR : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Counter_402 : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 403 DynamicCruiseControlStatus: 8 LDM
+ SG_ CHKSM_193 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ALIV_193 : 4|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ CruiseControlSetpointSpeed : 15|8@0+ (1,-2) [0|255] "kph/mph" Vector__XXX
+ SG_ S193_b16 : 16|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S193_b24 : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S193_b32 : 32|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ S193_b40 : 40|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ S193_b43 : 43|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ S193_b48 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S193_b56 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 404 CruiseControl: 4 SZL
+ SG_ CHKSM_CCTR : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ ALIV_CCTR : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ requests_0xF : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ OP_PUBU_CCTR_ACC : 16|7@1+ (1,0) [0|127] "" Vector__XXX
+ SG_ Cancel_request_up_stalk : 23|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ ABSTANDSWAHL_ACC : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ MODUS_WAHL_CC_CA : 26|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 408 GearSelectorSwitch: 8 GWS
+ SG_ Counter_408 : 0|4@1+ (1,0) [0|14] "" Vector__XXX
+ SG_ m3ShifterPosition : 4|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ m3ShifterPositionXOR1111 : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ShifterPosition : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ShifterPositionXOR1111 : 16|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ param1 : 20|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ param1XOR11 : 22|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ParkButtonFirst : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ParkButtonSecond : 26|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ SideButton : 28|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ SideButtonXOR11 : 30|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ param5 : 32|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ SportButtonPressed : 34|2@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ M3_button : 36|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ always11 : 38|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 414 STAT_DSC: 8 DSC
+ SG_ ST_CLCTR : 0|8@1+ (1,0) [0|255] "" DME
+ SG_ S19E_b8 : 8|2@1+ (1,0) [0|3] "" DME
+ SG_ ST_DSC : 10|3@1+ (1,0) [0|7] "" DME
+ SG_ S19E_b14 : 14|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b16 : 16|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b18 : 18|2@1+ (1,0) [0|3] "" DME
+ SG_ ALIV_19E : 20|4@1+ (1,0) [0|15] "" DME
+ SG_ S19E_b24 : 24|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b26 : 26|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b28 : 28|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b30 : 30|2@1+ (1,0) [0|3] "" DME
+ SG_ ST_DCRN_AVL : 32|4@1+ (1,0) [0|15] "" DME
+ SG_ S19E_b36 : 36|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b38 : 38|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b40 : 40|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b42 : 42|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b44 : 44|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b46 : 46|2@1+ (1,0) [0|3] "" DME
+ SG_ S19E_b48 : 48|8@1+ (1,0) [0|255] "" DME
+ SG_ CHKSM_19E : 56|8@1+ (1,0) [0|255] "" DME
+
+BO_ 416 GESCHWINDIGKEIT: 8 DSC
+ SG_ V_VEH : 0|12@1+ (0.1,0) [0|409.5] "km/h" DME
+ SG_ ST_VEH_DVCO : 12|3@1+ (1,0) [0|7] "" DME
+ SG_ ACLH_VEH_LN_DSC : 16|12@1- (0.025,0) [-51.2|51.175] "m/s^2" DME
+ SG_ ACLH_VEH_ACRO_DSC : 28|12@1- (0.025,0) [-51.2|51.175] "m/s^2" DME
+ SG_ ANGV_YAW_DSC : 40|12@1- (0.05,0) [-102.4|102.35] "deg/s" DME
+ SG_ ALIV_V : 52|4@1+ (1,0) [0|15] "" DME
+ SG_ CHKSM_V_V : 56|8@1+ (1,0) [0|255] "" DME
+
+BO_ 418 TransimissionData2: 8 EGS
+ SG_ RPM_GRB_TURB : 0|16@1+ (0.125,6) [6|8197.875] "rpm" DME
+ SG_ Counter_418 : 28|4@1+ (1,0) [0|14] "" DME
+ SG_ ManualMode : 50|1@0+ (1,0) [0|255] "" DME
+ SG_ Checksum_418 : 56|8@1+ (1,0) [0|255] "" DME
+
+BO_ 419 Raw_data_longitudinal_acceleration: 5 DSC
+ SG_ S1A3_b0 : 0|12@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ S1A3_b12 : 12|12@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ S1A3_b24 : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S1A3_b26 : 26|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S1A3_b28 : 28|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ S1A3_b32 : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 422 DistanceRoute: 8 DSC
+ SG_ S1A6_b0 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ S1A6_b16 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ S1A6_b32 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ S1A6_b48 : 48|12@1+ (1,0) [0|4095] "" Vector__XXX
+
+BO_ 428 Status_ARS_module: 4 ARS
+ SG_ ALIV_COU_ARS : 8|4@1+ (1,0) [0|15] "" DME
+ SG_ ST_CLCTR_ARS : 12|2@1+ (1,0) [0|3] "" DME
+ SG_ TORQ_TAR_ARS : 16|8@1+ (0.5,0) [0|127.5] "Nm" DME
+ SG_ TORQ_AVL_ARS : 24|8@1+ (0.5,0) [0|127.5] "Nm" DME
+
+BO_ 436 InstrumentClusterStatus_KOMBI: 8 KOMBI
+ SG_ V_VEH_SPDM : 0|12@1+ (0.1,0) [0|409.5] "km/h" DME,DSC
+ SG_ ST_UN_V_SPDM : 12|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ S1B4_b16 : 16|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ ST_INTF_CCTRA_KL : 18|3@1+ (1,0) [0|7] "" DME,DSC
+ SG_ ALIV_COU_KL : 24|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ ST_WALI_ENG : 36|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ HandbrakeActive : 41|1@1+ (1,0) [0|3] "" DME,DSC
+ SG_ S1B4_b48 : 48|7@1+ (1,0) [0|127] "" DME,DSC
+ SG_ CHKSM_1B4 : 56|8@1+ (1,0) [0|255] "" DME,DSC
+
+BO_ 437 HeatFlow_LoadTorqueClimate: 7 IHKA
+ SG_ HTFL_RQ_AIC : 0|8@1+ (1,0) [0|255] "" DME
+ SG_ HTFL_ST_AIC : 8|8@1+ (1,0) [0|255] "" DME
+ SG_ TORQ_TAR_ACCM : 16|8@1+ (0.5,0) [0|127.5] "Nm" DME
+ SG_ CTR_EFAN_AIC : 24|4@1+ (1,0) [0|15] "" DME
+ SG_ CTR_AIC_SPFN : 28|2@1+ (1,0) [0|3] "" DME
+ SG_ CTR_CLMP : 30|2@1+ (1,0) [0|3] "" DME
+ SG_ CTR_AIC_RDI : 32|3@1+ (1,0) [0|7] "" DME
+
+BO_ 438 HeatFlowEngine: 7 DME
+ SG_ HTFL_RQ_DME : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ HTFL_ST_DME : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ACCM_LIM_TORQ : 16|8@1+ (0.5,0) [0|127.5] "Nm" Vector__XXX
+ SG_ ST_CRAW_ENG : 24|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ ST_I_GEN : 32|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ ST_GEN : 40|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ST_LDST_GEN : 42|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ LDST_GEN : 48|8@1+ (1,0) [0|255] "%" Vector__XXX
+
+BO_ 464 EngineData: 8 DME
+ SG_ TEMP_ENG : 0|8@1+ (1,-48) [-48|207] "degC" Vector__XXX
+ SG_ TEMP_EOI : 8|8@1+ (1,-48) [-48|207] "degC" Vector__XXX
+ SG_ ALIV_COUNT_DME : 16|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ST_ENG_RUN : 20|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ST_SW_WAUP : 22|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ AIP_ENG : 24|8@1+ (2,598) [598|1108] "hPa" Vector__XXX
+ SG_ IJV_FU : 32|16@1+ (1,0) [0|65535] "ul" Vector__XXX
+ SG_ CTR_SLCK : 48|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ RPM_IDLG_TAR : 56|8@1+ (5,0) [0|1275] "rpm" Vector__XXX
+
+BO_ 466 TransmissionDataDisplay: 6 EGS
+ SG_ ShiftLeverPosition : 0|4@1+ (1,0) [0|8] "" DME
+ SG_ ShiftLeverPositionXOR : 4|4@1+ (1,0) [0|15] "" DME
+ SG_ GearAct : 12|4@1+ (1,-4) [0|15] "" DME
+ SG_ SportButtonState : 26|1@1+ (1,0) [0|1] "" DME
+ SG_ Counter_466 : 28|4@1+ (1,0) [0|14] "" DME
+ SG_ ShiftLeverMode : 32|2@1+ (1,0) [0|3] "" DME
+ SG_ xFF : 40|8@1+ (1,0) [0|255] "" DME
+
+BO_ 470 SteeringButtons: 2 SZL
+ SG_ TASTER_TELEFON : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ TASTER_AUDIO_LAUTSTAERKE : 2|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ TASTER_AUDIO_SUCHLAUF : 4|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ TASTER_PUSH_TO_TALK : 8|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ TASTER_SONDERFUNKTION : 12|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ TASTER_PUSH_TO_HEAR : 14|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 481 Unknown_1E1: 6 Vector__XXX
+
+BO_ 502 TurnSignals: 2 FRMFA
+ SG_ HoldActivated : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LeftTurn : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RightTurn : 5|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TurnSignalActive : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TurnSignalIdle : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 512 CruiseControlStatus: 8 DME
+ SG_ V_CLCTR_CCTR : 0|12@1+ (0.1,0) [0|409.5] "km/h" Vector__XXX
+ SG_ ST_V_CLCTR_CCTR : 12|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ CTR_DISP_CCTR : 16|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ IDX_NO : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ V_CCTR_IDX_NO_1 : 28|12@1+ (0.1,0) [0|409.5] "km/h" Vector__XXX
+ SG_ V_CCTR_IDX_NO_2 : 40|12@1+ (0.1,0) [0|409.5] "km/h" Vector__XXX
+ SG_ V_CCTR_IDX_NO_3 : 52|12@1+ (0.1,0) [0|409.5] "km/h" Vector__XXX
+
+BO_ 514 Dimming: 2 FRMFA
+ SG_ DimmerPosition : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 538 LampStatus: 3 FRMFA
+
+BO_ 550 RainSensorWiperSpeed: 5 FZD
+ SG_ S226_b0 : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ S226_b8 : 8|16@1+ (1,0) [0|65535] "" DSC
+ SG_ S226_b24 : 24|4@1+ (1,0) [0|15] "" DSC
+
+BO_ 578 ClimateFrontStatus: 5 IHKA
+
+BO_ 678 WiperSwitch: 2 SZL
+ SG_ WISCHERTASTER : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ WISCHERPOTI : 8|3@1+ (1,0) [0|7] "" DSC
+
+BO_ 690 WheelPressure_KCAN: 8 DSC
+ SG_ S2B2_b0 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S2B2_b8 : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S2B2_b16 : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S2B2_b24 : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S2B2_b32 : 32|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S2B2_b34 : 34|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S2B2_b36 : 36|12@1- (1,0) [-2048|2047] "" Vector__XXX
+ SG_ S2B2_b48 : 48|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S2B2_b50 : 50|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ S2B2_b53 : 53|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ S2B2_b56 : 56|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S2B2_b59 : 59|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ S2B2_b61 : 61|3@1+ (1,0) [0|7] "" Vector__XXX
+
+BO_ 691 AccelerationData: 5 DSC
+ SG_ S2B3_b0 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S2B3_b8 : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ S2B3_b12 : 12|12@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ S2B3_b24 : 24|12@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ S2B3_b36 : 36|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 704 LCD_lighting: 3 KOMBI
+ SG_ LCD_Brightness : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S2C0_b8 : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ CID_Brightness : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 719 Status_of_auxiliary_water_pump: 2 JBBF
+
+BO_ 740 Status_trailer: 2 AHM
+ SG_ ST_TRAI : 0|2@1+ (1,0) [0|3] "" DME,DSC
+
+BO_ 753 Status_driver_detection: 3 MRSZ
+
+BO_ 755 Display_switching_instruction: 3 DME
+
+BO_ 758 LightControl: 2 FRMFA
+
+BO_ 760 Time_Date: 8 KOMBI
+ SG_ DISP_HR : 0|8@1+ (1,0) [0|255] "" DME
+ SG_ DISP_MN : 8|8@1+ (1,0) [0|255] "" DME
+ SG_ DISP_SEC : 16|8@1+ (1,0) [0|255] "" DME
+ SG_ DISP_DATE_DAY : 24|8@1+ (1,0) [0|255] "" DME
+ SG_ DISP_DATE_WDAY : 32|4@1+ (1,0) [0|15] "" DME
+ SG_ DISP_DATE_MON : 36|4@1+ (1,0) [0|15] "" DME
+ SG_ DISP_DATE_YR : 40|16@1+ (1,0) [0|65535] "" DME
+ SG_ ST_DISP_CTI_DATE : 56|4@1- (1,0) [-8|7] "" DME
+
+BO_ 762 OccupancySeatBeltContact: 5 ACSM
+ SG_ NEW_SIGNAL_2 : 0|8@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ NEW_SIGNAL_1 : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 764 TrunkStatus: 7 CAS
+ SG_ ST_DSW_DRD : 8|2@1+ (1,0) [0|3] "" DME
+ SG_ ST_CT_BON : 18|2@1+ (1,0) [0|3] "" DME
+
+BO_ 776 Status_MSA: 3 DME
+ SG_ S308_b0 : 0|4@1+ (1,0) [0|15] "" DSC
+ SG_ S308_b4 : 4|4@1+ (1,0) [0|15] "" DSC
+ SG_ S308_b8 : 8|2@1+ (1,0) [0|3] "" DSC
+ SG_ S308_b10 : 10|2@1+ (1,0) [0|3] "" DSC
+ SG_ S308_b12 : 12|2@1+ (1,0) [0|3] "" DSC
+ SG_ S308_b14 : 14|2@1+ (1,0) [0|3] "" DSC
+ SG_ S308_b16 : 16|2@1+ (1,0) [0|3] "" DSC
+ SG_ S308_b18 : 18|2@1+ (1,0) [0|3] "" DSC
+ SG_ S308_b20 : 20|4@1+ (1,0) [0|15] "" DSC
+
+BO_ 784 AmbientTemperature_RelativeTime: 7 KOMBI
+ SG_ TEMP_EXT : 0|8@1+ (0.5,-40) [-40|87.5] "degC" DME,DSC
+ SG_ T_SEC_COU_REL : 8|32@1+ (1,0) [0|4294967295] "" DME,DSC
+ SG_ T_DAY_COU_ABSL : 40|16@1+ (1,0) [0|65535] "" DME,DSC
+
+BO_ 789 Vehicle_mode: 2 SZM
+ SG_ S315_b0 : 0|4@1+ (1,0) [0|15] "" DME
+ SG_ Counter_315 : 4|4@1+ (1,0) [0|15] "" DME
+ SG_ VehicleMode : 8|4@1+ (1,0) [0|15] "" DME
+
+BO_ 790 OperationPushButtonDTC: 2 JBBF
+ SG_ S316_b0 : 0|2@1+ (1,0) [0|3] "" DSC
+ SG_ setMe_0x3FFF : 2|14@1+ (1,0) [0|63] "" DSC
+
+BO_ 793 Operation_push_button_RDC: 2 JBBF
+ SG_ S319_b0 : 0|2@1+ (1,0) [0|3] "" DSC
+
+BO_ 797 TirePressureStatus: 2 DSC
+ SG_ S31D_b0 : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ S31D_b3 : 3|5@1+ (1,0) [0|31] "" Vector__XXX
+ SG_ S31D_b8 : 8|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 816 Range_Mileage: 8 KOMBI
+ SG_ MILE_KM : 0|24@1+ (1,0) [0|16777215] "km" DME,DSC
+ SG_ FLLV_FUTA : 24|8@1+ (1,0) [0|255] "l" DME,DSC
+ SG_ FLLV_FUTA_LH : 32|8@1+ (0.5,0) [0|127.5] "l" DME,DSC
+ SG_ FLLV_FUTA_RH : 40|8@1+ (0.5,0) [0|127.5] "l" DME,DSC
+ SG_ ST_FLLV_FUTA_SPAR : 48|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ RNG : 52|12@1+ (1,0) [0|4095] "km" DME,DSC
+
+BO_ 817 Programming_of_step_cruise_control: 5 CCC
+
+BO_ 818 Driver_display_speed_range: 2 DME
+ SG_ RPM_TEMP_DOM_1 : 0|8@1+ (50,0) [0|12750] "rpm" Vector__XXX
+ SG_ RPM_TEMP_DOM_2 : 8|8@1+ (50,0) [0|12750] "rpm" Vector__XXX
+
+BO_ 820 Powermanagement_Ladespannung: 2 PWML
+ SG_ CTR_GEN_U_TAR : 0|8@1+ (0.025,10.6) [10.6|16.975] "V" DME
+ SG_ RPM_IDLG_SPEC : 8|2@1+ (1,0) [0|3] "" DME
+
+BO_ 847 Status_contact_handbrake: 2 JBBF
+ SG_ Handbrake_push : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 884 WheelToleranceAdjustment: 5 DSC
+ SG_ S374_b0 : 0|8@1- (1,0) [-128|127] "" Vector__XXX
+ SG_ S374_b8 : 8|8@1- (1,0) [-128|127] "" Vector__XXX
+ SG_ S374_b16 : 16|8@1- (1,0) [-128|127] "" Vector__XXX
+ SG_ S374_b24 : 24|8@1- (1,0) [-128|127] "" Vector__XXX
+ SG_ S374_b32 : 32|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 896 chassis_number: 7 CAS
+ SG_ NO_VECH_1 : 0|8@1+ (1,0) [0|255] "" DSC
+ SG_ NO_VECH_2 : 8|8@1+ (1,0) [0|255] "" DSC
+ SG_ NO_VECH_3 : 16|8@1+ (1,0) [0|255] "" DSC
+ SG_ NO_VECH_4 : 24|8@1+ (1,0) [0|255] "" DSC
+ SG_ NO_VECH_5 : 32|8@1+ (1,0) [0|255] "" DSC
+ SG_ NO_VECH_6 : 40|8@1+ (1,0) [0|255] "" DSC
+ SG_ NO_VECH_7 : 48|8@1+ (1,0) [0|255] "" DSC
+
+BO_ 897 EngineOilLevel: 2 DME
+ SG_ FLLV_EOI : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RECM_RFLV_EOI : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 904 Vehicle_type: 7 CAS
+ SG_ TYP_VEH : 0|8@1+ (1,0) [0|255] "" DME,DSC
+ SG_ TYP_BODY : 8|8@1+ (1,0) [0|255] "" DME,DSC
+ SG_ QUAN_CYL : 16|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ QUAN_GR : 20|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ TYP_ENG : 24|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ TYP_STE : 28|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ TYP_GRB : 32|4@1+ (1,0) [0|15] "" DME,DSC
+ SG_ CLAS_PWR : 36|2@1+ (1,0) [0|3] "" DME,DSC
+ SG_ TYP_CNT : 40|8@1+ (1,0) [0|255] "" DME,DSC
+ SG_ TYP_CAPA : 48|8@1+ (100,0) [0|25500] "ccm" DME,DSC
+
+BO_ 907 Status_battery: 5 DME
+
+BO_ 910 Start_speed: 2 DME
+ SG_ RPM_ENG_STA : 0|6@1+ (0.25,0) [0|15.75] "rpm" Vector__XXX
+
+BO_ 917 Coding_power_management: 5 CAS
+ SG_ CLAS_BT : 0|8@1+ (1,0) [0|255] "" DME
+ SG_ QC_VEH : 8|8@1+ (1,0) [0|255] "mA" DME
+ SG_ I_SC_MIN_VEH : 16|8@1+ (1,0) [0|255] "A" DME
+ SG_ I_SC_MAX_VEH : 24|8@1+ (1,0) [0|255] "A" DME
+
+BO_ 920 Operation_chassis: 2 CCC
+ SG_ S398_b4 : 4|2@1+ (1,0) [0|3] "" DSC
+ SG_ S398_b10 : 10|3@1+ (1,0) [0|7] "" DSC
+
+BO_ 921 Status_MDrive: 5 DME
+ SG_ CHKSM_399 : 0|4@1+ (1,0) [0|15] "" DSC
+ SG_ ALIV_399 : 4|4@1+ (1,0) [0|15] "" DSC
+ SG_ S399_b8 : 8|2@1+ (1,0) [0|3] "" DSC
+ SG_ S399_b10 : 10|3@1+ (1,0) [0|7] "" DSC
+
+BO_ 940 RunOnTimeTerminal30: 2 JBBF
+
+BO_ 944 Status_gear_reverse: 2 FRMFA
+ SG_ S3B0_b0 : 0|2@1+ (1,0) [0|3] "" DME,DSC
+
+BO_ 945 TransmissionData3: 8 DKG
+ SG_ Checksum_946 : 0|8@1+ (1,0) [0|19] "" Vector__XXX
+ SG_ Counter_945 : 8|4@1+ (1,0) [0|14] "" Vector__XXX
+
+BO_ 947 PowerManagmentConsumptionControl: 6 DME
+ SG_ SLCTN_SPCOS : 4|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ CTR_PWR_SPCOS : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ CTR_PWR_COS : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ CTR_CBR : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RQ_PCOS : 40|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ CTR_PCOS : 42|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 948 PowerBatteryVoltage: 8 DME
+ SG_ U_BT : 0|12@1+ (0.015,0) [0|61.425] "V" Vector__XXX
+ SG_ ST_BTSW : 12|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ENG_ST : 16|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ST_SWO_KL_30 : 30|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ SDWN_COU_BTSW : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 949 Status_water_valve: 2 JBBF
+
+BO_ 958 PowerRunningTime: 2 CAS
+ SG_ FLLUPT_GPWSUP : 0|12@1+ (10,0) [0|40950] "s" Vector__XXX
+
+BO_ 1007 EngineOBD_data: 2 DME
+
+BO_ 1152 NetworkManagmentKGM: 8 KGM
+ SG_ S480_b0 : 0|1@1+ (1,0) [0|1] "" DSC
+
+BO_ 1170 NetworkManagmentDME: 8 DME
+
+BO_ 1176 NetworkManagmentEGS: 8 EGS
+
+BO_ 1180 NetworkManagmentLDM: 8 LDM
+
+BO_ 1185 NetworkManagmentACC: 8 ACC
+
+BO_ 1193 NetworkManagmentDSC: 8 DSC
+ SG_ S4A9_b0 : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1246 NetworkManagmentGWS: 8 GWS
+ SG_ IgnOff : 12|1@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 1408 ServicesKGM: 8 KGM
+ SG_ S580_b0 : 0|1@1+ (1,0) [0|1] "" DSC
+
+BO_ 1426 ServicesDME: 8 DME
+
+BO_ 1449 ServicesDSC: 8 DSC
+ SG_ S5A9_b0 : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1494 ServicesFZD: 8 Vector__XXX
+
+BO_ 1504 ServicesKOMBI: 8 KOMBI
+
+BO_ 1522 ServicesKBM: 8 KBM
+
+BO_ 1577 Unknown_629: 8 DSC
+ SG_ S629_b0 : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1777 Diag_Request_Tester: 8 Vector__XXX
+ SG_ S6F1_b0 : 0|1@1+ (1,0) [0|1] "" DSC
+
+BO_ 1943 Conti_Internal_797: 1 Vector__XXX
+ SG_ S797_b0 : 0|1@1+ (1,0) [0|1] "" DSC
+
+BO_ 1944 Conti_Internal_798: 8 DSC
+
+BO_ 2015 OBD_Request: 8 Diagnosetool_PT_CAN
+ SG_ OBD_Length : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ OBD_Service : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ OBD_PID : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2024 OBD_Response_7E8: 8 DME
+ SG_ OBD_Length : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ OBD_Service : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ OBD_PID M : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ CoolantTemp m5 : 24|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ EngineSpeed m12 : 31|16@0+ (0.25,0) [0|16383.75] "rpm" Vector__XXX
+ SG_ VehicleSpeed m13 : 24|8@1+ (1,0) [0|255] "km/h" Vector__XXX
+ SG_ IntakeAirTemp m15 : 24|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+
+BO_ 2028 OBD_Response_7EC: 8 OBD_ECU_7EC
+ SG_ OBD_Length : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ OBD_Service : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ OBD_PID M : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ CoolantTemp m5 : 24|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ EngineSpeed m12 : 31|16@0+ (0.25,0) [0|16383.75] "rpm" Vector__XXX
+ SG_ VehicleSpeed m13 : 24|8@1+ (1,0) [0|255] "km/h" Vector__XXX
+ SG_ IntakeAirTemp m15 : 24|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+
+BO_TX_BU_ 191 : LDM,DSC;
+BO_TX_BU_ 403 : LDM,DSC;
+
+CM_ "BMW E8x/E9x PT-CAN (powertrain CAN, 500 kbit/s) with MK60E5 DSC, all known frames. Generated by build_full_dbc.py. Reference: MK60E5 SPdaten (firmware tables, DSC_87.prg) and MEVD17.2 function description; verified against a 320i PT-CAN log and an E92 M3 K-CAN trace; secondary: E65_ReverseEngineering docs, NewTIS, superwofy frame notes, community DBC. See BMW_E9x_full_DBC_report.md";
+CM_ BO_ 141 "DSC DTC D368: D368 - ELUP / vacuum system: PT_CAN message 8Dh STAT_ELUP invalid [DE: D368 - ELUP/Unterdrucksystem: PT_CAN Botschaft 8Dh STAT_ELUP ungueltig] (supervised: checksum, alive, timeout) | Not observed in the 320i PT-CAN log";
+CM_ BO_ 168 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Drehmoment 1', sender DME, DME transmits, cycle 10 ms, DLC 8, variants [x x x x x] | DSC DTC D354: D354 - PT-CAN DME / DDE_1 - Torque 1 message 168 missing [DE: D354 - PT-CAN DME/DDE_1 - Drehmoment 1 Botschaft 168 fehlt] (supervised: checksum, alive, timeout) | E65 doc: 'Torque 1', DLC 8, cycle 10 ms | E65 message list: 'Drehmoment 1 K-CAN' from DME1/DDE1 | 320i log: 9382 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 168 CHK_SUM_TORQ_1_DME "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log | previous name (community DBC): Checksum_EngineAndBrake | BMW name CHK_SUM_TORQ_1_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 ALIV_TORQ_1_DME "Counter TORQ_1 | 4-bit alive counter, counts 0..14 (320i log) | BMW name ALIV_TORQ_1_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 TORQ_AVL "Engine torque without inertia - combustion torque | factor 0.5 Nm (log-verified) | previous name (community DBC): EngineTorque | BMW name TORQ_AVL - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 ST_TORQ_AVL "MK60E5 FW 7846816A (M3) signal (internal var 0xB4), meaning unknown | community DBC defined EngineTorqueWoInterv 24|16@1 here | previous name (firmware field): S0A8_b24 | BMW name ST_TORQ_AVL (status moment intervention) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 TORQ_AVL_DMEE "BMW name TORQ_AVL_DMEE - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 168 S0A8_b40 "MK60E5 FW 7846816A (M3) signal (internal var 0xB0), meaning unknown";
+CM_ SG_ 168 ST_DMEA_SWO "BMW name ST_DMEA_SWO (acc relevant motronic error) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 RCPT_ACC_SWO_SYS_DME "BMW name RCPT_ACC_SWO_SYS_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 168 ST_RCPT_ENG_ACC "BMW name ST_RCPT_ENG_ACC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 ST_RCPT_ENG_ARS "BMW name ST_RCPT_ENG_ARS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 ST_RCPT_ENG_DSC "BMW name ST_RCPT_ENG_DSC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 ST_RCPT_ENG_EGS "BMW name ST_RCPT_ENG_EGS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 168 ST_OBD_CTFN_GRB "BMW name ST_OBD_CTFN_GRB - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 168 ST_CT_BRPD_DME "MK60E5 FW 7846816A (M3) signal (internal var 0xAC), meaning unknown | community DBC flags here: bit 61 = BrakePressed, bit 62 = Brake_active2 | previous name (firmware field): S0A8_b61 | BMW name ST_CT_BRPD_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 169 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Drehmoment 2', sender DME, DME transmits, cycle 20 ms, DLC 8, variants [x x x x x] | DSC DTC D355: D355 - PT-CAN DME / DDE_2 - Torque 2 message 169 missing [DE: D355 - PT-CAN DME/DDE_2 - Drehmoment 2 Botschaft 169 fehlt] (supervised: checksum, alive, timeout) | E65 doc: 'Torque 2', DLC 8, cycle 10 ms | E65 message list: 'Drehmoment 2' from DME1/DDE1 | 320i log: 1303 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 169 CHKSM_TORQ_2_DME "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log | BMW name CHKSM_TORQ_2_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 169 ALIV_TORQ_2_DME "Counter TORQ_2 | 4-bit alive counter, counts 0..14 (320i log) | BMW name ALIV_TORQ_2_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 169 ST_SW_LEV_RPM "BMW name ST_SW_LEV_RPM - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 169 ST_INFS "BMW name ST_INFS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 169 TORQ_AVL_MIN "BMW name TORQ_AVL_MIN - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 169 TORQ_AVL_MAX "BMW name TORQ_AVL_MAX - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 169 TORQ_AVL_SPAR_NEG "BMW name TORQ_AVL_SPAR_NEG - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 169 TORQ_AVL_SPAR_POS "BMW name TORQ_AVL_SPAR_POS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 170 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Drehmoment 3', sender DME, DME transmits, cycle 10 ms, DLC 8, variants [x x x x x] | DSC DTC D356: D356 - PT-CAN DME / DDE_3 - Torque 3 message 170 missing [DE: D356 - PT-CAN DME/DDE_3 - Drehmoment 3 Botschaft 170 fehlt] (supervised: checksum, alive, timeout) | TIS: accelerator pedal angle drives DSC brake standby (pre-filling) above 70 km/h | E65 doc: 'Torque 3', DLC 8, cycle 10 ms | E65 message list: 'Drehmoment 3 K-CAN' from DME1/DDE1 | 320i log: 5223 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 170 CHKSM_TORQ_3_DME "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log | previous name (community DBC): Checksum_170 | BMW name CHKSM_TORQ_3_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 170 ALIV_TORQ_3_DME "4-bit alive counter, counts 0..14 (320i log) | previous name (community DBC): Counter_170 | BMW name ALIV_TORQ_3_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 170 TORQ_DVCH "'Drehmoment 3' (BN2000). Scale 0.5 Nm assumed like 0x0A8/0x0A9; -0.5..3 Nm at idle. Replaces community AcceleratorPedalPercentage 16|16, which overlaps this field (phantom 10.2 % whenever the torque is negative) | previous name (firmware field): TORQ_3 | BMW name TORQ_DVCH - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 170 ANG_ACPD "Accelerator pedal angle byte read by DSC (brake standby, TIS); 0 at idle; scaling unknown | previous name (firmware field): PedalAngle_raw | BMW name ANG_ACPD (accelerator pedal angle) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 170 RPM_ENG "previous name (community DBC): EngineSpeed | BMW name RPM_ENG - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 170 RPM_ENG_ERR "MK60E5 FW 7846816A (M3) signal (internal var 0x82), meaning unknown | previous name (firmware field): S0AA_b48 | BMW name RPM_ENG_ERR - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 170 ST_IDLG_ENG "MK60E5 FW 7846816A (M3) signal (internal var 0x98), meaning unknown | community DBC flags here: bit 50 = ThrottlelPressed | previous name (firmware field): S0AA_b50 | BMW name ST_IDLG_ENG - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 170 ST_CLCTR_V "MK60E5 FW 7846816A (M3) signal (internal var 0x92), meaning unknown | community DBC flags here: bit 52 = AcceleratorPedalPressed, bit 53 = KickDownPressed, bit 54 = CruisePedalActive, bit 55 = CruisePedalInactive | previous name (firmware field): S0AA_b52 | BMW name ST_CLCTR_V - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); the community DBC flags were bit readings of this enum: bit 52 = pedal pressed (9), bit 53 = transgress/kickdown (0xA/0xB), bit 54 = cruise regulation (4..7), bit 55 = no cruise/ACC regulation (8..0xB)";
+CM_ SG_ 170 RQAM_FU "BMW name RQAM_FU - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 172 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Radmoment Antriebsstang 2', sender DME, DME transmits, cycle 20 ms, DLC 8, variants [x x - - -] | E65 message list: 'Radmoment Antriebsstrang 2' from DME1/DDE1 | 320i log: 675 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 172 CHKSM_0AC "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ SG_ 172 ALIV_0AC "MK60E5 FW 7846816A (M3) signal (internal var 0xD3), meaning unknown | 4-bit alive counter, counts 0..14 (320i log)";
+CM_ SG_ 172 S0AC_b32 "MK60E5 FW 7846816A (M3) signal (internal var 0x81), meaning unknown";
+CM_ SG_ 172 S0AC_b48 "MK60E5 FW 7846816A (M3) signal (internal var 0xC7), meaning unknown";
+CM_ BO_ 180 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Radmoment Antriebsstang 1', sender DME, DME transmits, cycle 20 ms, DLC 8, variants [x x - - -] | E65 message list: 'Radmoment Antriebsstrang 1' from DME1/DDE1 | 320i log: 2715 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 180 CHKSM_0B4 "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ SG_ 180 ALIV_0B4 "MK60E5 FW 7846816A (M3) signal (internal var 0xD2), meaning unknown | 4-bit alive counter, counts 0..14 (320i log)";
+CM_ SG_ 180 S0B4_b12 "MK60E5 FW 7846816A (M3) signal (internal var 0x80), meaning unknown";
+CM_ SG_ 180 S0B4_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x83), meaning unknown";
+CM_ SG_ 180 S0B4_b40 "MK60E5 FW 7846816A (M3) signal (internal var 0xC5), meaning unknown";
+CM_ SG_ 180 S0B4_b56 "MK60E5 FW 7846816A (M3) signal (internal var 0x84), meaning unknown";
+CM_ SG_ 180 S0B4_b59 "MK60E5 FW 7846816A (M3) signal (internal var 0xAA), meaning unknown";
+CM_ BO_ 181 "MEVD17.2 BN2000: 'Drehmomentanforderung EGS', sender EGS, DME receives, cycle 10 ms, DLC 8, variants [x x x x x] | E65 doc: 'Torque request EGS', DLC 8, cycle 10 ms | E65 message list: 'Drehmomentanforderung EGS' from EGS_MECH+NAVI/EGS_MECH | 320i log: 5875 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 181 CHKSM_TORQ_EGS "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log | previous name (community DBC): Checksum_Torque_request_EGS | BMW name CHKSM_TORQ_EGS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 181 ALIV_TORQ_EGS "BMW name ALIV_TORQ_EGS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 TORQ_TAR_EGS "BMW name TORQ_TAR_EGS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 TORQ_TAR_ADJR_POS_EGS "BMW name TORQ_TAR_ADJR_POS_EGS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 ST_TORQ_TAR_EGS "BMW name ST_TORQ_TAR_EGS (status EGS torque request) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 ST_OTMP_GRB "BMW name ST_OTMP_GRB (status overtemperature gearbox) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 ST_OBD_GRB "BMW name ST_OBD_GRB - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 ST_OTMP_ERR_GRB "BMW name ST_OTMP_ERR_GRB - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 ST_LIM_STORQ "BMW name ST_LIM_STORQ (status start-up torque limitation) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 TORQ_DRAW_GRB "BMW name TORQ_DRAW_GRB - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 181 TEMP_GRB "previous name (community DBC): Gearbox_temperature | BMW name TEMP_GRB - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 182 "Torque request DSC | MK60E5 FW 7846816A (M3): DSC TX, cycle 20 ms | MEVD17.2 BN2000: 'Drehmomentanforderung DSC', sender DSC, DME receives, cycle 20 ms, DLC 5, variants [x x x x x] | E65 doc: 'Torque request DSC', DLC 5, cycle 20 ms | E65 message list: 'Drehmomentanforderung DSC' from DXC_RB/DSC_RB/DSC_CT | 320i log: 2913 frames, DLC 5";
+CM_ SG_ 182 CHKSM_TORQ_DSC "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log | BMW name CHKSM_TORQ_DSC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 182 ALIV_TORQ_DSC "4-bit alive counter, counts 0..14 (320i log) | BMW name ALIV_TORQ_DSC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 182 TORQ_TAR_DSC "Torque Target DSC | BMW name TORQ_TAR_DSC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 182 TORQ_TAR_ADJR_POS_DSC "BMW name TORQ_TAR_ADJR_POS_DSC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 182 ST_TORQ_TAR_DSC "BMW name ST_TORQ_TAR_DSC (status DSC torque request) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 182 S0B6_b38 "MK60E5 FW 7846816A (M3) signal (internal var 0x4F), meaning unknown";
+CM_ BO_ 183 "MEVD17.2 BN2000: 'Drehmomentanforderung ACC', sender ACC, DME receives, cycle 20 ms, DLC 6, variants [x x - - -] | E65 doc: 'Torque request ACC', DLC 6, cycle 20 ms | E65 message list: 'Drehmomentanforderung ACC' from LDM; 'Drehmomentanforderung ACC' from ACC_Modul/ACC+NAVI | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 183 CHKSM_TORQ_ACC "BMW name CHKSM_TORQ_ACC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 183 ALIV_TORQ_ACC "BMW name ALIV_TORQ_ACC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 183 TORQ_TAR_ACC "BMW name TORQ_TAR_ACC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 183 TORQ_TAR_ADJR_POS_ACC "BMW name TORQ_TAR_ADJR_POS_ACC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 183 ST_TORQ_TAR_ACC "BMW name ST_TORQ_TAR_ACC (status ACC torque request) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 183 RQ_PREV_INFS_ACC "BMW name RQ_PREV_INFS_ACC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 183 ST_ACC_SWO_SYS_DME "BMW name ST_ACC_SWO_SYS_DME (status ACC torque request) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 183 ST_ACC_MOD_DME "BMW name ST_ACC_MOD_DME (status ACC torque request) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 184 "MEVD17.2 BN2000: 'Drehmomentanforderung DKG', sender EGS, DME receives, cycle 10 ms, DLC 8, variants [x x x x x] | E65 message list: 'Drehmomentanforderung DKG' from DKG | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ BO_ 185 "MEVD17.2 BN2000: 'Drehmomentanforderung AFS', sender AFS, DME receives, cycle 20 ms, DLC 6, variants [x x - - -] | E65 message list: 'Drehmomentanforderung AFS' from AFS | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ BO_ 186 "MK60E5 FW 7846816A (M3): DSC RX | Firmware comparison: MK60E5 FW 6862873A also maps 52|3 | MEVD17.2 BN2000: 'Getriebedaten', sender EGS, DME receives, cycle 20 ms, DLC 8, variants [x x x x x] | DSC DTC D357: D357 - PT-CAN transmission 1 - Transmission data message 186 missing [DE: D357 - PT-CAN Getriebe 1 - Getriebedaten Botschaft 186 fehlt] (supervised: checksum, alive, timeout) | E65 doc: 'Torque request ACC', DLC 8, cycle 20 ms | E65 message list: 'Getriebedaten' from SMG_M/SMG/EGS_MECH+NAVI/EGS_MECH/DKG | 320i log: 3002 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 186 ST_GR_GRB "Values corresponds to forward gears. TBD Add enums for park, reverse | previous name (community DBC): GearTar | BMW name ST_GR_GRB (target gear information from ETCU) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 186 ST_GRLV_ACV "MK60E5 FW 7846816A (M3) signal (internal var 0x79), meaning unknown | community DBC flags here: bit 4 = Shifting | previous name (firmware field): S0BA_b4 | BMW name ST_GRLV_ACV (status gear-shif) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 186 ST_CCLT "MK60E5 FW 7846816A (M3) signal (internal var 0x9B), meaning unknown | previous name (firmware field): S0BA_b6 | BMW name ST_CCLT (status torque-converter-lockup clutch) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 186 GRDT_REIN "12 bit per DSC firmware; raw 0xFFF (invalid) throughout the stationary 320i log | previous name (community DBC): GearRatio | BMW name GRDT_REIN (gearbox-drive-train reinforcement) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 186 CHKSM_GRB "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log | previous name (community DBC): Checksum_186 | BMW name CHKSM_GRB - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 186 ALIV_GRB "4-bit alive counter, counts 0..14 (320i log) | previous name (community DBC): Counter_186 | BMW name ALIV_GRB - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 186 ST_MOD_GRB "MK60E5 FW 6862873A signal (internal var 0x93), meaning unknown | previous name (firmware field): S0BA_b52 | BMW name ST_MOD_GRB (status mode gearbox) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 186 ST_HYPP_ACV "BMW name ST_HYPP_ACV (Status hydraulic-pump active (ssg only)) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 186 S0BA_b62 "MK60E5 FW 7846816A (M3) signal (internal var 0x94), meaning unknown";
+CM_ BO_ 191 "MK60E5 FW 7846816A (M3): DSC TX, cycle 20 ms | MEVD17.2 BN2000: 'Anforderung Radmoment Antriebsstrang', sender LDM, DME receives, cycle 20 ms, DLC 5, variants [x x - - -] | TIS: with option 544 (cruise control with brake function, E90/E91 from 09/2006) no LDM is fitted and the MK60E5 takes over LDM functions -> DSC transmits; with ACC (option 541) the LDM transmits. NCS coding MK60_87 C0F_ECBA_DCC (byte 18, bits 6-7): 2 = option 544 (D_GESCHW_REG), 1 = ACC, 0 = none (inference: 2 enables DSC TX). The M3 coding (MK60_M3) has no such parameter | E65 message list: 'Anforderung Radmoment Antriebsstrang' from LDM | 320i log: 1794 frames, DLC 5";
+CM_ SG_ 191 Checksum_191 "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ SG_ 191 Counter_191 "4-bit alive counter, counts 0..14 (320i log)";
+CM_ SG_ 191 S0BF_b12 "MK60E5 FW 7846816A (M3) signal (internal var 0x13), meaning unknown";
+CM_ SG_ 191 S0BF_b32 "MK60E5 FW 7846816A (M3) signal (internal var 0x68), meaning unknown";
+CM_ SG_ 191 S0BF_b36 "MK60E5 FW 7846816A (M3) signal (internal var 0x3C), meaning unknown";
+CM_ BO_ 196 "MK60E5 FW 7846816A (M3): DSC TX, cycle 10 ms | MEVD17.2 BN2000: 'Lenkradwinkel', sender DSC, DME receives, cycle 20 ms, DLC 7, variants [x x x x x] | E65 doc: 'Steering wheel angle', DLC 7, cycle 10 ms | E65 message list: 'Lenkradwinkel K-CAN' from DXC_RB/DSC_RB/DSC_CT | 320i log: 4509 frames, DLC 7";
+CM_ SG_ 196 SteeringPosition "Scale 0.04395 deg per bit (angle: same raw value in 0x0C4 (DSC) and 0x0C8 (SZL) in the E92 M3 K-CAN trace; same unit as F-CAN 0x0C9 LW_OBEN (DSC_87.prg) assumed (inference); E65 doc STWA); previous community factor 0.0428317";
+CM_ SG_ 196 S0C4_b16 "MK60E5 FW 7846816A (M3) signal (internal var 0x52), meaning unknown";
+CM_ SG_ 196 SteeringSpeed "Scale 0.04395 deg/s per bit (angle rate: scale from the E65 doc (STWA_V), not verified on E9x); previous community factor 0.0428317";
+CM_ SG_ 196 S0C4_b40 "MK60E5 FW 7846816A (M3) signal (internal var 0x54), meaning unknown";
+CM_ SG_ 196 S0C4_b48 "MK60E5 FW 7846816A (M3) signal (internal var 0x2E), meaning unknown";
+CM_ SG_ 196 S0C4_b50 "MK60E5 FW 7846816A (M3) signal (internal var 0x5E), meaning unknown";
+CM_ BO_ 200 "E65 message list: 'Lenkradwinkel Oben K-CAN' from SZL_LWS | 320i log: 55 frames, DLC 6, undefined bits changing: [42, 43, 47] | cycle time source: 320i log (estimated)";
+CM_ SG_ 200 SteeringPosition "Scale 0.04395 deg per bit (angle: same raw value in 0x0C4 (DSC) and 0x0C8 (SZL) in the E92 M3 K-CAN trace; same unit as F-CAN 0x0C9 LW_OBEN (DSC_87.prg) assumed (inference); E65 doc STWA); previous community factor 0.0428317";
+CM_ SG_ 200 SteeringSpeed "Scale 0.04395 deg/s per bit (angle rate: scale from the E65 doc (STWA_V), not verified on E9x); previous community factor 0.0428317";
+CM_ BO_ 206 "MK60E5 FW 7846816A (M3): DSC TX, cycle 20 ms | MEVD17.2 BN2000: 'Radgeschwindigkeit', sender DSC, DME receives, cycle 20 ms, DLC 8, variants [x x x x x] | Active wheel sensors report direction of rotation -> signed wheel speeds | E65 doc: 'Wheel rotating speed', DLC 8, cycle 20 ms | E65 message list: 'Radgeschwindigkeit K-CAN' from DXC_RB/DSC_RB/DSC_CT | 320i log: 859 frames, DLC 8";
+CM_ SG_ 206 V_WHL_FLH "BMW name V_WHL_FLH - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 206 V_WHL_FRH "BMW name V_WHL_FRH - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 206 V_WHL_RLH "BMW name V_WHL_RLH - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 206 V_WHL_RRH "BMW name V_WHL_RRH - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 213 "MK60E5 FW 7846816A (M3): DSC RX | DSC DTC D35B: D35 B - PT-CAN LDM Error - message 213: request wheel torque brake, ANF_RADMOM_BREMSE (ID 0xD5) [DE: D35B - PT-CAN LDM-Fehler - Botschaft 213: Anforderung Radmoment Bremse, ANF_RADMOM_BREMSE (ID 0xD5)] (supervised: checksum, alive, timeout) | E65 message list: 'Anforderung Radmoment Bremse' from LDM | 320i log: 2269 frames, DLC 6 | cycle time source: 320i log (estimated)";
+CM_ SG_ 213 CHKSM_0D5 "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ SG_ 213 ALIV_0D5 "MK60E5 FW 7846816A (M3) signal (internal var 0xCC), meaning unknown | 4-bit alive counter, counts 0..14 (320i log)";
+CM_ SG_ 213 S0D5_b12 "MK60E5 FW 7846816A (M3) signal (internal var 0x7B), meaning unknown";
+CM_ SG_ 213 S0D5_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0xC2), meaning unknown";
+CM_ SG_ 213 S0D5_b40 "MK60E5 FW 7846816A (M3) signal (internal var 0xC3), meaning unknown";
+CM_ BO_ 225 "MK60E5 FW 7846816A (M3): DSC TX, cycle 20 ms | E65 message list: 'Radmoment Bremse' from DXC_RB/DSC_RB | 320i log: 665 frames, DLC 6";
+CM_ SG_ 225 CHKSM_0E1 "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ SG_ 225 ALIV_0E1 "MK60E5 FW 7846816A (M3) signal (internal var 0x64), meaning unknown | 4-bit alive counter, counts 0..14 (320i log)";
+CM_ SG_ 225 S0E1_b12 "MK60E5 FW 7846816A (M3) signal (internal var 0x16), meaning unknown";
+CM_ SG_ 225 S0E1_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x66), meaning unknown";
+CM_ SG_ 225 S0E1_b40 "MK60E5 FW 7846816A (M3) signal (internal var 0x65), meaning unknown";
+CM_ SG_ 225 S0E1_b42 "MK60E5 FW 7846816A (M3) signal (internal var 0x3B), meaning unknown";
+CM_ SG_ 225 S0E1_b45 "MK60E5 FW 7846816A (M3) signal (internal var 0x40), meaning unknown";
+CM_ BO_ 273 "MK60E5 FW 7846816A (M3): DSC TX, event | Not observed in the 320i PT-CAN log";
+CM_ SG_ 273 S111_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x6A), meaning unknown";
+CM_ BO_ 304 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Klemmenstatus', sender CAS, DME receives, cycle 100 ms, DLC 5, variants [x x x x x] | DSC DTC D35A: D35A - PT-CAN Gateway_1 - terminal status message 304 missing [DE: D35A - PT-CAN Gateway_1 - Klemmenstatus Botschaft 304 fehlt] (supervised: checksum, alive, timeout) | E65 doc: 'Terminal status', DLC 5, cycle 100 ms | E65 defines ST_KLCK 22|2 here; existing signals kept: 320i log has raw 2 (E65: 'signal invalid') with the engine running; E9x CAS differs | E65 message list: 'Klemmenstatus' from CAS | 320i log: 533 frames, DLC 5 | cycle time source: BN2000";
+CM_ SG_ 304 ST_KL_R "MK60E5 FW 7846816A (M3) signal (internal var 0x7A), meaning unknown | previous name (firmware field): S130_b0 | BMW name ST_KL_R - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 304 ST_KL_15 "MK60E5 FW 7846816A (M3) signal (internal var 0xA2), meaning unknown | previous name (firmware field): S130_b2 | BMW name ST_KL_15 - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 304 ST_KL_50 "MK60E5 FW 7846816A (M3) signal (internal var 0xA3), meaning unknown | previous name (firmware field): S130_b4 | BMW name ST_KL_50 - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 304 ST_KEY_VLD "BMW name ST_KEY_VLD - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); replaces S130_b6 6|1 (community DBC ranks below E65)";
+CM_ SG_ 304 NO_KEY "BMW name NO_KEY - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 304 ST_KEY_TYP "BMW name ST_KEY_TYP - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 304 ST_KEY_PLGD "BMW name ST_KEY_PLGD - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 304 ST_VHIM "BMW name ST_VHIM - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 304 ST_LOKG_STCO "BMW name ST_LOKG_STCO - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 304 PO_ID_PU "BMW name PO_ID_PU - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 304 ST_PSVA_ACV "BMW name ST_PSVA_ACV - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 304 ST_ILK_COD_BM "BMW name ST_ILK_COD_BM - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 304 ALIV_KL "4-bit alive counter, counts 0..14 (320i log) | previous name (community DBC): Counter_304 | BMW name ALIV_KL - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 304 CHKSM_KL "BMW 4-bit checksum: s = fold8(sum(bytes, checksum nibble = 0) + 0x31); chk = ((s >> 4) + (s & 0xF)) & 0xF - verified 100 % in 320i log | previous name (community DBC): Checksum_304 | BMW name CHKSM_KL - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 309 "MEVD17.2 BN2000: 'EKP Crashabschaltung', sender SGM, DME receives, cycle 10000 ms, DLC 2, variants [x x x x x] | MEVD17.2 15.3.3.1-DSPLECU_CO.md: DLC 2, cycle 10000 ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 message list: 'Steuerung Crashabschaltung EKP' from ACSM | 320i log: 3 frames, DLC 2 | cycle time source: BN2000";
+CM_ SG_ 309 CTR_CR_SWO_EKP "BMW name CTR_CR_SWO_EKP (Steuerung Crash Abschaltung EKP) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0101b - Keine 1010b - 1111b - Crashabschaltung EKP Crashabschaltung EKP Signal ungültig; raw value (no conversion given)";
+CM_ BO_ 336 "320i log: 5365 frames, DLC 8, undefined bits changing: [8, 9, 10, 11] | cycle time source: 320i log (estimated)";
+CM_ SG_ 336 CHKSM_150 "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ BO_ 339 "320i log: 3719 frames, DLC 7, undefined bits changing: [8, 9, 10, 11] | cycle time source: 320i log (estimated)";
+CM_ SG_ 339 CHKSM_153 "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ BO_ 345 "320i log: 179 frames, DLC 8, undefined bits changing: [0, 1, 2, 3, 4, 8, 9, 10, 11] | cycle time source: 320i log (estimated)";
+CM_ BO_ 348 "320i log: 241 frames, DLC 8, undefined bits changing: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] | cycle time source: 320i log (estimated)";
+CM_ BO_ 373 "MEVD17.2 BN2000: 'DISP_ENGDAT', sender DME, DME transmits, cycle 100 ms, DLC 3, variants [x x x x x] | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ BO_ 400 "E65 doc: 'Display ACC', DLC 8, cycle 100 ms | E65 message list: 'Anzeige ACC' from LDM; 'Anzeige ACC' from ACC_Modul/ACC+NAVI | early MK60E SW (DSC81 4028433A/6769845A) receives this frame | Not observed in the 320i PT-CAN log | cycle time source: E65 doc";
+CM_ BO_ 402 "E65 doc: 'Transmission selector switch', DLC 4, cycle 30 ms | E65 message list: 'Bedienung Getriebewahlschalter' from SZL_LWS | Not observed in the 320i PT-CAN log | Bus not confirmed: only in community DBC (kept because it has decoded signals) | cycle time source: E65 doc";
+CM_ SG_ 402 REQ_GEAR "BMW name REQ_GEAR - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 402 Counter_402 "E65 name: COUNTER | BMW name COUNTER - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 403 "MK60E5 FW 7846816A (M3): DSC TX, event | TIS: same as 0x0BF - DSC transmits with option 544, LDM with ACC (option 541); coding C0F_ECBA_DCC, see 0x0BF | E65 message list: 'Anzeige ACC DCC' from LDM | 320i log: 365 frames, DLC 8 | cycle time source: 320i log (estimated)";
+CM_ SG_ 403 CHKSM_193 "BMW 4-bit checksum: s = fold8(sum(bytes, checksum nibble = 0) + 0x85); chk = ((s >> 4) + (s & 0xF)) & 0xF - verified 100 % in 320i log";
+CM_ SG_ 403 ALIV_193 "MK60E5 FW 7846816A (M3) signal (internal var 0x6F), meaning unknown | 4-bit alive counter, counts 0..14 (320i log)";
+CM_ SG_ 403 CruiseControlSetpointSpeed "Speed target - unit depends on locale";
+CM_ SG_ 403 S193_b16 "MK60E5 FW 7846816A (M3) signal (internal var 0x20), meaning unknown";
+CM_ SG_ 403 S193_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x5F), meaning unknown";
+CM_ SG_ 403 S193_b32 "MK60E5 FW 7846816A (M3) signal (internal var 0x31), meaning unknown";
+CM_ SG_ 403 S193_b40 "MK60E5 FW 7846816A (M3) signal (internal var 0x3F), meaning unknown";
+CM_ SG_ 403 S193_b43 "MK60E5 FW 7846816A (M3) signal (internal var 0x22), meaning unknown | community DBC flags here: bit 43 = CruiseActive";
+CM_ SG_ 403 S193_b48 "MK60E5 FW 7846816A (M3) signal (internal var 0x32), meaning unknown | community DBC flags here: bit 48 = CruiseSpeedChangeRequest";
+CM_ SG_ 403 S193_b56 "MK60E5 FW 7846816A (M3) signal (internal var 0x28), meaning unknown";
+CM_ BO_ 404 "Cruise-control stalk (SZL, forwarded by JBE). Byte 2 (bits 16-23) is evaluated in priority order by BMW: 0xFF invalid; (b & 0x7F) == 0 no action; (b & 0xB0) == 0x10 tip down; (b & 0xB0) == 0x90 tip up; bit 6 axial tip; else low nibble 1 tip forward, 2 push forward, 4 tip back, 8 pull back (other values undefined) | E65 doc: 'Operation cruise control / ACC', DLC 4, cycle 200 ms | E65 message list: 'Bedienung Tempomat/ACC' from SZL_LWS | 320i log: 90 frames, DLC 4 | cycle time source: 320i log (estimated)";
+CM_ SG_ 404 CHKSM_CCTR "BMW 8-bit checksum without ID: s = sum(other bytes) + 0; chk = (s & 0xFF) + (s >> 8) - verified 100 % in the 320i log and two E65 logs | previous name (community DBC): Checksum_404 | BMW name CHKSM_CCTR - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 404 ALIV_CCTR "Message is sent at higher rate when cruise stalk is pressed | previous name (community DBC): Counter_404 | BMW name ALIV_CCTR - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 404 OP_PUBU_CCTR_ACC "BMW name OP_PUBU_CCTR_ACC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); one-hot enum; community DBC flags: bit 16 plus1mph, 17 plus5mph, 18 minus1mph, 19 minus5mph, 20 cancel, 22 resume; replaces Resume_request 22|1, Cancel_request_up_or_down_stalk 20|1, minus5mph_request 19|1, minus1mph_request 18|1, plus5mph_request 17|1, plus1mph_request 16|1 (community DBC ranks below E65) | bits 16|8: TASTER_TEMPOMAT_ACC - DSC_87.prg job STATUS_F_CAN_TEMPOMAT_ACC result STAT_TASTER_TEMPOMAT_ACC (ACC_Status aus F_CAN Telegramm); value table SGBD (0=Keine_Aktion; 1=Tippen_nach_vorne; 2=Ueberdruecken_nach_vorne; 4=Tippen_nach_hinten; 8=Ueberdruecken_nach_hinten; 16=Tippen_nach_unten; 64=Axial_Tippen; 144=Tippen_nach_oben; 255=Signal_ungueltig)";
+CM_ SG_ 404 Cancel_request_up_stalk "Appears when cancel stalk (up) is depressed";
+CM_ SG_ 404 ABSTANDSWAHL_ACC "DSC_87.prg job STATUS_F_CAN_TEMPOMAT_ACC result STAT_ABSTANDSWAHL_ACC (ACC_Status aus F_CAN Telegramm); value table SGBD | replaces community signals setMe_0xFC 31|8";
+CM_ SG_ 404 MODUS_WAHL_CC_CA "DSC_87.prg job STATUS_F_CAN_TEMPOMAT_ACC result STAT_MODUS_WAHL_CC_CA (ACC_Status aus F_CAN Telegramm); value table SGBD";
+CM_ BO_ 408 "E65 message list: 'Bedienung Getriebewahlschalter 2' from GWS | Not observed in the 320i PT-CAN log | Bus not confirmed: only in community DBC (kept because it has decoded signals)";
+CM_ SG_ 408 ShifterPosition "0001 = N|R, 0010 = R, 0011 = N|D, 0100 = D, 0101 = -1, 0110 = +1, 0111 = ManualMode, 1000 = inBetween,";
+CM_ SG_ 408 param1 "can not be 0x03. Always 0 in 135i.";
+CM_ SG_ 408 ParkButtonFirst "0x1 = pressed";
+CM_ SG_ 408 ParkButtonSecond "Redundant buton. 0x1 = pressed;";
+CM_ SG_ 408 SideButton "0x1 = pressed;";
+CM_ SG_ 408 SideButtonXOR11 "Complement value";
+CM_ SG_ 408 param5 "Always 0 in 135i.";
+CM_ SG_ 408 SportButtonPressed "0x1 = pressed;";
+CM_ SG_ 408 M3_button "M3 POWER (?)";
+CM_ BO_ 414 "MK60E5 FW 7846816A (M3): DSC TX, cycle 20 ms | MEVD17.2 BN2000: 'Status DSC', sender DSC, DME receives, cycle 20 ms, DLC 8, variants [x x x x x] | E65 doc: 'Status DSC', DLC 8, cycle 20 ms | E65 message list: 'Status DSC K-CAN' from DXC_RB/DSC_RB/DSC_CT | 320i log: 783 frames, DLC 8";
+CM_ SG_ 414 ST_CLCTR "BMW name ST_CLCTR - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1) | superwofy/E9X-M-CAN-Integration-Module notes (MIT): firmware evaluate_dsc_status(): bit field of active regulations, 0x01 ABS, 0x02 ASC, 0x04 DSC, 0x08 HBA, 0x10 MSR, 0x20 EBV, 0x40 dyno mode, 0xFF invalid; bits combine";
+CM_ SG_ 414 S19E_b8 "MK60E5 FW 7846816A (M3) signal (internal var 0x37), meaning unknown";
+CM_ SG_ 414 ST_DSC "BMW name ST_DSC - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1) | superwofy/E9X-M-CAN-Integration-Module notes (MIT): firmware evaluate_dsc_status(): 0 DSC on, 1 DSC off, 2 DSC fault, 4 DTC/MDM, 5 ABS fault, 6 undervoltage, 7 invalid; the E92 M3 trace shows 0, 1, 2, 4 and 6";
+CM_ SG_ 414 S19E_b14 "MK60E5 FW 7846816A (M3) signal (internal var 0x3E), meaning unknown";
+CM_ SG_ 414 S19E_b16 "MK60E5 FW 7846816A (M3) signal (internal var 0x43), meaning unknown";
+CM_ SG_ 414 S19E_b18 "MK60E5 FW 7846816A (M3) signal (internal var 0x41), meaning unknown";
+CM_ SG_ 414 ALIV_19E "MK60E5 FW 7846816A (M3) signal (internal var 0x29), meaning unknown | 4-bit alive counter, counts 0..14 (320i log); advances only about every 2nd frame";
+CM_ SG_ 414 S19E_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x12), meaning unknown";
+CM_ SG_ 414 S19E_b26 "MK60E5 FW 7846816A (M3) signal (internal var 0x2C), meaning unknown";
+CM_ SG_ 414 S19E_b28 "MK60E5 FW 7846816A (M3) signal (internal var 0x51), meaning unknown";
+CM_ SG_ 414 S19E_b30 "MK60E5 FW 7846816A (M3) signal (internal var 0x3A), meaning unknown";
+CM_ SG_ 414 ST_DCRN_AVL "BMW name ST_DCRN_AVL - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 414 S19E_b36 "MK60E5 FW 7846816A (M3) signal (internal var 0x39), meaning unknown";
+CM_ SG_ 414 S19E_b38 "MK60E5 FW 7846816A (M3) signal (internal var 0x46), meaning unknown";
+CM_ SG_ 414 S19E_b40 "MK60E5 FW 7846816A (M3) signal (internal var 0x47), meaning unknown";
+CM_ SG_ 414 S19E_b42 "MK60E5 FW 7846816A (M3) signal (internal var 0x38), meaning unknown";
+CM_ SG_ 414 S19E_b44 "MK60E5 FW 7846816A (M3) signal (internal var 0x1F), meaning unknown";
+CM_ SG_ 414 S19E_b46 "MK60E5 FW 7846816A (M3) signal (internal var 0x42), meaning unknown";
+CM_ SG_ 414 S19E_b48 "MK60E5 FW 7846816A (M3) signal (internal var 0x36), meaning unknown";
+CM_ SG_ 414 CHKSM_19E "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ BO_ 416 "MK60E5 FW 7846816A (M3): DSC TX, cycle 20 ms | MEVD17.2 BN2000: 'Geschwindigkeit', sender DSC, DME receives, cycle 20 ms, DLC 8, variants [x x x x x] | E65 doc: 'Speed', DLC 8, cycle 20 ms | E65 message list: 'Geschwindigkeit K-CAN' from DXC_RB/DSC_RB/DSC_CT | 320i log: 710 frames, DLC 8";
+CM_ SG_ 416 V_VEH "BMW name V_VEH - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 416 ST_VEH_DVCO "BMW name ST_VEH_DVCO (status vehicle driver choice) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 416 ACLH_VEH_LN_DSC "BMW name ACLH_VEH_LN_DSC (horizontal longitudinal acceleration) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 416 ACLH_VEH_ACRO_DSC "BMW name ACLH_VEH_ACRO_DSC (horizontal cross acceleration) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 416 ANGV_YAW_DSC "BMW name ANGV_YAW_DSC (yaw angle) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 416 ALIV_V "4-bit alive counter, counts 0..14 (320i log) | BMW name ALIV_V - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 416 CHKSM_V_V "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log | BMW name CHKSM_V_V - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 418 "MEVD17.2 BN2000: 'Getriebedaten 2', sender EGS, DME receives, cycle 20 ms, DLC 8, variants [x x x x x] | E65 doc: 'Transmission data 2', DLC 4, cycle 20 ms | E65 message list: 'Getriebedaten 2' from EGS_MECH+NAVI/EGS_MECH/DKG | 320i log: 1641 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 418 RPM_GRB_TURB "BMW name RPM_GRB_TURB - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 418 Checksum_418 "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ BO_ 419 "MK60E5 FW 7846816A (M3): DSC TX, cycle 20 ms | DSC DTC D35D: D35D - PT-CAN ACC Long timeout message 419 missing [DE: D35D - PT-CAN ACC Langzeit Timeout Botschaft 419 fehlt] (supervised: timeout) | E65 message list: 'Rohdaten Längsbeschleunigung' from SMG_M | Not observed in the 320i PT-CAN log | Firmware also has an RX variant (DLC 2, ACC long-term frame, DTC D35D) used on ACC-coded cars";
+CM_ SG_ 419 S1A3_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x71), meaning unknown";
+CM_ SG_ 419 S1A3_b12 "MK60E5 FW 7846816A (M3) signal (internal var 0x2D), meaning unknown";
+CM_ SG_ 419 S1A3_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x27), meaning unknown";
+CM_ SG_ 419 S1A3_b26 "MK60E5 FW 7846816A (M3) signal (internal var 0x49), meaning unknown";
+CM_ SG_ 419 S1A3_b28 "MK60E5 FW 7846816A (M3) signal (internal var 0x45), meaning unknown";
+CM_ SG_ 419 S1A3_b32 "MK60E5 FW 7846816A (M3) signal (internal var 0x10), meaning unknown";
+CM_ BO_ 422 "MK60E5 FW 7846816A (M3): DSC TX, cycle 100 ms | E65 message list: 'Wegstrecke' from DXC_RB/DSC_RB/DSC_CT | 320i log: 145 frames, DLC 8";
+CM_ SG_ 422 S1A6_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x6D), meaning unknown";
+CM_ SG_ 422 S1A6_b16 "MK60E5 FW 7846816A (M3) signal (internal var 0x23), meaning unknown";
+CM_ SG_ 422 S1A6_b32 "MK60E5 FW 7846816A (M3) signal (internal var 0x24), meaning unknown";
+CM_ SG_ 422 S1A6_b48 "MK60E5 FW 7846816A (M3) signal (internal var 0x25), meaning unknown";
+CM_ BO_ 428 "MEVD17.2 BN2000: 'Status ARS-Modul', sender ARS, DME receives, cycle 20 ms, DLC 4, variants [x x - - -] | E65 doc: 'Status ARS', DLC 4, cycle 20 ms | E65 message list: 'Status ARS-Modul' from ARS_Modul | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 428 ALIV_COU_ARS "BMW name ALIV_COU_ARS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 428 ST_CLCTR_ARS "BMW name ST_CLCTR_ARS - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 428 TORQ_TAR_ARS "BMW name TORQ_TAR_ARS (torque target) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 428 TORQ_AVL_ARS "BMW name TORQ_AVL_ARS (torque actual value) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 436 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Status Kombi', sender KOMBI, DME receives, cycle 100 ms, DLC 8, variants [x x x x x] | E65 doc: 'Status instrument cluster', DLC 8, cycle 100 ms | E65 message list: 'Status Kombi' from Kombi | 320i log: 808 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 436 V_VEH_SPDM "MK60E5 FW 7846816A (M3) signal (internal var 0x77), meaning unknown | previous name (firmware field): S1B4_b0 | BMW name V_VEH_SPDM - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 436 ST_UN_V_SPDM "MK60E5 FW 7846816A (M3) signal (internal var 0xC0), meaning unknown | previous name (firmware field): S1B4_b12 | BMW name ST_UN_V_SPDM (status unit speedometer) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 436 S1B4_b16 "MK60E5 FW 7846816A (M3) signal (internal var 0xB2), meaning unknown";
+CM_ SG_ 436 ST_INTF_CCTRA_KL "MK60E5 FW 7846816A (M3) signal (internal var 0x91), meaning unknown | previous name (firmware field): S1B4_b18 | BMW name ST_INTF_CCTRA_KL (status unit speedometer) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 436 ALIV_COU_KL "MK60E5 FW 7846816A (M3) signal (internal var 0xCA), meaning unknown | previous name (firmware field): S1B4_b24 | BMW name ALIV_COU_KL - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 436 ST_WALI_ENG "BMW name ST_WALI_ENG (MIL indicator) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 436 S1B4_b48 "MK60E5 FW 7846816A (M3) signal (internal var 0xA0), meaning unknown";
+CM_ SG_ 436 CHKSM_1B4 "BMW 8-bit checksum: s = sum(other bytes) + (ID & 0xFF) + (ID >> 8); chk = (s & 0xFF) + (s >> 8) - verified 100 % in 320i log";
+CM_ BO_ 437 "MEVD17.2 BN2000: 'Wärmestrom/Lastmoment Klima', sender IHKA, DME receives, cycle 1000 ms, DLC 7, variants [x x x x x] | E65 doc: 'Heat flow air condition', DLC 7, cycle - ms | E65 message list: 'Wärmestrom/Lastmoment Klima' from IHKA | 320i log: 70 frames, DLC 7 | cycle time source: BN2000";
+CM_ SG_ 437 HTFL_RQ_AIC "BMW name HTFL_RQ_AIC (not used at the moment, always 0xFF) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 437 HTFL_ST_AIC "BMW name HTFL_ST_AIC (not used at the moment, always 0xFF) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 437 TORQ_TAR_ACCM "BMW name TORQ_TAR_ACCM - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 437 CTR_EFAN_AIC "BMW name CTR_EFAN_AIC (level / fan speed) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 437 CTR_AIC_SPFN "BMW name CTR_AIC_SPFN - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 437 CTR_CLMP "BMW name CTR_CLMP - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 437 CTR_AIC_RDI "BMW name CTR_AIC_RDI (air condition readyness) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 438 "MEVD17.2 BN2000: 'Wärmestrom Motor', sender DME, DME transmits, cycle 1000 ms, DLC 8, variants [x x x x x] | E65 doc: 'Heat flow engine', DLC 7, cycle - ms | E65 message list: 'Wärmestrom Motor' from DME1/DDE1 | 320i log: 17 frames, DLC 7 | cycle time source: BN2000";
+CM_ SG_ 438 HTFL_RQ_DME "BMW name HTFL_RQ_DME (not used at the moment, always 0xFF) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 438 HTFL_ST_DME "BMW name HTFL_ST_DME (not used at the moment, always 0xFF) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 438 ACCM_LIM_TORQ "BMW name ACCM_LIM_TORQ (torque limit) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 438 ST_CRAW_ENG "BMW name ST_CRAW_ENG (current requirement engine) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 438 ST_I_GEN "BMW name ST_I_GEN (generator current) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 438 ST_GEN "BMW name ST_GEN (generator status) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 438 ST_LDST_GEN "BMW name ST_LDST_GEN (load condition generator electrical/thermal) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 438 LDST_GEN "BMW name LDST_GEN (load signal received from the generator) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 464 "MEVD17.2 BN2000: 'Motordaten', sender DME, DME transmits, cycle 100 ms, DLC 8, variants [x x x x x] | E65 doc: 'Engine Data', DLC 8, cycle 100 ms | E65 message list: 'Motordaten' from DME1/DDE1 | 320i log: 151 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 464 TEMP_ENG "BMW name TEMP_ENG - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 464 TEMP_EOI "BMW name TEMP_EOI - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 464 ALIV_COUNT_DME "previous name (community DBC): Counter_464 | BMW name ALIV_COUNT_DME - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 464 ST_ENG_RUN "E65 name: ST_ENGINE_RUN | BMW name ST_ENGINE_RUN (Status engine run) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 464 ST_SW_WAUP "BMW name ST_SW_WAUP (Warm-up status) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 464 AIP_ENG "BMW name AIP_ENG - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 464 IJV_FU "BMW name IJV_FU - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 464 CTR_SLCK "E65 name: CTL_SLCK | BMW name CTL_SLCK (Shift lock control) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 464 RPM_IDLG_TAR "E65 name: RPM_IDLE_TARGET | BMW name RPM_IDLE_TARGET - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 466 "MEVD17.2 BN2000: 'Anzeige Getriebedaten', sender EGS, DME receives, cycle 200 ms, DLC 6, variants [x x x x x] | E65 doc: 'Display gearbox data', DLC 6, cycle 200 ms | E65 message list: 'Anzeige Getriebedaten' from SMG_M/SMG/EGS_MECH+NAVI/EGS_MECH/DKG | 320i log: 206 frames, DLC 6 | cycle time source: BN2000";
+CM_ SG_ 466 GearAct "TransmissionDataDisplay";
+CM_ SG_ 466 ShiftLeverMode "On the dashboard, there are displayed: D1...D7 in Normal. S1...S6 in Sport. M1..M7 in Manual";
+CM_ BO_ 470 "E65 message list: 'Bedienung Taster Audio/Telefon' from SZL_LWS | 320i log: 13 frames, DLC 2 | cycle time source: 320i log (estimated)";
+CM_ SG_ 470 TASTER_TELEFON "DSC_87.prg job STATUS_F_CAN_TASTER_AUDIO_TEL result STAT_TASTER_TELEFON (TEL_Status aus F_CAN Telegramm); value table SGBD | replaces community signals Telephone 0|1";
+CM_ SG_ 470 TASTER_AUDIO_LAUTSTAERKE "DSC_87.prg job STATUS_F_CAN_TASTER_AUDIO_TEL result STAT_TASTER_AUDIO_LAUTSTAERKE (TEL_Status aus F_CAN Telegramm); value table SGBD | replaces community signals Volume_UP 3|1, Volume_DOWN 2|1";
+CM_ SG_ 470 TASTER_AUDIO_SUCHLAUF "DSC_87.prg job STATUS_F_CAN_TASTER_AUDIO_TEL result STAT_TASTER_AUDIO_SUCHLAUF (TEL_Status aus F_CAN Telegramm); value table SGBD | replaces community signals Next_up 5|1, Previous_down 4|1";
+CM_ SG_ 470 TASTER_PUSH_TO_TALK "DSC_87.prg job STATUS_F_CAN_TASTER_AUDIO_TEL result STAT_TASTER_PUSH_TO_TALK (TEL_Status aus F_CAN Telegramm); value table SGBD | replaces community signals VoiceControl 8|1";
+CM_ SG_ 470 TASTER_SONDERFUNKTION "DSC_87.prg job STATUS_F_CAN_TASTER_AUDIO_TEL result STAT_TASTER_SONDERFUNKTION (TEL_Status aus F_CAN Telegramm); value table SGBD";
+CM_ SG_ 470 TASTER_PUSH_TO_HEAR "DSC_87.prg job STATUS_F_CAN_TASTER_AUDIO_TEL result STAT_TASTER_PUSH_TO_HEAR (TEL_Status aus F_CAN Telegramm); value table SGBD";
+CM_ BO_ 481 "320i log: 183 frames, DLC 6, undefined bits changing: [0, 1, 2, 3, 4, 5, 8, 9, 10, 11] | cycle time source: 320i log (estimated)";
+CM_ BO_ 502 "E65 message list: 'Blinken' from LM | Not observed in the 320i PT-CAN log | Bus not confirmed: only in community DBC (kept because it has decoded signals)";
+CM_ SG_ 502 HoldActivated "Spikes down if blinker cleared with timeout or turn. Stays off if blinker cleared with stalk";
+CM_ SG_ 502 LeftTurn "Indicates left blinker or when steering returning left clears right blinker";
+CM_ SG_ 502 RightTurn "Indicates right blinker or when steering returning right clears left blinker";
+CM_ SG_ 502 TurnSignalActive "Turn signal on or transitioning";
+CM_ SG_ 502 TurnSignalIdle "Turn signal off";
+CM_ BO_ 512 "MEVD17.2 BN2000: 'Regelgeschwindigkeit Stufentempomat', sender DME, DME transmits, cycle 200 ms, DLC 8, variants [x x x x x] | E65 doc: 'Speed cruise control', DLC 8, cycle 200 ms | E65 message list: 'Regelgeschwindigkeit Stufentempomat' from DME1/DDE1 | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 512 V_CLCTR_CCTR "BMW name V_CLCTR_CCTR - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); replaces CruiseControlSetpointSpeed 7|8 (community CruiseControlSetpointSpeed used only the low byte)";
+CM_ SG_ 512 ST_V_CLCTR_CCTR "BMW name ST_V_CLCTR_CCTR - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); replaces CruiseCoontrolActiveFlag 13|1, CruiseControlInactiveFlag 12|1 (enum 1 = inactive / 2 = active matches the community DBC flags at bits 12/13)";
+CM_ SG_ 512 CTR_DISP_CCTR "BMW name CTR_DISP_CCTR - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 512 IDX_NO "BMW name IDX_NO - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 512 V_CCTR_IDX_NO_1 "BMW name V_CCTR_IDX_NO_1 - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 512 V_CCTR_IDX_NO_2 "BMW name V_CCTR_IDX_NO_2 - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 512 V_CCTR_IDX_NO_3 "BMW name V_CCTR_IDX_NO_3 - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 514 "E65 message list: 'Dimmung' from LM | 320i log: 5 frames, DLC 2 | cycle time source: 320i log (estimated)";
+CM_ SG_ 514 DimmerPosition "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x202 Dimming.txt): instrument lighting dimmer, sent by KOMBI; intermediate values occur (0x7E in the M3 trace)";
+CM_ BO_ 538 "MEVD17.2 BN2000: 'Lampenzustand', sender FRMFA, DME receives, cycle 5000 ms, DLC 3, variants [x x x x x] | E65 message list: 'Lampenzustand' from LM | 320i log: 12 frames, DLC 3 | cycle time source: BN2000";
+CM_ BO_ 550 "MK60E5 FW 7846816A (M3): DSC RX | TIS: rain sensor signal drives DSC brake-disc drying | E65 message list: 'Regensensor-Wischergeschwindigkeit' from RLS; 'Regensensor-Wischergeschwindigkeit' from LM | 320i log: 10 frames, DLC 5 | cycle time source: 320i log (estimated)";
+CM_ SG_ 550 S226_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x87), meaning unknown";
+CM_ SG_ 550 S226_b8 "MK60E5 FW 7846816A (M3) signal (internal var 0xC1), meaning unknown";
+CM_ SG_ 550 S226_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x06), meaning unknown";
+CM_ BO_ 578 "E65 message list: 'Status Klima Front' from IHKA | 320i log: 6 frames, DLC 5 | cycle time source: 320i log (estimated)";
+CM_ BO_ 678 "MK60E5 FW 7846816A (M3): DSC RX | TIS: wiper switch position drives DSC brake-disc drying (SZL frame, forwarded by JBE). Byte 0 is evaluated in priority order by BMW: 0xFF invalid; 0 no action; bit 7 rear wash; bit 6 rear wipe; bit 4 front wash; bit 3 tip wipe; else bits 0-1: 1 interval/auto, 2 stage 1, 3 stage 2 (bits 2 and 5 ignored) | E65 message list: 'Bedienung Wischertaster' from SZL_LWS | 320i log: 14 frames, DLC 2 | cycle time source: 320i log (estimated)";
+CM_ SG_ 678 WISCHERTASTER "MK60E5 FW 7846816A (M3) signal (internal var 0x88), meaning unknown | community DBC flags here: bit 0 = AutoWipersOn | previous name (firmware field): S2A6_b0 | DSC_87.prg job STATUS_F_CAN_WISCHERTASTER result STAT_WISCHERTASTER (Status_Bit aus SG Antwort); value table SGBD";
+CM_ SG_ 678 WISCHERPOTI "MK60E5 FW 7846816A (M3) signal (internal var 0x8E), meaning unknown | previous name (firmware field): S2A6_b8 | DSC_87.prg job STATUS_F_CAN_WISCHERTASTER result STAT_WISCHERPOTI (Status_Bit aus SG Antwort); value table SGBD";
+CM_ BO_ 690 "MK60E5 FW 7846816A (M3): DSC TX, cycle 20 ms | E65 message list: 'Raddrücke K-CAN' from DXC_RB/DSC_RB/DSC_CT | 320i log: 772 frames, DLC 8";
+CM_ SG_ 690 S2B2_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x26), meaning unknown";
+CM_ SG_ 690 S2B2_b8 "MK60E5 FW 7846816A (M3) signal (internal var 0x1B), meaning unknown";
+CM_ SG_ 690 S2B2_b16 "MK60E5 FW 7846816A (M3) signal (internal var 0x1C), meaning unknown";
+CM_ SG_ 690 S2B2_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x1D), meaning unknown";
+CM_ SG_ 690 S2B2_b32 "MK60E5 FW 7846816A (M3) signal (internal var 0x1E), meaning unknown";
+CM_ SG_ 690 S2B2_b34 "MK60E5 FW 7846816A (M3) signal (internal var 0x56), meaning unknown";
+CM_ SG_ 690 S2B2_b36 "MK60E5 FW 7846816A (M3) signal (internal var 0x55), meaning unknown";
+CM_ SG_ 690 S2B2_b48 "MK60E5 FW 7846816A (M3) signal (internal var 0x18), meaning unknown";
+CM_ SG_ 690 S2B2_b50 "MK60E5 FW 7846816A (M3) signal (internal var 0x4A), meaning unknown";
+CM_ SG_ 690 S2B2_b53 "MK60E5 FW 7846816A (M3) signal (internal var 0x4B), meaning unknown";
+CM_ SG_ 690 S2B2_b56 "MK60E5 FW 7846816A (M3) signal (internal var 0x35), meaning unknown";
+CM_ SG_ 690 S2B2_b59 "MK60E5 FW 7846816A (M3) signal (internal var 0x48), meaning unknown";
+CM_ SG_ 690 S2B2_b61 "MK60E5 FW 7846816A (M3) signal (internal var 0x3D), meaning unknown";
+CM_ BO_ 691 "MK60E5 FW 7846816A (M3): DSC TX, cycle 50 ms | E65 message list: 'Beschleunigungsdaten' from DXC_RB/DSC_RB/DSC_CT | Not observed in the 320i PT-CAN log";
+CM_ SG_ 691 S2B3_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x0F), meaning unknown";
+CM_ SG_ 691 S2B3_b8 "MK60E5 FW 7846816A (M3) signal (internal var 0x33), meaning unknown";
+CM_ SG_ 691 S2B3_b12 "MK60E5 FW 7846816A (M3) signal (internal var 0x4D), meaning unknown";
+CM_ SG_ 691 S2B3_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x0C), meaning unknown";
+CM_ SG_ 691 S2B3_b36 "MK60E5 FW 7846816A (M3) signal (internal var 0x0B), meaning unknown";
+CM_ BO_ 704 "E65 message list: 'LCD-Leuchtdichte' from Kombi | 320i log: 3 frames, DLC 3";
+CM_ SG_ 704 LCD_Brightness "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x2C0 Kombi LCD brightness.txt): KOMBI LCD brightness: 0x3F in darkness, up to 0xF4 in bright light";
+CM_ SG_ 704 S2C0_b8 "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x2C0 Kombi LCD brightness.txt): 0x00/0x7F/0x81/0xE0 observed; meaning unknown";
+CM_ SG_ 704 CID_Brightness "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x2C0 Kombi LCD brightness.txt): central display (CID) follows this byte, 0..0xFE";
+CM_ BO_ 719 "320i log: 2 frames, DLC 2";
+CM_ BO_ 740 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Status Anhänger', sender AHM, DME receives, cycle 5000 ms, DLC 2, variants [x x x x x] | DSC DTC D377: D377 matches - PT_CAN_Timeout message 740 (Status_Anhaenger) is missing [DE: D377 - PT_CAN_Timeout Botschaft 740 (Status_Anhaenger)  fehlt] (supervised: checksum, alive, timeout) | MEVD17.2 15.3.3.1-DSPLECU_CO.md: DLC 2, cycle 5000 ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 message list: 'Status Anhänger' from AHM | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 740 ST_TRAI "MK60E5 FW 7846816A (M3) signal (internal var 0x8D), meaning unknown | previous name (firmware field): S2E4_b0 | BMW name ST_TRAI (Status Anhänger) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 00b - Kein 01b - 11b - Signal Anhänger vorhanden Anhänger vorhanden ungültig; raw value (no conversion given)";
+CM_ BO_ 753 "320i log: 25 frames, DLC 3, undefined bits changing: [0, 1, 2, 3, 8, 9, 10, 11] | cycle time source: 320i log (estimated)";
+CM_ BO_ 755 "MEVD17.2 BN2000: 'Anzeige Schalthinweis', sender DME, DME transmits, cycle event ms, DLC 3, variants [- - - - x] | 320i log: 73 frames, DLC 3, undefined bits changing: [0, 1, 2, 3, 16, 17, 18, 19, 20, 21, 22, 23] | cycle time source: 320i log (estimated)";
+CM_ BO_ 758 "MEVD17.2 BN2000: 'Steuerung Licht (CTR_LMP)', sender FRMFA, DME receives, cycle event ms, DLC 2, variants [x x x x x] | E65 message list: 'Steuerung Licht' from KBM | 320i log: 18 frames, DLC 2 | cycle time source: 320i log (estimated)";
+CM_ BO_ 760 "MEVD17.2 BN2000: 'Uhrzeit/Datum', sender KOMBI, DME receives, cycle 15000 ms, DLC 8, variants [x x x x x] | MEVD17.2 15.3.3.1-DSPLECU_CO.md: DLC 8, cycle 15000 ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 message list: 'Uhrzeit/Datum' from Kombi | 320i log: 4 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 760 DISP_HR "BMW name DISP_HR (Anzeige Stunde [-]) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 - 254; raw value (no conversion given)";
+CM_ SG_ 760 DISP_MN "BMW name DISP_MN (Anzeige Minute [-]) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 - 254; raw value (no conversion given)";
+CM_ SG_ 760 DISP_SEC "BMW name DISP_SEC (Anzeige Sekunde[-]) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 - 254; raw value (no conversion given)";
+CM_ SG_ 760 DISP_DATE_DAY "BMW name DISP_DATE_DAY (Anzeige Tag [-]) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 1 - 31; raw value (no conversion given)";
+CM_ SG_ 760 DISP_DATE_WDAY "BMW name DISP_DATE_WDAY (Anzeige Wochentag [-]) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 1 - 7; raw value (no conversion given)";
+CM_ SG_ 760 DISP_DATE_MON "BMW name DISP_DATE_MON (Anzeige Monat [-]) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 1 - 15 - Signal 12 ungültig; raw value (no conversion given)";
+CM_ SG_ 760 DISP_DATE_YR "BMW name DISP_DATE_YR (Anzeige Jahr [-]) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 1 - 65534 [-]; raw value (no conversion given)";
+CM_ SG_ 760 ST_DISP_CTI_DATE "BMW name ST_DISP_CTI_DATE (Status Anzeige Uhrzeit [-]) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: ---0 Daten nicht ---1 Daten --0- --1-1111 gültig gültig Winterzeit Sommerzeit Signal ungültig; raw value (no conversion given)";
+CM_ BO_ 762 "E65 message list: 'Sitzbelegung Gurtkontakte' from ACSM | 320i log: 5 frames, DLC 5 | cycle time source: 320i log (estimated)";
+CM_ BO_ 764 "MEVD17.2 BN2000: 'Status ZV-Klappenzustand', sender CAS, DME receives, cycle 100 ms, DLC 5, variants [- - - - x] | E65 doc: 'Central locking and door status', DLC 7, cycle - ms | MEVD17.2 15.3.1.2-CASECU_co.md: DLC 7, cycle event ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 defines DOOR_STATUS 8|8; overlaps reference-backed ST_DSW_DRD - not used | E65 defines BOOT_BONNET_STATUS 16|8; overlaps reference-backed ST_CT_BON - not used | E65 message list: 'ZV und Klappenzustand' from CAS | 320i log: 16 frames, DLC 7 | cycle time source: BN2000";
+CM_ SG_ 764 ST_DSW_DRD "BMW name ST_DSW_DRD (Status Türkontakt FAT) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: `-`; range/values: 0 - FAT ist 1 - FAT ist 2 - 3 - Signal geschlossen offen Signal unplausibel ungültig; raw value (no conversion given)";
+CM_ SG_ 764 ST_CT_BON "BMW name ST_CT_BON (Status Kontakt Motorhaube) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: `-`; range/values: 0 - Motorhaube 1 - Motorhaube 3 - Signal geschlossen offen ungültig; raw value (no conversion given)";
+CM_ BO_ 776 "MK60E5 FW 7846816A (M3): DSC RX | Firmware comparison: MK60E5 FW 6862873A does not map 8|2, 10|2, 12|2, 14|2, 18|2, 20|4 | MEVD17.2 BN2000: 'Status MSA', sender DME, DME transmits, cycle 500 ms, DLC 3, variants [- - - - x] | DSC DTC D379: D379 - missing PT_CAN message 776 Status MSA [DE: D379 - PT_CAN Botschaft 776 Status MSA fehlt] (supervised: checksum, alive, timeout) | E65 message list: 'Status MSA' from DME1/DDE1 | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 776 S308_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xB1), meaning unknown";
+CM_ SG_ 776 S308_b4 "MK60E5 FW 7846816A (M3) signal (internal var 0xCE), meaning unknown";
+CM_ SG_ 776 S308_b8 "MK60E5 FW 7846816A (M3) signal (internal var 0x78), meaning unknown";
+CM_ SG_ 776 S308_b10 "MK60E5 FW 7846816A (M3) signal (internal var 0xA7), meaning unknown";
+CM_ SG_ 776 S308_b12 "MK60E5 FW 7846816A (M3) signal (internal var 0xA8), meaning unknown";
+CM_ SG_ 776 S308_b14 "MK60E5 FW 7846816A (M3) signal (internal var 0x95), meaning unknown";
+CM_ SG_ 776 S308_b16 "MK60E5 FW 7846816A (M3) signal (internal var 0x85), meaning unknown";
+CM_ SG_ 776 S308_b18 "MK60E5 FW 7846816A (M3) signal (internal var 0xAB), meaning unknown";
+CM_ SG_ 776 S308_b20 "MK60E5 FW 7846816A (M3) signal (internal var 0xAE), meaning unknown";
+CM_ BO_ 784 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Aussentemperatur/Relativzeit', sender KOMBI, DME receives, cycle 1000 ms, DLC 7, variants [x x x x x] | DSC DTC D358: D358 - PT-CAN Instrumentcluster_1 - outside temperature / relative time message 784 missing [DE: D358 - PT-CAN Instrumentcluster_1 - Aussentemperatur/Relativzeit Botschaft 784 fehlt] (supervised: timeout) | DSC DTC D36E: D36E - PT-CAN message 310h A_TEMP_RELATIVZEIT missing or invalid, tire temperature model RPA + can not be calculated [DE: D36E - PT-CAN   Botschaft 310h A_TEMP_RELATIVZEIT fehlt oder ungueltig, Reifentemperaturmodell im RPA+ kann nicht berechnet werden] | Outside temperature (byte 0) feeds the RPA tyre temperature model (DTC D36E) | E65 doc: 'Outside temperature / relative time', DLC 7, cycle 1000 ms | E65 message list: 'Außentemperatur/Relativzeit' from Kombi | 320i log: 82 frames, DLC 7 | cycle time source: BN2000";
+CM_ SG_ 784 TEMP_EXT "MK60E5 FW 7846816A (M3) signal (internal var 0x07), meaning unknown | previous name (firmware field): S310_b0 | BMW name TEMP_EXT (outside temperature in °C) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 784 T_SEC_COU_REL "BMW name T_SEC_COU_REL (not used anymore) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); replaces S310_b8 8|1 (community DBC ranks below E65)";
+CM_ SG_ 784 T_DAY_COU_ABSL "BMW name T_DAY_COU_ABSL (day counter absolute) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 789 "MEVD17.2 BN2000: 'Fahrzeugmodus', sender SZM, DME receives, cycle 10000 ms, DLC 2, variants [x x x x x] | E65 message list: 'Fahrzeugmodus' from SZM_MIT_KBUS/SZM | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 789 S315_b0 "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x315 trace EDC.txt): changes with the counter and the mode; probably a checksum";
+CM_ SG_ 789 Counter_315 "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x315 trace EDC.txt): +1 per message";
+CM_ SG_ 789 VehicleMode "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x315 trace EDC.txt): EDC button / vehicle mode (JBBF); same content on PT-CAN and K-CAN";
+CM_ BO_ 790 "MK60E5 FW 7846816A (M3): DSC RX | Not observed in the 320i PT-CAN log";
+CM_ SG_ 790 S316_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xD9), meaning unknown | community DBC flags here: bit 0 = DTC_pressed | superwofy/E9X-M-CAN-Integration-Module notes (MIT): DSC/DTC button: byte 0 = 0xFC released, 0xFD pressed (sent every 100 ms while held); byte 1 = 0xFF";
+CM_ SG_ 790 setMe_0x3FFF "All ones";
+CM_ BO_ 793 "MK60E5 FW 7846816A (M3): DSC RX | E65 message list: 'Bedienung Taster RDC' from SZM | Not observed in the 320i PT-CAN log";
+CM_ SG_ 793 S319_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x8A), meaning unknown | superwofy/E9X-M-CAN-Integration-Module notes (MIT): RPA (flat tyre monitor) reset button: byte 0 = 0xFC released, 0xFD pressed";
+CM_ BO_ 797 "MK60E5 FW 7846816A (M3): DSC TX, event | E65 message list: 'Status Reifenpannenanzeige' from DXC_RB/DSC_RB/DSC_CT | 320i log: 2 frames, DLC 2";
+CM_ SG_ 797 S31D_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x6C), meaning unknown | superwofy/E9X-M-CAN-Integration-Module notes (MIT): FTM (flat tyre monitor) state: byte 0 = 0x00 normal, 0x03 for about 10 s after a reset, 0x01 failure";
+CM_ SG_ 797 S31D_b3 "MK60E5 FW 7846816A (M3) signal (internal var 0x4C), meaning unknown";
+CM_ SG_ 797 S31D_b8 "MK60E5 FW 7846816A (M3) signal (internal var 0x34), meaning unknown";
+CM_ BO_ 816 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Kilometerstand/Reichweite', sender KOMBI, DME receives, cycle 10000 ms, DLC 8, variants [x x x x x] | DSC DTC D359: D359 - PT-CAN Instrumentcluster_2 - missing mileage message 816 [DE: D359 - PT-CAN Instrumentcluster_2 - Kilometerstand Botschaft 816 fehlt] (supervised: timeout) | E65 doc: 'Mileage', DLC 8, cycle 10000 ms | MEVD17.2 15.3.3.1-DSPLECU_CO.md: DLC 8, cycle 10000 ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 agrees with MEVD on MILE_KM 0|24 | E65 agrees with MEVD on FLLV_FUTA 24|8 | E65 agrees with MEVD on FLLV_FUTA_LH 32|8 | E65 agrees with MEVD on FLLV_FUTA_RH 40|8 | E65 defines ST_FLLV_FUTA_SPAR 48|8; overlaps reference-backed ST_FLLV_FUTA_SPAR, RNG - not used | E65 defines RNG 56|8; overlaps reference-backed RNG - not used | E65 message list: 'Kilometerstand/Reichweite' from Kombi | 320i log: 7 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 816 MILE_KM "BMW name MILE_KM (Wegstrecke Kilometer) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 ... 16777214 [km]; replaces S330_b0 0|1";
+CM_ SG_ 816 FLLV_FUTA "BMW name FLLV_FUTA (Füllstand Tank) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 ... 254 [l]";
+CM_ SG_ 816 FLLV_FUTA_LH "BMW name FLLV_FUTA_LH (Füllstand Tank Links) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 ... 127 [l]";
+CM_ SG_ 816 FLLV_FUTA_RH "BMW name FLLV_FUTA_RH (Füllstand Tank Rechts) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 ... 127 [l]";
+CM_ SG_ 816 ST_FLLV_FUTA_SPAR "BMW name ST_FLLV_FUTA_SPAR (Status Füllstand Tank Reserve) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 - Nicht 1 - 3 - Aktiv Aktiv Signal ungültig; raw value (no conversion given)";
+CM_ SG_ 816 RNG "BMW name RNG (Reichweite) - MEVD17.2 function description 15.3.3.1-DSPLECU_CO.md; range/values: 0 ... 4094 [km]";
+CM_ BO_ 817 "MEVD17.2 BN2000: 'Programmierung Stufentempomat', sender MMI, DME receives, cycle event ms, DLC 5, variants [x x x x x] | E65 message list: 'Programmierung Stufentempomat' from M_ASK/CCC_GW | Not observed in the 320i PT-CAN log";
+CM_ BO_ 818 "MEVD17.2 BN2000: 'Fahreranzeige Drehzahlbereich', sender DME, DME transmits, cycle event ms, DLC 2, variants [x x - - -] | E65 doc: 'Display RPM range', DLC 2, cycle 5000 ms | E65 message list: 'Fahreranzeige Drehzahlbereich' from DME1/DDE1 | Not observed in the 320i PT-CAN log | cycle time source: E65 doc";
+CM_ SG_ 818 RPM_TEMP_DOM_1 "BMW name RPM_TEMP_DOM_1 (variable engine speed warning field, actual value) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 818 RPM_TEMP_DOM_2 "BMW name RPM_TEMP_DOM_2 (engine max RPM) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 820 "MEVD17.2 BN2000: 'Powermanagement Ladespannung', sender PWML, DME receives, cycle 1000 ms, DLC 2, variants [x x - - - 11] | E65 doc: 'Power management charge voltage', DLC 3, cycle 1000 ms | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 820 CTR_GEN_U_TAR "BMW name CTR_GEN_U_TAR (target voltage) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 820 RPM_IDLG_SPEC "BMW name RPM_IDLG_SPEC (RPM idling control) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 847 "320i log: 14 frames, DLC 2 | cycle time source: 320i log (estimated)";
+CM_ SG_ 847 Handbrake_push "superwofy/E9X-M-CAN-Integration-Module notes (MIT): Handbrake switch: byte 0 = 0xFE applied, 0xFD released";
+CM_ BO_ 884 "MK60E5 FW 7846816A (M3): DSC TX, cycle 1000 ms | E65 message list: 'Radtoleranzabgleich' from DXC_RB/DSC_RB/DSC_CT | 320i log: 12 frames, DLC 5";
+CM_ SG_ 884 S374_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x2A), meaning unknown";
+CM_ SG_ 884 S374_b8 "MK60E5 FW 7846816A (M3) signal (internal var 0x58), meaning unknown";
+CM_ SG_ 884 S374_b16 "MK60E5 FW 7846816A (M3) signal (internal var 0x59), meaning unknown";
+CM_ SG_ 884 S374_b24 "MK60E5 FW 7846816A (M3) signal (internal var 0x5A), meaning unknown";
+CM_ SG_ 884 S374_b32 "MK60E5 FW 7846816A (M3) signal (internal var 0x5B), meaning unknown";
+CM_ BO_ 896 "MK60E5 FW 7846816A (M3): DSC RX | DSC DTC D361: D361 - missing PT-CAN VIN timeout message 896 [DE: D361 - PT-CAN Fahrgestellnummer Timeout Botschaft 896 fehlt] (supervised: timeout) | DSC DTC 5E1D: 5E1D - PT-CAN chassis number invalid. [DE: 5E1D - PT-CAN Fahrgestellnummer ungueltig.] | DSC DTC 5E1F: 5E1F - PT-CAN chassis number wrong / ECU uninitialized. [DE: 5E1F - PT-CAN Fahrgestellnummer falsch / ECU nicht initialisiert.] | E65 doc: 'Vehicle identification number', DLC 7, cycle - ms | MEVD17.2 15.3.1.2-CASECU_co.md: DLC 7, cycle event ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 agrees with MEVD on NO_VECH_1 0|8 | E65 agrees with MEVD on NO_VECH_2 8|8 | E65 agrees with MEVD on NO_VECH_3 16|8 | E65 agrees with MEVD on NO_VECH_4 24|8 | E65 agrees with MEVD on NO_VECH_5 32|8 | E65 agrees with MEVD on NO_VECH_6 40|8 | E65 agrees with MEVD on NO_VECH_7 48|8 | E65 message list: 'Fahrgestellnummer' from CAS | Not observed in the 320i PT-CAN log";
+CM_ SG_ 896 NO_VECH_1 "BMW name NO_VECH_1 (Nummer Fahrgestell 1) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: dez (ASCII); range/values: 0 - 255; raw value (no conversion given); replaces S380_b0 0|1";
+CM_ SG_ 896 NO_VECH_2 "BMW name NO_VECH_2 (Nummer Fahrgestell 2) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: dez (ASCII); range/values: 0 - 255; raw value (no conversion given)";
+CM_ SG_ 896 NO_VECH_3 "BMW name NO_VECH_3 (Nummer Fahrgestell 3) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: dez (ASCII); range/values: 0 - 255; raw value (no conversion given)";
+CM_ SG_ 896 NO_VECH_4 "BMW name NO_VECH_4 (Nummer Fahrgestell 4) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: dez (ASCII); range/values: 0 - 255; raw value (no conversion given)";
+CM_ SG_ 896 NO_VECH_5 "BMW name NO_VECH_5 (Nummer Fahrgestell 5) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: dez (ASCII); range/values: 0 - 255; raw value (no conversion given)";
+CM_ SG_ 896 NO_VECH_6 "BMW name NO_VECH_6 (Nummer Fahrgestell 6) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: dez (ASCII); range/values: 0 - 255; raw value (no conversion given)";
+CM_ SG_ 896 NO_VECH_7 "BMW name NO_VECH_7 (Nummer Fahrgestell 7) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: dez (ASCII); range/values: 0 - 255; raw value (no conversion given)";
+CM_ BO_ 897 "MEVD17.2 BN2000: 'Elektronischer Motorölmesstab', sender DME, DME transmits, cycle 10000 ms, DLC 2, variants [x x - - -] | E65 doc: 'Electronic engine oil dipstick', DLC 3, cycle - ms | MEVD17.2 15.3.4.3-EngECU_co.md: DLC 2, cycle 10000 ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 agrees with MEVD on FLLV_EOI 0|8 | E65 agrees with MEVD on RECM_RFLV_EOI 8|4 | E65 message list: 'Elektronischer Motorölmessstab' from DME1/DDE1 | 320i log: 1 frames, DLC 2 | cycle time source: BN2000";
+CM_ SG_ 897 FLLV_EOI "BMW name FLLV_EOI (Füllstand Motoröl) - MEVD17.2 function description 15.3.4.3-EngECU_co.md; range/values: 124 - 125 - 128 - 12 - 25 - 38 - Zustand zwischen 53 - 69 - Zustand zwischen 85 - 95 - 120 - 121 - 122 - Zustand Oil Level 123 - Zustand Zündung AUS, Motorölstand OK, 126 - 127 - Genaue Messung läuft. 0xFF - Zustand unter MIN Zustand MIN MIN und OK Zustand OK OK und MAX Zustand MAX Zustand Überfüllt Zustand keine Messung möglich Zustand Messung läuft Check OK Zustand Messung OK keine Messung möglich genaue Messung läuft. Motorölstand OK Messung läuft Messdauer: Signal ungültig 1min; raw value (no conversion given)";
+CM_ SG_ 897 RECM_RFLV_EOI "BMW name RECM_RFLV_EOI (Erforderliche Nachfüllmenge Motoröl) - MEVD17.2 function description 15.3.4.3-EngECU_co.md; range/values: 0 - alles OK 1 - Überfüllung 2 - 1.0 L nachfüllen 4 - Service 0x0F - Signal ungültig; raw value (no conversion given)";
+CM_ BO_ 904 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'FAHRZEUGTYP', sender CAS, DME receives, cycle 100 ms, DLC 7, variants [- - - - x] | E65 doc: 'Vehicle type', DLC 7, cycle - ms | MEVD17.2 15.3.1.2-CASECU_co.md: DLC 7, cycle event ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 agrees with MEVD on TYP_VEH 0|8 | E65 agrees with MEVD on TYP_BODY 8|8 | E65 agrees with MEVD on QUAN_GR 20|4 | E65 defines CLAS_PWR 36|4; overlaps reference-backed CLAS_PWR - not used | E65 message list: 'Fahrzeugtyp' from CAS | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 904 TYP_VEH "MK60E5 FW 7846816A (M3) signal (internal var 0xD8), meaning unknown | previous name (firmware field): S388_b0 | BMW name TYP_FAHRZEUG (Typ_Fahrzeug) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; range/values: 0 Keine 2 4 5 7 9 255 Signal Angabe 1 E65 E66 3 E67 E60 E61 6 E63 E64 8 E90 RR01 10 E81 11 E82 12 E87 13 E91 14 E92 15 E93 16 E70 17 E71 18 E88 19 R55 20 R56 21 R57 22 E89 23 E72 24 F01 25 F02 26 F03 27 F07 28 F10 29 F11 30 F12 31 F13 32 F04 33 F31 34 F32 35 F33 36 F20 37 F30 38 F22 39 F23 40 E84 41 F25 42 R60 43 RR4 ungültig; raw value (no conversion given) | previous name (firmware field): TYP_FAHRZEUG";
+CM_ SG_ 904 TYP_BODY "MK60E5 FW 7846816A (M3) signal (internal var 0xBF), meaning unknown | previous name (firmware field): S388_b8 | BMW name TYP_BODY (Typ_Karosserie) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; range/values: 0000 0000 0000 0000 0000 0000 1000 Light 0000 1001 0000 1010 4 x 4 0000 1011 4 x 0000 1100 MCV 0000 1101 BEV 0xFF 0001 Limousine 0000 0010 Coupe 0000 0011 Touring 0100 Cabrio 0101 Roadster 0110 Compact 0111 Sicherheitsfahrzeug Protection Sport-Coupe (Z3 Coupe) single piece tailgate 4 two piece tailgate Mega-City-Vehicle Battery-Electric-Vehicle Signal ungueltig; raw value (no conversion given)";
+CM_ SG_ 904 QUAN_CYL "MK60E5 FW 7846816A (M3) signal (internal var 0xBA), meaning unknown | previous name (firmware field): S388_b16 | BMW name QUAN_CYL (cylinder number) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 904 QUAN_GR "MK60E5 FW 7846816A (M3) signal (internal var 0x8F), meaning unknown | previous name (firmware field): S388_b20 | BMW name ANZAHL_GANG (Anzahl_Gang) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; range/values: 7 - 7 Gänge Wird 4 - 4 5 - 5 6 - 6 derzeit nur 8 - 8 15 0 Stufenlos Gänge Gänge Gänge in M-Fahrzeugen genutzt! Gänge Signal ungültig (Für SMG Mk3); raw value (no conversion given) | previous name (firmware field): ANZAHL_GANG";
+CM_ SG_ 904 TYP_ENG "MK60E5 FW 7846816A (M3) signal (internal var 0x90), meaning unknown | previous name (firmware field): S388_b24 | BMW name TYP_ENG (engine type) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 904 TYP_STE "BMW name TYP_STE (steering type) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 904 TYP_GRB "MK60E5 FW 7846816A (M3) signal (internal var 0xBD), meaning unknown | previous name (firmware field): S388_b32 | BMW name TYP_GRB (gearbox type) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 904 CLAS_PWR "BMW name CLAS_PWR (Klasse_Leistung) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; range/values: 00 Untere 01 Mittlere 10 Obere 0x3 Signal Leistungsklasse (UL) Leistungsklasse (ML) Leistungsklasse (OL) OL und ungueltig TOP; raw value (no conversion given)";
+CM_ SG_ 904 TYP_CNT "MK60E5 FW 7846816A (M3) signal (internal var 0xBE), meaning unknown | previous name (firmware field): S388_b40 | BMW name TYP_CNT - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ SG_ 904 TYP_CAPA "MK60E5 FW 7846816A (M3) signal (internal var 0xBC), meaning unknown | previous name (firmware field): S388_b48 | BMW name TYP_CAPA (engine diplacement) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
+CM_ BO_ 907 "MEVD17.2 BN2000: 'Status Batterie', sender DME, DME transmits, cycle event ms, DLC 5, variants [x x x x x] | Not observed in the 320i PT-CAN log";
+CM_ BO_ 910 "MEVD17.2 BN2000: 'Startdrehzahl', sender DME, DME transmits, cycle event ms, DLC 2, variants [x - - - -] | E65 doc: 'Starting speed', DLC 8, cycle - ms | E65 message list: 'Startdrehzahl' from DME1/DDE1 | Not observed in the 320i PT-CAN log";
+CM_ SG_ 910 RPM_ENG_STA "BMW name RPM_ENG_STA - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 917 "MEVD17.2 BN2000: 'Codierung Powermanagment', sender CAS, DME receives, cycle event ms, DLC 5, variants [x x x x x 9] | MEVD17.2 15.3.1.2-CASECU_co.md: DLC 5, cycle event ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 message list: 'Codierung Powermanagement' from CAS | Not observed in the 320i PT-CAN log";
+CM_ SG_ 917 CLAS_BT "BMW name CLAS_BT (Klasse Batterie) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: `-`; range/values: 0 - 254; raw value (no conversion given)";
+CM_ SG_ 917 QC_VEH "BMW name QC_VEH (Ruhestrom Fahrzeug) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: `-`; range/values: 0 - 254 [mA]";
+CM_ SG_ 917 I_SC_MIN_VEH "BMW name I_SC_MIN_VEH (Strom Kurzschluss Kurzschluss Minimal) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: `-`; range/values: 0 - 1000 [A]; raw value (no conversion given)";
+CM_ SG_ 917 I_SC_MAX_VEH "BMW name I_SC_MAX_VEH (Strom Kurzschluss Maximal) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: `-`; range/values: 0 - 1000 [A]; raw value (no conversion given)";
+CM_ BO_ 920 "MK60E5 FW 7846816A (M3): DSC RX | E65 doc: 'Operation chasis', DLC 2, cycle - ms | E65 message list: 'Bedienung Fahrwerk' from M_ASK/CCC_GW | Not observed in the 320i PT-CAN log";
+CM_ SG_ 920 S398_b4 "MK60E5 FW 7846816A (M3) signal (internal var 0xBB), meaning unknown";
+CM_ SG_ 920 S398_b10 "MK60E5 FW 7846816A (M3) signal (internal var 0x8C), meaning unknown | superwofy/E9X-M-CAN-Integration-Module notes (MIT): Traction mode request: bytes CF E3 = DSC fully on, CF F3 = DTC/MDM, CF E7 = DSC fully off";
+CM_ BO_ 921 "MK60E5 FW 7846816A (M3): DSC RX | E65 message list: 'Status M-Drive' from DME1 | Not observed in the 320i PT-CAN log";
+CM_ SG_ 921 CHKSM_399 "BMW 4-bit checksum: s = fold8(sum(bytes, checksum nibble = 0) + 0x9C); chk = ((s >> 4) + (s & 0xF)) & 0xF - verified 99/99 in the E92 M3 K-CAN trace (superwofy); algorithm as in the superwofy firmware";
+CM_ SG_ 921 ALIV_399 "MK60E5 FW 7846816A (M3) signal (internal var 0xCD), meaning unknown | 4-bit alive counter, counts 0..14, +1 per frame (E92 M3 K-CAN trace)";
+CM_ SG_ 921 S399_b8 "MK60E5 FW 7846816A (M3) signal (internal var 0x7C), meaning unknown | superwofy/E9X-M-CAN-Integration-Module notes (MIT): firmware update_mdrive_settings_can_message(): +1 on byte 1 when M-Drive is active";
+CM_ SG_ 921 S399_b10 "MK60E5 FW 7846816A (M3) signal (internal var 0xA5), meaning unknown | superwofy/E9X-M-CAN-Integration-Module notes (MIT): DSC mode stored in the M-Drive setting (firmware: byte 1 = 0x05 off, 0x09 on, 0x11 MDM, +1 when active). The M3 DSC firmware reads this field; with M3/1M DSC software MDM is selected through 0x399 only. E92 M3 trace: byte 1 = 0x51 (MDM, M-Drive inactive)";
+CM_ BO_ 940 "E65 message list: 'Nachlaufzeit Klemme 30 fehlergesteuert' from KGM | 320i log: 3 frames, DLC 2";
+CM_ BO_ 944 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Status Gang Rückwärts', sender LM, DME receives, cycle 1000 ms, DLC 2, variants [x x x x x] | DSC DTC D378: D378 - PT_CAN_Timeout message 944 (Status_Gang_Rueckwaerts) is missing [DE: D378 - PT_CAN_Timeout Botschaft 944  (Status_Gang_Rueckwaerts) fehlt] (supervised: timeout) | TIS: start-off assistant also works uphill in reverse gear | E65 message list: 'Status Gang Rückwärts' from LM | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ SG_ 944 S3B0_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xA6), meaning unknown | superwofy/E9X-M-CAN-Integration-Module notes (MIT): firmware evaluate_reverse_gear_status(): byte 0 = 0xFE with reverse engaged; 0xFD otherwise (inferred from the 2-bit pattern)";
+CM_ BO_ 945 "E65 message list: 'Getriebedaten 3' from EGS_MECH/DKG | Not observed in the 320i PT-CAN log | Bus not confirmed: only in community DBC (kept because it has decoded signals)";
+CM_ BO_ 947 "MEVD17.2 BN2000: 'Powermanagement Verbrauchersteuerung', sender DME, DME transmits, cycle 5000 ms, DLC 6, variants [x x x x x] | MEVD17.2 15.3.4.3-EngECU_co.md: DLC 7, cycle 5000 ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 message list: 'Powermanagement Verbrauchersteuerung' from DME1/DDE1 | 320i log: 3 frames, DLC 6 | cycle time source: BN2000";
+CM_ SG_ 947 SLCTN_SPCOS "BMW name SLCTN_SPCOS (Auswahl Sonderverbraucher) - MEVD17.2 function description 15.3.4.3-EngECU_co.md; range/values: 0 ... Kein 1 ... 0x0F ... Sonderverbraucher PTC Zuheizer Signal ungültig; raw value (no conversion given)";
+CM_ SG_ 947 CTR_PWR_SPCOS "BMW name CTR_PWR_SPCOS (Steuerung Leistung Sonderverbraucher) - MEVD17.2 function description 15.3.4.3-EngECU_co.md; range/values: 0 - 0xFF - 100% Signal ungültig; raw value (no conversion given)";
+CM_ SG_ 947 CTR_PWR_COS "BMW name CTR_PWR_COS (Steuerung Leistung Leistung Verbraucher) - MEVD17.2 function description 15.3.4.3-EngECU_co.md; range/values: 0--- 0--- -1-- ---- 0--- ---- 0--- ---- ---- -1-- 0--- ---- ---- ---- --1- ---- Sitzheizung 0--- ---- 0--- ---- 1--- ---- PTC 0--- --1- ---- ---- Lenkradheizung 0--- 1--- 0000 0000 0000 0--- ---- ---- ---1 ---- --1- Lenkradheizung getaktet, Sitzheizung vorne 1--- Sitzheizung vorne 0--- ---- ---1 ---- hinten Stufe 2, -1-- ---- Spiegelheizung hinten 50%, 0--- ---1 ---- ---- ---- Sitzheizung vorne AUS, PTC dritte ---- ---- Sitzklima AUS, 0--1 ---- ---- ---- 0-1- ---- ---- ---- 01-- ---- ---- ---- 0xFFFF - 0000 Keine Reduzierung Heckscheibe getaktet Lenkradheizung getaktet, PTC Stufe 2, Sitzheizung 50%, PTC dritte Aktivsitz AUS PTC hinten 75%, AUS, PTC hinten Frontscheibenheizung 50%, Heckscheibe AUS AUS, Sitzheizung Sitzreihe / Gebläse Frontscheibenheizung Heizungsgebläse 75% Heizungsgebläse 50% Heizungsgebläse 25% Signal ungültig hinten 25% hinten Stufe 1 Sitzreihe 50% Frontscheibenheizung AUS Nackenwärmer AUS hinten AUS 0%, Frontscheibenheizung AUS 75% 25%; raw value (no conversion given)";
+CM_ SG_ 947 CTR_CBR "BMW name CTR_CBR (Steuerung Stromzweige) - MEVD17.2 function description 15.3.4.3-EngECU_co.md; range/values: 0--- ---0 Keine 0--- ---1 0--- --01 0--- --11 0--- -0-1 0--- -1-1 0xFF - Ansteuerung Ansteuerung Stromzweig 1 AUS Stromzweig 1 EIN Stromzweig 2 AUS Stromzweig 2 EIN Signal ungültig; raw value (no conversion given)";
+CM_ SG_ 947 RQ_PCOS "BMW name RQ_PCOS (Anforderung Standverbraucher) - MEVD17.2 function description 15.3.4.3-EngECU_co.md; range/values: 1 ... 0 ... Keine Standverbraucher 2 ... 3 ... Signal Aktion müssen sich zu erkennen unbelegt ungültig geben; raw value (no conversion given)";
+CM_ SG_ 947 CTR_PCOS "BMW name CTR_PCOS (Steuerung Standverbraucher) - MEVD17.2 function description 15.3.4.3-EngECU_co.md; range/values: 0 ... Keine Aktion 1 ... Spezielle Standverbraucher dürfen sich einschalten 2 ... Standverbraucher müssen sich abschalten 3 ... Signal ungültig; raw value (no conversion given)";
+CM_ BO_ 948 "MEVD17.2 BN2000: 'Powermanagement Batteriespannung', sender DME, DME transmits, cycle 5000 ms, DLC 8, variants [x x x x x] | E65 doc: 'Power management battery voltage', DLC 8, cycle - ms | E65 message list: 'Powermanagement Batteriespannung' from DME1/DDE1 | 320i log: 7 frames, DLC 8 | cycle time source: BN2000";
+CM_ SG_ 948 U_BT "BMW name U_BT - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); replaces BatteryVoltage 7|24 (community BatteryVoltage 24-bit big-endian decodes to 16777 V; U_BT = 0xFFF (invalid) in 320i log)";
+CM_ SG_ 948 ST_BTSW "BMW name ST_BTSW (status battery main switch) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 948 ENG_ST "BMW name ENG_ST - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 948 ST_SWO_KL_30 "BMW name ST_SWO_KL_30 - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ SG_ 948 SDWN_COU_BTSW "BMW name SDWN_COU_BTSW - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
+CM_ BO_ 949 "MEVD17.2 BN2000: 'Status Wasserventil', sender JBBF, DME receives, cycle 5000 ms, DLC 2, variants [x x x x x] | E65 message list: 'Status Wasserventil' from IHKA | Not observed in the 320i PT-CAN log | cycle time source: BN2000";
+CM_ BO_ 958 "MEVD17.2 15.3.1.2-CASECU_co.md: DLC 2, cycle event ms (L6 FA-CAN definition; frame copied 1:1 to/from BN2000 PT-CAN) | E65 message list: 'Nachlaufzeit Stromversorgung' from CAS | 320i log: 4 frames, DLC 2";
+CM_ SG_ 958 FLLUPT_GPWSUP "BMW name FLLUPT_GPWSUP (Nachlaufzeit_Stromversorgung) - MEVD17.2 function description 15.3.1.2-CASECU_co.md; formula: PHYS = 10*HEX [s]; range/values: 0..FFD FFE 0xFFF Restlaufzeit Dauer EIN Signal ungueltig";
+CM_ BO_ 1007 "MEVD17.2 BN2000: 'OBD Daten Motor', sender DME, DME transmits, cycle 1000 ms, DLC 2, variants [x x x x x] | E65 message list: 'OBD Daten Motor' from DME1/DDE1 | 320i log: 97 frames, DLC 2, undefined bits changing: [0, 8, 9, 10] | cycle time source: BN2000";
+CM_ BO_ 1152 "MK60E5 FW 7846816A (M3): DSC RX | E65 message list: 'Netzwerkmanagement' from KGM | 320i log: 113 frames, DLC 8 | cycle time source: 320i log (estimated)";
+CM_ SG_ 1152 S480_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xC8), meaning unknown";
+CM_ BO_ 1170 "MEVD17.2 BN2000: 'Netzwerkmanagement PT-CAN', sender DME, DME transmits, cycle 100 ms, DLC 8, variants [x x x x x] | E65 message list: 'Netzwerkmanagement' from DDE1/DME1 | 320i log: 57 frames, DLC 8 | cycle time source: BN2000";
+CM_ BO_ 1176 "E65 message list: 'Netzwerkmanagement' from DKG/EGS_MECH/EGS_MECH+NAVI/SMG/SMG_M | 320i log: 37 frames, DLC 8 | cycle time source: 320i log (estimated)";
+CM_ BO_ 1180 "E65 message list: 'Netzwerkmanagement' from LDM | 320i log: 34 frames, DLC 8 | cycle time source: 320i log (estimated)";
+CM_ BO_ 1185 "E65 message list: 'Netzwerkmanagement' from ACC+NAVI/ACC_Modul | 320i log: 40 frames, DLC 8 | cycle time source: 320i log (estimated)";
+CM_ BO_ 1193 "MK60E5 FW 7846816A (M3): DSC TX, event | E65 message list: 'Netzwerkmanagement' from DSC_CT/DSC_RB/DXC_RB | 320i log: 27 frames, DLC 8 | cycle time source: 320i log (estimated)";
+CM_ SG_ 1193 S4A9_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x4E), meaning unknown";
+CM_ BO_ 1246 "E65 message list: 'Netzwerkmanagement' from GWS | Not observed in the 320i PT-CAN log | Bus not confirmed: only in community DBC (kept because it has decoded signals)";
+CM_ BO_ 1408 "MK60E5 FW 7846816A (M3): DSC RX | E65 message list: 'Dienste' from KGM | 320i log: 12 frames, DLC 8, undefined bits changing: [8, 9, 10, 11, 12] | cycle time source: 320i log (estimated)";
+CM_ SG_ 1408 S580_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xD7), meaning unknown";
+CM_ BO_ 1426 "MEVD17.2 BN2000: 'Anfrage Codierung Powermanagment 9-17', sender DME, DME transmits, cycle event ms, DLC 8, variants [x x x x x] | E65 message list: 'Dienste' from DDE1/DME1 | 320i log: 7 frames, DLC 8 | cycle time source: 320i log (estimated)";
+CM_ BO_ 1449 "MK60E5 FW 7846816A (M3): DSC TX, event | E65 message list: 'Dienste' from DSC_CT/DSC_RB/DXC_RB | Not observed in the 320i PT-CAN log";
+CM_ SG_ 1449 S5A9_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x74), meaning unknown";
+CM_ BO_ 1494 "320i log: 8 frames, DLC 8 | cycle time source: 320i log (estimated)";
+CM_ BO_ 1504 "E65 message list: 'Dienste' from Kombi | 320i log: 15 frames, DLC 8, undefined bits changing: [8, 20, 21, 22, 23, 24, 25, 27, 29, 31, 40, 43, 44, 45, 47, 48, 49, 50, 51, 52, 53, 54, 55] | cycle time source: 320i log (estimated)";
+CM_ BO_ 1522 "E65 message list: 'Dienste' from KBM | 320i log: 17 frames, DLC 8, undefined bits changing: [8, 9, 11, 12] | cycle time source: 320i log (estimated)";
+CM_ BO_ 1577 "MK60E5 FW 7846816A (M3): DSC TX, event | Not observed in the 320i PT-CAN log";
+CM_ SG_ 1577 S629_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x76), meaning unknown";
+CM_ BO_ 1777 "MK60E5 FW 7846816A (M3): DSC RX | Not observed in the 320i PT-CAN log";
+CM_ SG_ 1777 S6F1_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xDA), meaning unknown";
+CM_ BO_ 1943 "MK60E5 FW 7846816A (M3): DSC RX | Not observed in the 320i PT-CAN log";
+CM_ SG_ 1943 S797_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x9A), meaning unknown";
+CM_ BO_ 1944 "MK60E5 FW 7846816A (M3): DSC TX, event | Not observed in the 320i PT-CAN log";
+CM_ BO_ 2015 "ISO 15765-4 functional request (320i log)";
+CM_ BO_ 2024 "ISO 15765-4 mode 01 response, multiplexed by PID (PIDs seen in 320i log)";
+CM_ SG_ 2024 EngineSpeed "matches 0x0AA EngineSpeed within 1.5 rpm (320i log)";
+CM_ BO_ 2028 "ISO 15765-4 mode 01 response, multiplexed by PID (PIDs seen in 320i log)";
+CM_ SG_ 2028 EngineSpeed "matches 0x0AA EngineSpeed within 1.5 rpm (320i log)";
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_ "GenMsgSendType" ENUM "Cyclic","Event";
+BA_DEF_ "BusType" STRING ;
+BA_DEF_ "DBName" STRING ;
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+BA_DEF_DEF_ "GenMsgSendType" "Event";
+BA_DEF_DEF_ "BusType" "CAN";
+BA_DEF_DEF_ "DBName" "";
+BA_ "BusType" "CAN";
+BA_ "DBName" "BMW_E9x_PT_CAN";
+BA_ "GenMsgCycleTime" BO_ 168 10;
+BA_ "GenMsgSendType" BO_ 168 0;
+BA_ "GenMsgCycleTime" BO_ 169 20;
+BA_ "GenMsgSendType" BO_ 169 0;
+BA_ "GenMsgCycleTime" BO_ 170 10;
+BA_ "GenMsgSendType" BO_ 170 0;
+BA_ "GenMsgCycleTime" BO_ 172 20;
+BA_ "GenMsgSendType" BO_ 172 0;
+BA_ "GenMsgCycleTime" BO_ 180 20;
+BA_ "GenMsgSendType" BO_ 180 0;
+BA_ "GenMsgCycleTime" BO_ 181 10;
+BA_ "GenMsgSendType" BO_ 181 0;
+BA_ "GenMsgCycleTime" BO_ 182 20;
+BA_ "GenMsgSendType" BO_ 182 0;
+BA_ "GenMsgCycleTime" BO_ 183 20;
+BA_ "GenMsgSendType" BO_ 183 0;
+BA_ "GenMsgCycleTime" BO_ 184 10;
+BA_ "GenMsgSendType" BO_ 184 0;
+BA_ "GenMsgCycleTime" BO_ 185 20;
+BA_ "GenMsgSendType" BO_ 185 0;
+BA_ "GenMsgCycleTime" BO_ 186 20;
+BA_ "GenMsgSendType" BO_ 186 0;
+BA_ "GenMsgCycleTime" BO_ 191 20;
+BA_ "GenMsgSendType" BO_ 191 0;
+BA_ "GenMsgCycleTime" BO_ 196 10;
+BA_ "GenMsgSendType" BO_ 196 0;
+BA_ "GenMsgCycleTime" BO_ 200 500;
+BA_ "GenMsgSendType" BO_ 200 0;
+BA_ "GenMsgCycleTime" BO_ 206 20;
+BA_ "GenMsgSendType" BO_ 206 0;
+BA_ "GenMsgCycleTime" BO_ 213 20;
+BA_ "GenMsgSendType" BO_ 213 0;
+BA_ "GenMsgCycleTime" BO_ 225 20;
+BA_ "GenMsgSendType" BO_ 225 0;
+BA_ "GenMsgCycleTime" BO_ 304 100;
+BA_ "GenMsgSendType" BO_ 304 0;
+BA_ "GenMsgCycleTime" BO_ 309 10000;
+BA_ "GenMsgSendType" BO_ 309 0;
+BA_ "GenMsgCycleTime" BO_ 336 20;
+BA_ "GenMsgSendType" BO_ 336 0;
+BA_ "GenMsgCycleTime" BO_ 339 20;
+BA_ "GenMsgSendType" BO_ 339 0;
+BA_ "GenMsgCycleTime" BO_ 345 100;
+BA_ "GenMsgSendType" BO_ 345 0;
+BA_ "GenMsgCycleTime" BO_ 348 100;
+BA_ "GenMsgSendType" BO_ 348 0;
+BA_ "GenMsgCycleTime" BO_ 373 100;
+BA_ "GenMsgSendType" BO_ 373 0;
+BA_ "GenMsgCycleTime" BO_ 400 100;
+BA_ "GenMsgSendType" BO_ 400 0;
+BA_ "GenMsgCycleTime" BO_ 402 30;
+BA_ "GenMsgSendType" BO_ 402 0;
+BA_ "GenMsgCycleTime" BO_ 403 200;
+BA_ "GenMsgSendType" BO_ 403 0;
+BA_ "GenMsgCycleTime" BO_ 404 200;
+BA_ "GenMsgSendType" BO_ 404 0;
+BA_ "GenMsgCycleTime" BO_ 414 20;
+BA_ "GenMsgSendType" BO_ 414 0;
+BA_ "GenMsgCycleTime" BO_ 416 20;
+BA_ "GenMsgSendType" BO_ 416 0;
+BA_ "GenMsgCycleTime" BO_ 418 20;
+BA_ "GenMsgSendType" BO_ 418 0;
+BA_ "GenMsgCycleTime" BO_ 419 20;
+BA_ "GenMsgSendType" BO_ 419 0;
+BA_ "GenMsgCycleTime" BO_ 422 100;
+BA_ "GenMsgSendType" BO_ 422 0;
+BA_ "GenMsgCycleTime" BO_ 428 20;
+BA_ "GenMsgSendType" BO_ 428 0;
+BA_ "GenMsgCycleTime" BO_ 436 100;
+BA_ "GenMsgSendType" BO_ 436 0;
+BA_ "GenMsgCycleTime" BO_ 437 1000;
+BA_ "GenMsgSendType" BO_ 437 0;
+BA_ "GenMsgCycleTime" BO_ 438 1000;
+BA_ "GenMsgSendType" BO_ 438 0;
+BA_ "GenMsgCycleTime" BO_ 464 100;
+BA_ "GenMsgSendType" BO_ 464 0;
+BA_ "GenMsgCycleTime" BO_ 466 200;
+BA_ "GenMsgSendType" BO_ 466 0;
+BA_ "GenMsgCycleTime" BO_ 470 1000;
+BA_ "GenMsgSendType" BO_ 470 0;
+BA_ "GenMsgCycleTime" BO_ 481 200;
+BA_ "GenMsgSendType" BO_ 481 0;
+BA_ "GenMsgCycleTime" BO_ 512 200;
+BA_ "GenMsgSendType" BO_ 512 0;
+BA_ "GenMsgCycleTime" BO_ 514 5000;
+BA_ "GenMsgSendType" BO_ 514 0;
+BA_ "GenMsgCycleTime" BO_ 538 5000;
+BA_ "GenMsgSendType" BO_ 538 0;
+BA_ "GenMsgCycleTime" BO_ 550 10000;
+BA_ "GenMsgSendType" BO_ 550 0;
+BA_ "GenMsgCycleTime" BO_ 578 10000;
+BA_ "GenMsgSendType" BO_ 578 0;
+BA_ "GenMsgCycleTime" BO_ 678 1000;
+BA_ "GenMsgSendType" BO_ 678 0;
+BA_ "GenMsgCycleTime" BO_ 690 20;
+BA_ "GenMsgSendType" BO_ 690 0;
+BA_ "GenMsgCycleTime" BO_ 691 50;
+BA_ "GenMsgSendType" BO_ 691 0;
+BA_ "GenMsgCycleTime" BO_ 740 5000;
+BA_ "GenMsgSendType" BO_ 740 0;
+BA_ "GenMsgCycleTime" BO_ 753 1000;
+BA_ "GenMsgSendType" BO_ 753 0;
+BA_ "GenMsgCycleTime" BO_ 755 200;
+BA_ "GenMsgSendType" BO_ 755 0;
+BA_ "GenMsgCycleTime" BO_ 758 5000;
+BA_ "GenMsgSendType" BO_ 758 0;
+BA_ "GenMsgCycleTime" BO_ 760 15000;
+BA_ "GenMsgSendType" BO_ 760 0;
+BA_ "GenMsgCycleTime" BO_ 762 5000;
+BA_ "GenMsgSendType" BO_ 762 0;
+BA_ "GenMsgCycleTime" BO_ 764 100;
+BA_ "GenMsgSendType" BO_ 764 0;
+BA_ "GenMsgCycleTime" BO_ 776 500;
+BA_ "GenMsgSendType" BO_ 776 0;
+BA_ "GenMsgCycleTime" BO_ 784 1000;
+BA_ "GenMsgSendType" BO_ 784 0;
+BA_ "GenMsgCycleTime" BO_ 789 10000;
+BA_ "GenMsgSendType" BO_ 789 0;
+BA_ "GenMsgCycleTime" BO_ 816 10000;
+BA_ "GenMsgSendType" BO_ 816 0;
+BA_ "GenMsgCycleTime" BO_ 818 5000;
+BA_ "GenMsgSendType" BO_ 818 0;
+BA_ "GenMsgCycleTime" BO_ 820 1000;
+BA_ "GenMsgSendType" BO_ 820 0;
+BA_ "GenMsgCycleTime" BO_ 847 5000;
+BA_ "GenMsgSendType" BO_ 847 0;
+BA_ "GenMsgCycleTime" BO_ 884 1000;
+BA_ "GenMsgSendType" BO_ 884 0;
+BA_ "GenMsgCycleTime" BO_ 897 10000;
+BA_ "GenMsgSendType" BO_ 897 0;
+BA_ "GenMsgCycleTime" BO_ 904 100;
+BA_ "GenMsgSendType" BO_ 904 0;
+BA_ "GenMsgCycleTime" BO_ 944 1000;
+BA_ "GenMsgSendType" BO_ 944 0;
+BA_ "GenMsgCycleTime" BO_ 947 5000;
+BA_ "GenMsgSendType" BO_ 947 0;
+BA_ "GenMsgCycleTime" BO_ 948 5000;
+BA_ "GenMsgSendType" BO_ 948 0;
+BA_ "GenMsgCycleTime" BO_ 949 5000;
+BA_ "GenMsgSendType" BO_ 949 0;
+BA_ "GenMsgCycleTime" BO_ 1007 1000;
+BA_ "GenMsgSendType" BO_ 1007 0;
+BA_ "GenMsgCycleTime" BO_ 1152 500;
+BA_ "GenMsgSendType" BO_ 1152 0;
+BA_ "GenMsgCycleTime" BO_ 1170 100;
+BA_ "GenMsgSendType" BO_ 1170 0;
+BA_ "GenMsgCycleTime" BO_ 1176 500;
+BA_ "GenMsgSendType" BO_ 1176 0;
+BA_ "GenMsgCycleTime" BO_ 1180 500;
+BA_ "GenMsgSendType" BO_ 1180 0;
+BA_ "GenMsgCycleTime" BO_ 1185 500;
+BA_ "GenMsgSendType" BO_ 1185 0;
+BA_ "GenMsgCycleTime" BO_ 1193 500;
+BA_ "GenMsgSendType" BO_ 1193 0;
+BA_ "GenMsgCycleTime" BO_ 1408 10;
+BA_ "GenMsgSendType" BO_ 1408 0;
+BA_ "GenMsgCycleTime" BO_ 1426 5000;
+BA_ "GenMsgSendType" BO_ 1426 0;
+BA_ "GenMsgCycleTime" BO_ 1494 10000;
+BA_ "GenMsgSendType" BO_ 1494 0;
+BA_ "GenMsgCycleTime" BO_ 1504 500;
+BA_ "GenMsgSendType" BO_ 1504 0;
+BA_ "GenMsgCycleTime" BO_ 1522 40;
+BA_ "GenMsgSendType" BO_ 1522 0;
+VAL_ 168 ST_TORQ_AVL 0 "intervention request executed" 1 "intervention ignition request not executed" 2 "intervention injection request not executed" 3 "intervention ignition and injection request not executed" 15 "signal invalid" ;
+VAL_ 168 ST_DMEA_SWO 0 "no error" 1 "shutdown because of error" ;
+VAL_ 169 ST_SW_LEV_RPM 0 "idle speed > the treshold value" 1 "idle speed < the treshold value" ;
+VAL_ 169 ST_INFS 0 "no action" 1 "thrust cutoff active" ;
+VAL_ 170 ANG_ACPD 0 "unpressed" 255 "pedal on the floor" ;
+VAL_ 170 RPM_ENG_ERR 0 "signal clear and correct" 1 "speed sensor defective" 3 "signal invalid" ;
+VAL_ 170 ST_IDLG_ENG 0 "idle" 1 "no idle" 3 "signal invalid" ;
+VAL_ 170 ST_CLCTR_V 0 "acc regulation, pedal not pressed" 1 "acc regulation, pedal pressed" 4 "cc regulation, retard" 5 "cc regulation, constant speed" 6 "cc regulation, recall" 7 "cc regulation, speed up" 8 "pedal not pressed" 9 "pedal pressed" 10 "pedal transgress" 11 "pedal kickdown" ;
+VAL_ 181 ST_TORQ_TAR_EGS 0 "no actual torque request" 1 "increase torque" 2 "decrease torque" 3 "signal invalid" ;
+VAL_ 181 ST_OTMP_GRB 0 "no requirement" 1 "cooling, stage 1" 2 "cooling, stage 2" 3 "signal invalid" ;
+VAL_ 182 TORQ_TAR_DSC -2048 "No request (raw 0x800)" ;
+VAL_ 182 TORQ_TAR_ADJR_POS_DSC -2048 "No request (raw 0x800)" ;
+VAL_ 182 ST_TORQ_TAR_DSC 0 "No Torque request" 1 "Increase Torque" 2 "Decrease Torque" 3 "Signal Invalid" ;
+VAL_ 183 ST_TORQ_TAR_ACC 0 "no actual torque request" 1 "increase torque" 2 "decrease torque" 3 "signal invalid" ;
+VAL_ 183 ST_ACC_SWO_SYS_DME 0 "reserved" 1 "system shutdown, error detected" 2 "system okay" 3 "signal invalid" ;
+VAL_ 183 ST_ACC_MOD_DME 0 "passive" 1 "standby" 2 "normal" 3 "reserved" 4 "brake active" 5 "driver has stepped over" 6 "reserved" 7 "signal invalid" ;
+VAL_ 186 ST_GR_GRB 0 "reserved" 1 "N" 2 "R" 3 "P" 4 "reserved" 5 "1. gear" 6 "2. gear" 7 "3. gear" 8 "4. gear" 9 "5. gear" 10 "6. gear" 15 "signal invalid" ;
+VAL_ 186 ST_CCLT 0 "disengaged" 1 "controlled" 2 "closed" 3 "signal invalid" ;
+VAL_ 186 GRDT_REIN 4095 "Invalid" ;
+VAL_ 309 CTR_CR_SWO_EKP 15 "Signal invalid" ;
+VAL_ 404 OP_PUBU_CCTR_ACC 0 "nothing to do" 1 "tap forward, set / accelerate" 2 "overpress forward, step higher" 4 "tap backward, retard" 8 "overpress backward, step lower" 16 "tap up/down, off" 64 "tap axial, resume" 127 "signal invalid" ;
+VAL_ 404 ABSTANDSWAHL_ACC 0 "Keine_Aktion" 1 "Tippen_nach_oben" 2 "Tippen_nach_unten" 3 "Signal_ungueltig" ;
+VAL_ 404 MODUS_WAHL_CC_CA 0 "Taster_Mode_Wahl_nicht_gedrueckt" 1 "Taster_Mode_Wahl_gedrueckt" 3 "Signal_ungueltig" ;
+VAL_ 408 ShifterPosition 1 "D" 2 "S" 3 "N" 4 "R" 5 "P" ;
+VAL_ 414 ST_CLCTR 0 "No Regulation" 1 "ABS Regulation" 2 "ASC Control" 4 "DSC Control" 8 "HBA Control" 16 "I&C Control" 32 "EBV control" 64 "Dyno mode active" 255 "Signal Invalid" ;
+VAL_ 414 ST_DSC 0 "OK" 1 "Passive" 2 "Defect" 3 "reserved" 4 "Traction Mode" 5 "ABS fault" 6 "Undervoltage" 7 "Signal Invalid" ;
+VAL_ 414 ST_DCRN_AVL 0 "No Requirement" 1 "requirement EMF accepted" 2 "Request EMF Accepted" 15 "Signal Invalid" ;
+VAL_ 416 ST_VEH_DVCO 0 "Vehicle Standing" 1 "Vehicle Moves Forward, FL/FR forward" 2 "Vehicle Moves Backward, FL/FR backward" 3 "Vehicle Moves, Direction Detection Not Possible" 7 "Signal Invalid" ;
+VAL_ 436 ST_UN_V_SPDM 0 "km/h" 1 "mph" 3 "signal invalid" ;
+VAL_ 436 ST_INTF_CCTRA_KL 0 "okay" 1 "error in kombi" 2 "error in acc module" 4 "error in cruise control" ;
+VAL_ 436 ST_WALI_ENG 0 "off" 1 "yellow on" 3 "signal invalid" ;
+VAL_ 437 CTR_EFAN_AIC 0 "0" 14 "14" 15 "signal invalid" ;
+VAL_ 437 CTR_AIC_RDI 0 "readyness switch off" 1 "readyness switch on" 2 "readyness switch on, rotation speed increase level 1" 4 "readyness switch on, rotation speed increase level 2" 7 "signal invalid" ;
+VAL_ 438 ST_GEN 0 "OK" 1 "in high temperature limitation" 2 "defect" 3 "signal invalid" ;
+VAL_ 438 ST_LDST_GEN 0 "0% < utilization rate < 50%" 1 "50% < utilization rate < 100%" 2 "utilization rate = 100%" 3 "signal invalid" ;
+VAL_ 464 ST_ENG_RUN 0 "engine off" 1 "engine starting" 2 "engine running" 3 "signal invalid" ;
+VAL_ 464 ST_SW_WAUP 0 "warming up" 1 "engine warm" 2 "EGS forced switching active" 3 "signal invalid" ;
+VAL_ 464 CTR_SLCK 0 "not allowed" 1 "no requirement Shiftlock" 2 "requirement Shiftlock" 3 "signal invalid" ;
+VAL_ 466 ShiftLeverPosition 0 "Off" 1 "P" 2 "R" 4 "N" 8 "D" ;
+VAL_ 466 ShiftLeverMode 0 "Normal" 1 "Sport" 2 "Manual" ;
+VAL_ 470 TASTER_TELEFON 0 "Keine_Aktion" 1 "Taster_TEL_gedrueckt" 3 "Signal_ungueltig" ;
+VAL_ 470 TASTER_AUDIO_LAUTSTAERKE 0 "Keine_Aktion" 1 "Lautstaerke_leiser" 2 "Lautstaerke_lauter" 3 "Signal_ungueltig" ;
+VAL_ 470 TASTER_AUDIO_SUCHLAUF 0 "Keine_Aktion" 1 "Suchlauf_abwaerts" 2 "Suchlauf_aufwaerts" 3 "Signal_ungueltig" ;
+VAL_ 470 TASTER_PUSH_TO_TALK 0 "Keine_Aktion" 1 "Taster_PTT_gedrueckt" 3 "Signal_ungueltig" ;
+VAL_ 470 TASTER_SONDERFUNKTION 0 "Keine_Aktion" 1 "Taster_gedrueckt" 3 "Signal_ungueltig" ;
+VAL_ 470 TASTER_PUSH_TO_HEAR 0 "Keine_Aktion" 1 "Taster_PTH_gedrueckt" 3 "Signal_ungueltig" ;
+VAL_ 512 ST_V_CLCTR_CCTR 0 "cruise control off" 1 "cruise control inactive" 2 "cruise control active" ;
+VAL_ 512 CTR_DISP_CCTR 0 "markers off" 1 "markers on" ;
+VAL_ 514 DimmerPosition 0 "Below minimum" 28 "Step 1 (min)" 56 "Step 2" 84 "Step 3" 112 "Step 4" 141 "Step 5" 169 "Step 6" 197 "Step 7" 225 "Step 8" 253 "Step 9 (max)" 254 "No dimming, interior lighting inactive" ;
+VAL_ 678 WISCHERTASTER 0 "Keine_Aktion" 1 "Intervall/Automatik" 2 "Stufe_1" 3 "Stufe_2" 8 "Tippwischen" 16 "Frontwaschen" 64 "Heckwischen" 128 "Heckwaschen" 255 "Signal_ungueltig" ;
+VAL_ 678 WISCHERPOTI 0 "Stufe_1" 1 "Stufe_2" 2 "Stufe_3" 4 "Stufe_4" 7 "Signal_ungueltig" ;
+VAL_ 704 CID_Brightness 255 "Invalid" ;
+VAL_ 740 ST_TRAI 3 "Signal invalid" ;
+VAL_ 760 DISP_HR 255 "Signal invalid" ;
+VAL_ 760 DISP_MN 255 "Signal invalid" ;
+VAL_ 760 DISP_SEC 255 "Signal invalid" ;
+VAL_ 760 DISP_DATE_DAY 255 "Signal invalid" ;
+VAL_ 760 DISP_DATE_WDAY 255 "Signal invalid" ;
+VAL_ 760 DISP_DATE_MON 15 "Signal invalid" ;
+VAL_ 760 DISP_DATE_YR 65535 "Signal invalid" ;
+VAL_ 760 ST_DISP_CTI_DATE 15 "Signal invalid" ;
+VAL_ 764 ST_DSW_DRD 3 "Signal invalid" ;
+VAL_ 764 ST_CT_BON 3 "Signal invalid" ;
+VAL_ 789 VehicleMode 1 "Comfort" 2 "Sport" 10 "M Sport" ;
+VAL_ 790 S316_b0 0 "Not pressed" 1 "Pressed" ;
+VAL_ 793 S319_b0 0 "Not pressed" 1 "Pressed" ;
+VAL_ 797 S31D_b0 0 "Active" 1 "Failure" 3 "Reset / initialisation" ;
+VAL_ 816 MILE_KM 16777215 "Signal invalid" ;
+VAL_ 816 FLLV_FUTA 255 "Signal invalid" ;
+VAL_ 816 FLLV_FUTA_LH 255 "Signal invalid" ;
+VAL_ 816 FLLV_FUTA_RH 255 "Signal invalid" ;
+VAL_ 816 ST_FLLV_FUTA_SPAR 3 "Signal invalid" ;
+VAL_ 816 RNG 4095 "Signal invalid" ;
+VAL_ 820 RPM_IDLG_SPEC 0 "no requirement on idle RPM" 1 "increase idle RPM required" 3 "signal invalid" ;
+VAL_ 847 Handbrake_push 1 "Released" 2 "Applied" ;
+VAL_ 896 NO_VECH_1 255 "Signal invalid" ;
+VAL_ 896 NO_VECH_2 255 "Signal invalid" ;
+VAL_ 896 NO_VECH_3 255 "Signal invalid" ;
+VAL_ 896 NO_VECH_4 255 "Signal invalid" ;
+VAL_ 896 NO_VECH_5 255 "Signal invalid" ;
+VAL_ 896 NO_VECH_6 255 "Signal invalid" ;
+VAL_ 896 NO_VECH_7 255 "Signal invalid" ;
+VAL_ 897 FLLV_EOI 121 "Signal invalid" ;
+VAL_ 897 RECM_RFLV_EOI 0 "Signal invalid" ;
+VAL_ 904 TYP_VEH 255 "Signal invalid" ;
+VAL_ 904 TYP_BODY 255 "Signal invalid" ;
+VAL_ 904 QUAN_GR 15 "Signal invalid" ;
+VAL_ 904 TYP_ENG 4 "gasoline" ;
+VAL_ 904 TYP_STE 1 "lhd" 2 "rhd" ;
+VAL_ 904 TYP_GRB 1 "manual" 2 "automatic" ;
+VAL_ 904 CLAS_PWR 3 "Signal invalid" ;
+VAL_ 920 S398_b10 0 "DSC on" 1 "DSC off" 4 "DTC / M Dynamic Mode" ;
+VAL_ 921 S399_b8 1 "M-Drive inactive" 2 "M-Drive active" ;
+VAL_ 921 S399_b10 0 "Unchanged" 1 "DSC off" 2 "DSC on" 4 "M Dynamic Mode" ;
+VAL_ 944 S3B0_b0 1 "Reverse not engaged" 2 "Reverse engaged" ;
+VAL_ 947 SLCTN_SPCOS 15 "Signal invalid" ;
+VAL_ 947 CTR_PWR_SPCOS 255 "Signal invalid" ;
+VAL_ 947 CTR_PWR_COS 65535 "Signal invalid" ;
+VAL_ 947 CTR_CBR 255 "Signal invalid" ;
+VAL_ 947 RQ_PCOS 3 "Signal invalid" ;
+VAL_ 947 CTR_PCOS 3 "Signal invalid" ;
+VAL_ 948 ST_BTSW 0 "battery switch closed" 1 "battery switch opens in 5s" 2 "signal invalid" ;
+VAL_ 948 ST_SWO_KL_30 0 "reserved" 1 "no shutdown by PM done" 2 "shutdown by PM done" 3 "signal invalid" ;
+VAL_ 958 FLLUPT_GPWSUP 4095 "Signal invalid" ;
