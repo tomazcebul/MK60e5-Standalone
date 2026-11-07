@@ -467,7 +467,7 @@ BO_ 789 Vehicle_mode: 2 SZM
  SG_ Counter_315 : 4|4@1+ (1,0) [0|15] "" DME
  SG_ VehicleMode : 8|4@1+ (1,0) [0|15] "" DME
 
-BO_ 790 OperationPushButtonDTC: 2 JBBF
+BO_ 790 OperationPushButtonDSC: 2 JBBF
  SG_ S316_b0 : 0|2@1+ (1,0) [0|3] "" DSC
  SG_ setMe_0x3FFF : 2|14@1+ (1,0) [0|63] "" DSC
 
@@ -1016,8 +1016,8 @@ CM_ BO_ 789 "MEVD17.2 BN2000: 'Fahrzeugmodus', sender SZM, DME receives, cycle 1
 CM_ SG_ 789 S315_b0 "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x315 trace EDC.txt): changes with the counter and the mode; probably a checksum";
 CM_ SG_ 789 Counter_315 "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x315 trace EDC.txt): +1 per message";
 CM_ SG_ 789 VehicleMode "superwofy/E9X-M-CAN-Integration-Module notes (MIT) (0x315 trace EDC.txt): EDC button / vehicle mode (JBBF); same content on PT-CAN and K-CAN";
-CM_ BO_ 790 "MK60E5 FW 7846816A (M3): DSC RX | Not observed in the 320i PT-CAN log";
-CM_ SG_ 790 S316_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xD9), meaning unknown | community DBC flags here: bit 0 = DTC_pressed | superwofy/E9X-M-CAN-Integration-Module notes (MIT): DSC/DTC button: byte 0 = 0xFC released, 0xFD pressed (sent every 100 ms while held); byte 1 = 0xFF";
+CM_ BO_ 790 "MK60E5 FW 7846816A (M3): DSC RX | BMW name 'Bedienung Taster DSC' (SPdaten JBBF70.prg CAN ID table; DSC_87.prg result STAT_DSC_TASTER_EIN): the DSC OFF button, short press = DTC (M3: M Dynamic Mode), hold = DSC off. Community DBC name: OperationPushButtonDTC | Not observed in the 320i PT-CAN log";
+CM_ SG_ 790 S316_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xD9), meaning unknown | community DBC flags here: bit 0 = DTC_pressed | superwofy/E9X-M-CAN-Integration-Module notes (MIT): DSC button (DSC OFF): byte 0 = 0xFC released, 0xFD pressed (sent every 100 ms while held); byte 1 = 0xFF";
 CM_ SG_ 790 setMe_0x3FFF "All ones";
 CM_ BO_ 793 "MK60E5 FW 7846816A (M3): DSC RX | E65 message list: 'Bedienung Taster RDC' from SZM | Not observed in the 320i PT-CAN log";
 CM_ SG_ 793 S319_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x8A), meaning unknown | superwofy/E9X-M-CAN-Integration-Module notes (MIT): RPA (flat tyre monitor) reset button: byte 0 = 0xFC released, 0xFD pressed";

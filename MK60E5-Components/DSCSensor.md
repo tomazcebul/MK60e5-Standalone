@@ -32,11 +32,13 @@ BMW 34 52 6 781 575 (label "SENSORCLUSTER 03", ATE 10.1701-0384.3). BMW ETK list
 | Usage | 1 Series: E81, E82, E87, E87 Facelift, E88; 3 Series: E90, E91, E92, E93 |
 | Note | limited storage life |
 
+The photographed sensor has the 6-pin connector X61035, which the wiring diagrams show only up to 02/2006. That doesn't fit the ETK production date of this part number (from May 2007). Either the ETK date refers to when the part number was introduced as a replacement, or the photographed sensor is an earlier part. Read the part number on the sensor label again to confirm.
+
 ## Wiring
 
 ### Connector view
 
-Connector X61035, 6-pin (connector view E87_SX61035A).
+Connector X61035, 6-pin (connector view E87_SX61035A), used up to 02/2006. From 03/2006 the DSC sensor has the 4-pin connector X17432 ([see below](#second-connector-variant-x17432-4-pin)). The sensor photographed for this project has the 6-pin connector.
 
 ![DSC sensor connector X61035](../Pictures/DSCSensor-Connector.png)
 
@@ -57,12 +59,31 @@ Pin assignments at plug connector X61035 (DSC sensor B9801):
 
 Wire colours: SW black, RT red, WS white, BL blue, GE yellow.
 
+### Second connector variant: X17432 (4-pin)
+
+A second BMW wiring diagram shows the DSC sensor B9801 with the 4-pin connector **X17432** and a different pin order. It applies to sensors from 03/2006. The DSC side, the wires and the colours are the same as above.
+
+![DSC sensor connector X17432](../Pictures/DSCSensor-Connector-X17432.png)
+
+![DSC sensor wiring, connector X17432](../Pictures/DSCSensor-Wiring-X17432.png)
+
+| Signal | X61035 pin | X17432 pin | Cross-section | Wire colour | DSC X18303 pin |
+| :----- | :--------- | :--------- | :------------ | :---------- | :------------- |
+| CLUS_SP (supply) | 3 | 4 | 0.5 mm² | SW/RT/WS | 39 |
+| CLUS_GND (ground) | 5 | 1 | 0.5 mm² | BL/WS/GE | 27 |
+| F_CAN_H | 2 | 3 | 0.35 mm² | WS/GE | 11 |
+| F_CAN_L | 1 | 2 | 0.35 mm² | WS/BL | 26 |
+
+In this diagram the F-CAN wires between the splices and the junction box also pass through the in-line connectors X14023 (F_CAN_H) and X14024 (F_CAN_L).
+
+Check the connector on your sensor before wiring: X61035 (up to 02/2006) has 6 pin positions, X17432 (from 03/2006) has 4.
+
 In the car the junction box (A4010a) links this F-CAN segment to the steering column switch cluster (SZL, A72):
 
 | Signal | DSC sensor / DSC splice | Junction box in | Junction box out | SZL X1880 |
 |---|---|---|---|---|
-| F_CAN_H (WS/GE) | X13722 | X14271 pin 21 | X14272 pin 34 | pin 12 |
-| F_CAN_L (WS/BL) | X13723 | X14271 pin 3 | X14272 pin 17 | pin 6 |
+| F_CAN_H (WS/GE) | X13722 (X17432 variant: via X14023) | X14271 pin 21 | X14272 pin 34 | pin 12 |
+| F_CAN_L (WS/BL) | X13723 (X17432 variant: via X14024) | X14271 pin 3 | X14272 pin 17 | pin 6 |
 
 ## Wiring for standalone operation
 
@@ -70,8 +91,8 @@ These points follow from the wiring diagram. They have not been bench-tested.
 
 * **Power:** the sensor needs no separate supply. It is powered and grounded by the DSC (pins 39 and 27).
 * **F-CAN:** without the junction box, connect the three F-CAN nodes directly with a twisted pair:
-  * F_CAN_H: DSC pin 11, DSC sensor pin 2, SZL X1880 pin 12
-  * F_CAN_L: DSC pin 26, DSC sensor pin 1, SZL X1880 pin 6
+  * F_CAN_H: DSC pin 11, DSC sensor pin 2 (X17432: pin 3), SZL X1880 pin 12
+  * F_CAN_L: DSC pin 26, DSC sensor pin 1 (X17432: pin 2), SZL X1880 pin 6
 * **Termination:** the diagram doesn't show where the F-CAN terminating resistors are. With all nodes connected and unpowered, measure the resistance between F_CAN_H and F_CAN_L: about 60 Ω means both terminations are present, about 120 Ω means one is missing, and open circuit means none. Add 120 Ω at a bus end for each missing one.
 
 The DSC unit side of the wiring is described in [DSC unit](DSCUnit.md#pin-functions).

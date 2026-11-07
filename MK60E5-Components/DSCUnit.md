@@ -94,7 +94,7 @@ Pin assignments at plug connector X18303 (E87/E9x). Type: E = input, A = output,
 
 ## Pin functions
 
-The table below groups the pins by function. It comes from the TIS E9x pinout ("DSC unit" / "A65a"); the 2009 M3 Prodemand sheet agrees for these pins. It also tells which pin of each wheel sensor and brake pad wear sensor pair is the supply and which is the signal.
+The table below groups the pins by function. It comes from the TIS E9x pinout ("DSC unit" / "A65a"). The BMW pinout "A65a Dynamic stability control (DSC)" for the MK60E5 variants dsc_85 and dsc_87 agrees for every pin, and lists pins 2, 6, 7, 10, 13, 18–20, 22–24, 28, 31, 35, 41 and 44 as not used. The 2009 M3 Prodemand sheet agrees too. The Bosch DSC 8 Plus of all-wheel-drive cars (dxc_70, dxc_90) has a different pinout. The table also tells which pin of each wheel sensor and brake pad wear sensor pair is the supply and which is the signal.
 
 | Pin | Function | Pin | Function |
 |---|---|---|---|
@@ -106,7 +106,7 @@ The table below groups the pins by function. It comes from the TIS E9x pinout ("
 | 3 | brake-fluid level switch (low fluid → DSC off) | 38 | parking-brake warning switch (no regulation during a handbrake turn; disables the start-off assistant) |
 | 45 / 46 | wheel sensor FL supply / signal | 34 / 33 | wheel sensor FR supply / signal |
 | 36 / 37 | wheel sensor RL supply / signal | 43 / 42 | wheel sensor RR supply / signal |
-| 5 / 9 | brake pad wear FL supply / signal | 40 / 21 | brake pad wear RR supply / signal |
+| 5 / 9 | brake pad wear front axle output / input (front left and, if fitted, front right in series) | 40 / 21 | brake pad wear rear (RR) output / input |
 | 8 | wheel-speed output RR → DME/DDE | 14 | wheel-speed output FL → M-ASK/CCC (US without nav: TCU) |
 | 12 | wheel-speed output FR → TCU (US without nav only) | 25 | speed output → CAS (steering lock) |
 
@@ -125,10 +125,10 @@ The E85/E86 (Z4) uses the same connector with some pins assigned differently (TI
 | 14 | wheel-speed output FL → TCU (US without nav only) | wheel-speed output FL → M-ASK/CCC (US without nav: TCU) |
 | 17 | terminal 30 | terminal 30g, active |
 | 29 | terminal 15 | terminal 15 wake-up wire |
-| 41 | DTC button in the SZM, input | not used |
+| 41 | DSC button input (TIS: "DTC button in the SZM", E85/E86 only) | not used |
 | 44 | ABS indicator and warning light in the instrument cluster, output | not used |
 
-On the E87/E9x the DTC and RPA buttons and the warning lights are not wired to the DSC; they are exchanged over PT-CAN.
+On the E87/E9x the DSC and RPA buttons and the warning lights are not wired to the DSC; they are exchanged over PT-CAN. The DSC button is described in [DSC button](DSCButton.md).
 
 ## Wiring for standalone operation
 
@@ -141,7 +141,7 @@ These points follow from the TIS wiring and the DSC firmware. They have not been
 * **DSC sensor:** powered and grounded by the DSC (pins 39/27); see [DSC sensor](DSCSensor.md#wiring).
 * **Wheel speed sensors:** two-wire active sensors, supplied by the DSC; see [Wheel speed sensors](WheelSpeedSensors.md).
 * **Switches:** brake light switch (pin 4), brake-fluid level switch (pin 3) and parking-brake warning switch (pin 38). A low brake-fluid level switches DSC off; the parking-brake switch blocks regulation during a handbrake turn and disables the start-off assistant.
-* **Optional outputs:** brake pad wear sensors (pins 5/9, 40/21) and the wheel-speed outputs (pins 8, 12, 14, 25) can stay unconnected if nothing uses them. Missing pad wear sensors may set a fault (not tested).
+* **Optional outputs:** brake pad wear sensors (pins 5/9, 40/21; see [Brake pad wear sensors](BrakePadWearSensors.md)) and the wheel-speed outputs (pins 8, 12, 14, 25) can stay unconnected if nothing uses them. Missing pad wear sensors may set a fault (not tested).
 
 The CAN content and the frames that must be emulated are described in [MK60E5 CAN interface](../MK60E5-CAN/MK60E5_DSC–CAN-Interface.md#practical-notes-for-standalone-operation-inference).
 

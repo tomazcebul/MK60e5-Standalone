@@ -264,7 +264,7 @@ BO_ 784 AmbientTemperature_RelativeTime: 7 KOMBI
  SG_ T_SEC_COU_REL : 8|32@1+ (1,0) [0|4294967295] "" DME,DSC
  SG_ T_DAY_COU_ABSL : 40|16@1+ (1,0) [0|65535] "" DME,DSC
 
-BO_ 790 OperationPushButtonDTC: 2 JBBF
+BO_ 790 OperationPushButtonDSC: 2 JBBF
  SG_ S316_b0 : 0|2@1+ (1,0) [0|3] "" DSC
  SG_ setMe_0x3FFF : 2|14@1+ (1,0) [0|63] "" DSC
 
@@ -569,8 +569,8 @@ CM_ BO_ 784 "MK60E5 FW 7846816A (M3): DSC RX | MEVD17.2 BN2000: 'Aussentemperatu
 CM_ SG_ 784 TEMP_EXT "MK60E5 FW 7846816A (M3) signal (internal var 0x07), meaning unknown | previous name (firmware field): S310_b0 | BMW name TEMP_EXT (outside temperature in °C) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1)";
 CM_ SG_ 784 T_SEC_COU_REL "BMW name T_SEC_COU_REL (not used anymore) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); replaces S310_b8 8|1 (community DBC ranks below E65)";
 CM_ SG_ 784 T_DAY_COU_ABSL "BMW name T_DAY_COU_ABSL (day counter absolute) - E65 doc (HeinrichG-V12/E65_ReverseEngineering, Bosch MED9.2.1); E65 definition, not yet verified on E9x";
-CM_ BO_ 790 "MK60E5 FW 7846816A (M3): DSC RX | Not observed in the 320i PT-CAN log";
-CM_ SG_ 790 S316_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xD9), meaning unknown | community DBC flags here: bit 0 = DTC_pressed | superwofy/E9X-M-CAN-Integration-Module notes (MIT): DSC/DTC button: byte 0 = 0xFC released, 0xFD pressed (sent every 100 ms while held); byte 1 = 0xFF";
+CM_ BO_ 790 "MK60E5 FW 7846816A (M3): DSC RX | BMW name 'Bedienung Taster DSC' (SPdaten JBBF70.prg CAN ID table; DSC_87.prg result STAT_DSC_TASTER_EIN): the DSC OFF button, short press = DTC (M3: M Dynamic Mode), hold = DSC off. Community DBC name: OperationPushButtonDTC | Not observed in the 320i PT-CAN log";
+CM_ SG_ 790 S316_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0xD9), meaning unknown | community DBC flags here: bit 0 = DTC_pressed | superwofy/E9X-M-CAN-Integration-Module notes (MIT): DSC button (DSC OFF): byte 0 = 0xFC released, 0xFD pressed (sent every 100 ms while held); byte 1 = 0xFF";
 CM_ SG_ 790 setMe_0x3FFF "All ones";
 CM_ BO_ 793 "MK60E5 FW 7846816A (M3): DSC RX | E65 message list: 'Bedienung Taster RDC' from SZM | Not observed in the 320i PT-CAN log";
 CM_ SG_ 793 S319_b0 "MK60E5 FW 7846816A (M3) signal (internal var 0x8A), meaning unknown | superwofy/E9X-M-CAN-Integration-Module notes (MIT): RPA (flat tyre monitor) reset button: byte 0 = 0xFC released, 0xFD pressed";

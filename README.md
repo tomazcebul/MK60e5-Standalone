@@ -87,11 +87,15 @@ The SZL used in this project (photos in [Components/SZL](Components/SZL)) is BMW
 - clock spring BMW 6 989 557-02 (Kostal 04308135-03)
 - stalk modules 01 3081 50, 01 1081 60, 01 2081 95
 
-## DTC Button
+## DSC Button
 
-On the E87 and E9x the DTC button is not wired to the DSC. The junction box (JBE) reads the button and sends it to the DSC on PT-CAN in frame 0x316: byte 0 = 0xFC when released and 0xFD while pressed (repeated every 100 ms while held), byte 1 = 0xFF. A short press selects DTC; holding the button switches DSC off. On the E85/E86 the button is wired to DSC pin 41 instead.
+There is one button, labelled "DSC OFF". BMW calls it the DSC button ("Taster DSC"; SPdaten JBBF70: frame 0x316 "Bedienung Taster DSC", DSC SGBD result `STAT_DSC_TASTER_EIN`). A short press selects DTC (M3 software: M Dynamic Mode); holding it for about 3 s switches DSC off. There is no separate DTC button.
 
-In a standalone installation the button has to be read by your own electronics and sent as frame 0x316. See [MK60E5 CAN interface](MK60E5-CAN/MK60E5_DSC–CAN-Interface.md#pt-can--frames-received-by-dsc).
+On the E87 and E9x the DSC button is not wired to the DSC. The junction box (JBE) reads the button and sends it to the DSC on PT-CAN in frame 0x316: byte 0 = 0xFC when released and 0xFD while pressed (repeated every 100 ms while held), byte 1 = 0xFF. On the E85/E86 the button is wired to DSC pin 41 instead.
+
+In a standalone installation the button has to be read by your own electronics and sent as frame 0x316. In the BMW pinout for dsc_85/dsc_87, pin 41 is "Not used", so the button is never wired to the DSC on the E9x. See [MK60E5 CAN interface](MK60E5-CAN/MK60E5_DSC–CAN-Interface.md#pt-can--frames-received-by-dsc).
+
+The following page describes additional technical information for [DSC button](MK60E5-Components/DSCButton.md)
 
 ## DSC system functions
 

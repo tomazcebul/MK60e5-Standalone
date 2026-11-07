@@ -33,7 +33,7 @@ Their connectors and wiring are in [MK60E5-Components](../MK60E5-Components).
 | `Shared/CAN-Logs/E92-320i` | Verification | Checksum algorithms (100 %), layout fixes, cycle times, senders, plausibility of every decoded value |
 | `Shared/CAN-Logs/E65` (two Vector ASC logs, E65 7 series, Bosch DSC57) | Verification (independent car) | Checksums, alive counters, DLC and cycle of shared PT-CAN frames hold BMW-wide; 0x194 checksum found. See [Cross-check with E65 logs](#cross-check-with-e65-pt-can-logs) |
 | `Shared/CAN-Logs/superwofy-E9X-M-CAN-Traces` (K-CAN traces of a 2011 E92 M3 DCT, from [superwofy/E9X-M-CAN-Integration-Module](https://github.com/superwofy/E9X-M-CAN-Integration-Module), MIT) | Verification (same DSC type as the primary firmware) | The JBE copies DSC and DME frames to K-CAN. Checksums, alive counters and bit coverage on an M3; first check of signals that change while moving (wheel speeds, direction, steering angle). See [Cross-check with the E92 M3 K-CAN trace](#cross-check-with-the-e92-m3-k-can-trace) |
-| superwofy frame notes (`E-series BN2000/*.txt`, same repository, MIT) | Secondary | Values of the DTC button 0x316, RPA button 0x319, FTM state 0x31D, handbrake 0x34F and traction-mode request 0x398; layout of the M-Drive button frame 0x1D9; signal layouts of about 35 K-CAN frames and of the network-management and Check Control service frames (see [BMW_E9x_K-CAN.md](./BMW_E9x_K-CAN.md)) |
+| superwofy frame notes (`E-series BN2000/*.txt`, same repository, MIT) | Secondary | Values of the DSC button 0x316, RPA button 0x319, FTM state 0x31D, handbrake 0x34F and traction-mode request 0x398; layout of the M-Drive button frame 0x1D9; signal layouts of about 35 K-CAN frames and of the network-management and Check Control service frames (see [BMW_E9x_K-CAN.md](./BMW_E9x_K-CAN.md)) |
 | `E89/E89/ecu/JBBF70.prg` (table `ZUORDNUNG_CAN_ID_SG`, 467 IDs) and `ACC2.prg` (table `CANID`), SPdaten | Reference (names) | BMW frame names and senders of the BN2000 CAN IDs; identifies 0x1D9 as "Bedienung Taster M-Drive" from the SZL. The K-CAN modules' SGBDs contain no CAN bit layouts (they read decoded values by local identifier) |
 | [HeinrichG-V12/E65_ReverseEngineering](https://github.com/HeinrichG-V12/E65_ReverseEngineering) (E65 PT-CAN, from a Bosch MED 9.2.1 document) | Secondary | BMW signal names, scaling and value tables for PT-CAN frames that the reference sources don't detail; sender list |
 | `NewTIS-Extracts/*.pdf` (BMW TIS: system overview, functional description, DSC sensor, SZL, wheel sensors, X18303 pinout) | Secondary | Bus topology (JBE gateway), purpose of several RX/TX frames, option 544 (DSC replaces LDM), redundant DSC sensor, connector pinout |
@@ -81,23 +81,23 @@ The extractor rebuilds the record's signal range from the chain. It then identif
 | [BMW_E9x_K-CAN_full.dbc](./BMW_E9x_K-CAN_full.dbc), [BMW_E9x_K-CAN.md](./BMW_E9x_K-CAN.md) | **K-CAN** (195 frames, 447 signals): the frames of the E92 M3 trace plus 10 K-CAN frames known only from the superwofy notes. Signals from the PT-CAN DBC (55 frames the JBE copies) and from the superwofy notes; names from SPdaten. See [K-CAN](#k-can) |
 | [MK60E5_PT-CAN_7846816A.dbc](./MK60E5_PT-CAN_7846816A.dbc) / [MK60E5_F-CAN_7846816A.dbc](./MK60E5_F-CAN_7846816A.dbc) | Same data, restricted to the frames the M3 DSC (7846816A) sends or receives (45 PT-CAN / 32 F-CAN frames) |
 | [BMW_E9x_full_DBC_report.md](./BMW_E9x_full_DBC_report.md) | Per-frame sources, every merge decision, firmware comparison 7846816A vs 6862873A, validation results |
-| `MK60E5_CAN_7846816A.json`, [MK60E5_PT-CAN_7846816A.md](./MK60E5_PT-CAN_7846816A.md), [MK60E5_F-CAN_7846816A.md](./MK60E5_F-CAN_7846816A.md) | Raw firmware tables of the M3 DSC (internal variable numbers, flags, status variables) with firmware names `S<ID>_b<startbit>_v<var>` |
-| `MK60E5_CAN_6862873A.json`, [MK60E5_PT-CAN_6862873A.md](./MK60E5_PT-CAN_6862873A.md), [MK60E5_F-CAN_6862873A.md](./MK60E5_F-CAN_6862873A.md) | Same for the 6-cylinder comparison firmware |
-| `mk60_can_extract.py` | Extracts the raw firmware tables (JSON/md) from any `.0pa`, incl. records damaged by hex-file gaps |
-| `build_full_dbc.py` | Merges all sources into the DBC files and the report |
-| `build_kcan_dbc.py` | Builds the K-CAN DBC and page from the E92 M3 trace and the PT-CAN DBC |
-| `mevd_can.py` | Parses the CAN message definitions of the MEVD17.2 function description (chapter 15.3) |
-| `e65_docs.py` | Downloads and parses the E65 PT-CAN documentation |
-| `bmw_checksum.py` | Checksum functions + log verifier |
-| `verify_against_log.py` | Cross-checks the raw firmware matrix (JSON) against a GVRET log, see [Validation](#validation-against-the-e92-320i-pt-can-log) |
-| `verify_e65_log.py`, `E65_log_crosscheck.md` | Cross-check of checksums, alive counters, DLC/cycle and DBC decoding against E65 Vector ASC logs |
-| `validate_sgbd_sim.py`, `SGBD_sim_validation.md` | Runs the original `DSC_87.prg` F-CAN jobs in EdiabasLib simulation and compares their results with the DBC (922/922), incl. 256-value truth tables of the two bit-flag bytes |
+| MK60E5_CAN_7846816A.json, [MK60E5_PT-CAN_7846816A.md](./MK60E5_PT-CAN_7846816A.md), [MK60E5_F-CAN_7846816A.md](./MK60E5_F-CAN_7846816A.md) | Raw firmware tables of the M3 DSC (internal variable numbers, flags, status variables) with firmware names `S<ID>_b<startbit>_v<var>` |
+| MK60E5_CAN_6862873A.json, [MK60E5_PT-CAN_6862873A.md](./MK60E5_PT-CAN_6862873A.md), [MK60E5_F-CAN_6862873A.md](./MK60E5_F-CAN_6862873A.md) | Same for the 6-cylinder comparison firmware |
+| mk60_can_extract.py | Extracts the raw firmware tables (JSON/md) from any `.0pa`, incl. records damaged by hex-file gaps |
+| build_full_dbc.py | Merges all sources into the DBC files and the report |
+| build_kcan_dbc.py | Builds the K-CAN DBC and page from the E92 M3 trace and the PT-CAN DBC |
+| mevd_can.py | Parses the CAN message definitions of the MEVD17.2 function description (chapter 15.3) |
+| e65_docs.py | Downloads and parses the E65 PT-CAN documentation |
+| bmw_checksum.py | Checksum functions + log verifier |
+| verify_against_log.py | Cross-checks the raw firmware matrix (JSON) against a GVRET log, see [Validation](#validation-against-the-e92-320i-pt-can-log) |
+| verify_e65_log.py, E65_log_crosscheck.md | Cross-check of checksums, alive counters, DLC/cycle and DBC decoding against E65 Vector ASC logs |
+| validate_sgbd_sim.py, SGBD_sim_validation.md | Runs the original `DSC_87.prg` F-CAN jobs in EdiabasLib simulation and compares their results with the DBC (922/922), incl. 256-value truth tables of the two bit-flag bytes |
 | [MK60E5_coding.md](./MK60E5_coding.md) | Decoded NCS coding data of the M3 (`MK60_M3.C08`) and 6-cylinder (`MK60_87.C0F`) DSC: every parameter with address, mask, values and the option rules that select them |
-| `DSC_87_tables.md` | Value tables of the SGBD `DSC_87.prg` |
-| `DSC_87_jobs.md` | All 121 SGBD jobs: request telegram (disassembled), job comment, INPA screens/results; CAN fields evidenced by the F-CAN status jobs |
-| `DSC_87_FORTTEXTE_EN.csv` | English DTC texts (`EDIABAS/EnglishEcu/DSC_87.prg`) |
-| `ncs_decode.py` | Decoder for NCS Expert data files (coding files, keyword tables, CVT, SGET); writes `MK60E5_coding.md` |
-| `prg_decode.py` | Reads an EDIABAS SGBD (`.prg`): tables, jobs, job documentation, BEST/2 disassembler (Python port of BESTDIS), response-field analysis; writes `DSC_87_tables.md`, `DSC_87_jobs.md` and the DTC CSVs |
+| DSC_87_tables.md | Value tables of the SGBD `DSC_87.prg` |
+| DSC_87_jobs.md | All 121 SGBD jobs: request telegram (disassembled), job comment, INPA screens/results; CAN fields evidenced by the F-CAN status jobs |
+| DSC_87_FORTTEXTE_EN.csv | English DTC texts (`EDIABAS/EnglishEcu/DSC_87.prg`) |
+| ncs_decode.py | Decoder for NCS Expert data files (coding files, keyword tables, CVT, SGET); writes `MK60E5_coding.md` |
+| prg_decode.py | Reads an EDIABAS SGBD (`.prg`): tables, jobs, job documentation, BEST/2 disassembler (Python port of BESTDIS), response-field analysis; writes `DSC_87_tables.md`, `DSC_87_jobs.md` and the DTC CSVs |
 
 Signal names come from the MEVD17.2 function description or the E65 documentation (BMW names), then from the community DBC.
 Fields that no source names keep the firmware name `S<ID>_b<startbit>`; their position and length are known, but their meaning is open.
@@ -200,7 +200,7 @@ Validation, run by `build_full_dbc.py`:
 
 The MEVD17.2 (L6/F-series) document defines its CAN frames for the FA-CAN.
 Body frames are copied 1:1 between the FA-CAN and the BN2000 PT-CAN ("Copy & Tell", CANUE table 2877).
-For the 11 IDs shared with the E9x PT-CAN, the document is used as the reference definition, parsed by `mevd_can.py`.
+For the 11 IDs shared with the E9x PT-CAN, the document is used as the reference definition, parsed by mevd_can.py.
 Its value tables are split across table columns in the markdown, so their text is copied into the signal comment instead of a `VAL_` table; only the invalid value becomes a `VAL_` entry.
 0x592 (CBS/Check-Control service frames) is multiplexed by service number and is not used.
 
@@ -257,7 +257,7 @@ Not confirmed on the E9x:
 
 ## Coding data (NCS) and SGBD tables
 
-The NCS Expert files in `E89/E89/daten` are decoded by `ncs_decode.py`, and the full result is in [MK60E5_coding.md](./MK60E5_coding.md).
+The NCS Expert files in `E89/E89/daten` are decoded by ncs_decode.py, and the full result is in [MK60E5_coding.md](./MK60E5_coding.md).
 
 * **Which coding file:** `E89SGET.000` selects the coding family `MK60_M3` (`M3`, coding index C01–C08) or `MK60_87` (other E8x/E9x, C03–C0F, C20 = ActiveHybrid). Both use the SGBD `DSC_87`.
   * `DSC_89`/`DSC_84`/`DSC8_RPA` belong to the Bosch DSC8/DXC8 of the E89, E84 and xDrive models.
@@ -279,7 +279,7 @@ The NCS Expert files in `E89/E89/daten` are decoded by `ncs_decode.py`, and the 
 
 For a standalone M3 unit no cruise coding is needed, because the M3 file has no `ECBA_DCC` parameter. Its CAN behaviour depends only on the gearbox, MSA and RPA bits.
 
-`DSC_87_tables.md` lists the value tables of `DSC_87.prg`. `DSC_87_jobs.md` lists all 121 jobs, each with:
+DSC_87_tables.md lists the value tables of `DSC_87.prg`. DSC_87_jobs.md lists all 121 jobs, each with:
 
 * the request telegram, taken from the disassembled job code;
 * the job comment;
@@ -287,7 +287,7 @@ For a standalone M3 unit no cruise coding is needed, because the M3 file has no 
 
 ### SGBD job disassembly (F-CAN fields)
 
-`prg_decode.py` contains a Python port of the BEST/2 disassembler BESTDIS (ediabaslib, MIT licence).
+prg_decode.py contains a Python port of the BEST/2 disassembler BESTDIS (ediabaslib, MIT licence).
 
 The `STATUS_F_CAN_*` jobs read the DSC's **receive buffer of an F-CAN frame** with `22 <CAN-ID>`, e.g. `83 FF F1 22 01 94`. The response is `62 <ID> <frame bytes>`. So the response byte index and mask that each job uses give the bit position of the field in the CAN frame.
 
@@ -310,16 +310,16 @@ The positions agree with the firmware COM table wherever both define a field (0x
 * **Other jobs:** `STATUS_SENSOREN`/`STATUS_RADGESCHWINDIGKEIT`/`STATUS_SCHALTER` use local identifiers (`21 06`/`21 07`/`21 05`), not CAN buffers.
 * **Bench tests:** valves and pump are driven with `30 10 07 <mask…>` (`STEUERN_DIGITAL`; bit assignment in table `STEUERN`). The diagnostic address is 0x29, so the response comes on CAN ID 0x629.
 
-DTC texts in the DBC comments come from the English SGBD (`EDIABAS/EnglishEcu/DSC_87.prg`, same revision 21.000, exported to `DSC_87_FORTTEXTE_EN.csv`), followed by the German original in `[DE: …]`. BMW's English texts are machine translations.
+DTC texts in the DBC comments come from the English SGBD (`EDIABAS/EnglishEcu/DSC_87.prg`, same revision 21.000, exported to DSC_87_FORTTEXTE_EN.csv), followed by the German original in `[DE: …]`. BMW's English texts are machine translations.
 
 ### Validation with the original BMW job code (EdiabasLib simulation)
 
-`validate_sgbd_sim.py` runs the **unmodified `DSC_87.prg` jobs** in the open-source EDIABAS interpreter [EdiabasLib](https://github.com/uholeschak/ediabaslib) (MIT), in simulation mode. For every test frame, a simulation file answers the job's request `83 29 F1 22 <CAN-ID>` with `62 <CAN-ID> <frame>`. BMW's computed results are then compared with the F-CAN DBC decoding of the same frame.
+validate_sgbd_sim.py runs the **unmodified `DSC_87.prg` jobs** in the open-source EDIABAS interpreter [EdiabasLib](https://github.com/uholeschak/ediabaslib) (MIT), in simulation mode. For every test frame, a simulation file answers the job's request `83 29 F1 22 <CAN-ID>` with `62 <CAN-ID> <frame>`. BMW's computed results are then compared with the F-CAN DBC decoding of the same frame.
 
 * The test frames are: all zeros, every value-table entry and the extremes of each field, and 12 random frames per CAN ID.
 * Two bytes are tested exhaustively, over all 256 values each.
 
-Result: **922/922 comparisons match** (`SGBD_sim_validation.md`):
+Result: **922/922 comparisons match** (SGBD_sim_validation.md):
 
 * **Steering-wheel angle 0x0C9 and road-wheel angle 0x118:** bit position, sign and **× 0.04395 °** are confirmed by BMW's own calculation, along with the status fields.
 * **0x1D6 buttons, 0x194 ACC distance / mode, 0x2A6 rain stage, 0x140 cluster type:** positions and value tables are confirmed.
@@ -354,7 +354,7 @@ On the car, a tester talks to the DSC through the OBD socket (D-CAN), and the ga
   * Consecutive frames: `F1 2n <6 bytes>`.
 * **Converting an SGBD telegram:** the SGBD form `<0x80+len> <target> <source> <service…>` maps directly. Drop the first three bytes and put the service bytes after the address and PCI. For example, `84 29 F1 18 02 FF FF` becomes `6F1: 29 04 18 02 FF FF`.
 
-Useful requests (KWP2000; all telegrams are in `DSC_87_jobs.md`):
+Useful requests (KWP2000; all telegrams are in DSC_87_jobs.md):
 
 | Purpose | Job | CAN frame(s) from the tester |
 |---|---|---|
@@ -480,7 +480,7 @@ The supervision columns come from the SGBD `FARTTYP` matrix: C = checksum, A = a
 | 0x2E4 | AHM | trailer status 2 @0 | C A T | D377 |
 | 0x308 | DME | MSA status | C A T | D379 |
 | 0x310 | KOMBI | outside temperature 8 @0 (byte 0, constant while bytes 1–2 = relative time change) + 1 bit @8 | T | D358, D36E |
-| 0x316 | JBBF | DTC button 2 @0: 0 = not pressed, 1 = pressed (byte 0 = 0xFC / 0xFD, byte 1 = 0xFF; sent every 100 ms while held – superwofy notes) | – | – |
+| 0x316 | JBBF | DSC button (BMW: Bedienung Taster DSC) 2 @0: 0 = not pressed, 1 = pressed (byte 0 = 0xFC / 0xFD, byte 1 = 0xFF; sent every 100 ms while held – superwofy notes) | – | – |
 | 0x319 | JBBF | RDC/RPA button 2 @0: 0 = not pressed, 1 = pressed (superwofy notes) | – | – |
 | 0x330 | KOMBI | mileage (only a "received" dummy bit – timeout supervision) | T | D359 |
 | 0x380 | CAS | VIN | T | D361, 5E1D, 5E1F |
@@ -579,7 +579,7 @@ To check signals that move while driving (wheel speeds, V_VEH, steering, torque 
 
 `Shared/CAN-Logs/E65/Log1.log` and `Log2.log` are Vector ASC logs, 157 s and 471 s long, recorded on a BMW E65 7 series. Channel 2 is the PT-CAN; channel 1 is another chassis bus, **not the F-CAN**.
 
-The E65 has a **Bosch DSC57** (SGBD `DSC_E65P`), not the MK60E5, but it uses the same BN2000 frame catalogue. A match here therefore shows that a definition is BMW-wide. A mismatch may be E65-specific. `verify_e65_log.py` writes `E65_log_crosscheck.md`.
+The E65 has a **Bosch DSC57** (SGBD `DSC_E65P`), not the MK60E5, but it uses the same BN2000 frame catalogue. A match here therefore shows that a definition is BMW-wide. A mismatch may be E65-specific. verify_e65_log.py writes E65_log_crosscheck.md.
 
 | Check | Result |
 |---|---|
@@ -634,7 +634,7 @@ The DSC cannot change engine torque itself. It sends a torque request to the DME
 **Source and scope.** The only DME description available is the Bosch MEVD17.2 function description (N55).
 It covers two vehicle networks: **BN2000**, the E-series PT-CAN that the E9x uses, and **L6**, the F-series FlexRay network.
 
-* The function that processes the DSC request, **BGDSC** (`15.2.1.4-BGDSC.md`), is documented only for L6, where the request arrives in the FlexRay message `RQ_WMOM_PT_SUM_STAB`.
+* The function that processes the DSC request, **BGDSC** (15.2.1.4-BGDSC.md), is documented only for L6, where the request arrives in the FlexRay message `RQ_WMOM_PT_SUM_STAB`.
 * For BN2000 the document only lists 0x0B6 as a received message (CANUE table 2880, "received in %CANDA2MIR") and shows where its result enters the torque structure (LAYCOCOV).
 
 The sections below therefore describe the L6 logic as documented and mark everything said about 0x0B6 on the E9x as inference.
@@ -803,7 +803,7 @@ The MSR torques are **floors**. The neutral value is −32000 Nm, i.e. no minimu
 
 ### Into the torque structure (LAYCOCOV)
 
-LAYCOCOV (`15.2.1.10-LAYCOCOV.md`) hands the requests to the Bosch torque coordinator. The system constant `BNL6_SY` selects which interface is fed (figures 5827, 5829, 5830, 5832):
+LAYCOCOV (15.2.1.10-LAYCOCOV.md) hands the requests to the Bosch torque coordinator. The system constant `BNL6_SY` selects which interface is fed (figures 5827, 5829, 5830, 5832):
 
 | Bosch input | L6 (`BNL6_SY` ≠ 0) | BN2000 (`BNL6_SY` = 0, E9x) |
 |---|---|---|
@@ -907,7 +907,7 @@ These points follow from the DTC/supervision tables. They have not been bench-te
   0x310, 0x330, 0x380 (VIN must match the coded VIN, otherwise 5E1D/5E1F), 0x3B0. Add 0x0BA when automatic transmission is coded, 0x2E4 with trailer, 0x308 with MSA, and 0x0D5/0x1A3 with ACC.
 * F-CAN needs the SZL steering angle (0x0C9) and the DSC sensor (0x0CD/0x0D1/0x0D4). The easiest route is the real BMW parts, because MK60E5 supplies SYNC (0x080) itself.
   In the car, F-CAN also runs to the JBE. On a bench, DSC + DSC sensor + SZL form a stand-alone F-CAN that still needs normal CAN termination.
-* DTC button: the JBE reads the button and sends 0x316 on PT-CAN (`FC FF` released, `FD FF` pressed, every 100 ms while held). A standalone setup has to send this frame itself. The superwofy firmware says that with M3/1M DSC software the button must instead be wired to pin 41 (TIS: E85/E86 only) – test both on the bench. 0x398 (traction mode from iDrive) is optional for non-M software; with M3 software M Dynamic Mode is selected through 0x399.
+* DSC button (labelled DSC OFF; short press = DTC, hold = DSC off): the JBE reads the button and sends 0x316 on PT-CAN (`FC FF` released, `FD FF` pressed, every 100 ms while held). A standalone setup has to send this frame itself. The superwofy firmware says that with M3/1M DSC software the button must instead be wired to pin 41 (TIS: E85/E86 only) – test both on the bench. 0x398 (traction mode from iDrive) is optional for non-M software; with M3 software M Dynamic Mode is selected through 0x399.
 * Coding block 0x3005 (from SGBD `CODIERUNG`): ECD, CBS, FLR, VCH, HBA, AY, LW, PSI_*, SW, HVV, SST, EVB, BSW, HHC, HPS, ASL, HDC.
   Coding must match the CAN partners you emulate, e.g. option 544 (DSC acts as LDM) versus 541 (ACC/LDM present).
 

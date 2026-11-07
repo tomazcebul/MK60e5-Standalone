@@ -81,6 +81,45 @@ Description of VDA bits outputted from AK Protocol based WSS in the table below.
 
 The quality of the wheel speed signal depends on the magnetic strength. Any deterioration in the health of the wheel encoder will also impact the magnetic strength of the signal. Therefore, presence of magnetic debris on the surface of the encoder will hamper the quality of wheel speed signal. VDA bits 5-7 which can be converted to a 3-bit integer (7-Maximum magnetic strength, 0-Minimum magnetic strength) which correlates to the magnetic strength at the interface and shows potential to determine faults at the interface.
 
+## Wiring (E9x, MK60E5)
+
+![Wheel speed sensor wiring](../Pictures/WheelSpeedSensors-Wiring.png)
+
+The four active wheel speed sensors are two-wire sensors connected directly to DSC connector X18303. In the DSC, the "+" wire of each sensor is the supply: a transistor switches it to terminal 15 through a resistor. The other wire is the signal: the sensor current returns to ground (31) through a measuring resistor in the DSC. The sensors get no other supply or ground.
+
+| Sensor | Sensor connector pin | Signal | Cross-section | Wire colour | DSC X18303 pin |
+|---|---|---|---|---|---|
+| B1 front right | X13394 pin 2 | DFVR+ (supply) | 0.5 mm² | GE | 34 |
+| B1 front right | X13394 pin 1 | DFVR (signal) | 0.5 mm² | BR | 33 |
+| B2 front left | X13395 pin 2 | DFVL+ (supply) | 0.5 mm² | BR/RT | 45 |
+| B2 front left | X13395 pin 1 | DFVL (signal) | 0.5 mm² | BR | 46 |
+| B3 rear right | X377 pin 2 | DFHR+ (supply) | 0.5 mm² | GE/SW | 43 |
+| B3 rear right | X377 pin 1 | DFHR (signal) | 0.5 mm² | GE/BR | 42 |
+| B4 rear left | X376 pin 2 | DFHL+ (supply) | 0.5 mm² | BL | 36 |
+| B4 rear left | X376 pin 1 | DFHL (signal) | 0.5 mm² | BR | 37 |
+
+Wire colours: GE yellow, BR brown, RT red, SW black, BL blue.
+
+On every sensor, pin 2 is the supply and pin 1 is the signal. This matches the pin pairs in [DSC unit – pin functions](DSCUnit.md#pin-functions).
+
+The same diagram shows two of the DSC's wheel-speed outputs:
+
+| DSC X18303 pin | Signal | Cross-section | Wire colour | Output stage | Goes to |
+|---|---|---|---|---|---|
+| 8 | F_DFAHR (processed wheel speed, rear right) | 0.35 mm² | WS/GN | transistor with pull-up to terminal 15 | DME/DDE |
+| 25 | DFA_CAS (conditioned wheel speed) | 0.35 mm² | GE/RT | transistor with pull-up to terminal 30 | Car Access System (steering lock) |
+
+The diagram marks the pin 8 wiring with the variants "up to 2009_02" and "from 2009_03", but this extract is cut off before the difference.
+
+### Wiring for standalone operation
+
+These points follow from the wiring diagram. They have not been bench-tested.
+
+* Connect each sensor with two wires straight to the DSC: pin 2 (supply) and pin 1 (signal), as in the table. Keep the pairs twisted and away from ignition wiring.
+* Don't add a separate supply, ground or pull-up: the DSC powers the sensors and measures their current.
+* The DSC supplies the sensors from terminal 15, so they work only with the KL15 wake-up wire (pin 29) on.
+* Pins 8 and 25 can stay unconnected unless an engine ECU or other unit needs a wheel-speed signal.
+
 ## Connectors
 
 |Element|BMW P/N |
