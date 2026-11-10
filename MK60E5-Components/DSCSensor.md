@@ -96,3 +96,9 @@ These points follow from the wiring diagram. They have not been bench-tested.
 * **Termination:** the diagram doesn't show where the F-CAN terminating resistors are. With all nodes connected and unpowered, measure the resistance between F_CAN_H and F_CAN_L: about 60 Ω means both terminations are present, about 120 Ω means one is missing, and open circuit means none. Add 120 Ω at a bus end for each missing one.
 
 The DSC unit side of the wiring is described in [DSC unit](DSCUnit.md#pin-functions).
+
+## Connectors
+
+|Element|BMW P/N |
+|---|---|
+|Plug housing, 6-pin (X61035, up to 02/2006) |61138366590 |

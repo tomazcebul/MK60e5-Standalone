@@ -93,7 +93,7 @@ There is one button, labelled "DSC OFF". BMW calls it the DSC button ("Taster DS
 
 On the E87 and E9x the DSC button is not wired to the DSC. The junction box (JBE) reads the button and sends it to the DSC on PT-CAN in frame 0x316: byte 0 = 0xFC when released and 0xFD while pressed (repeated every 100 ms while held), byte 1 = 0xFF. On the E85/E86 the button is wired to DSC pin 41 instead.
 
-In a standalone installation the button has to be read by your own electronics and sent as frame 0x316. In the BMW pinout for dsc_85/dsc_87, pin 41 is "Not used", so the button is never wired to the DSC on the E9x. See [MK60E5 CAN interface](MK60E5-CAN/MK60E5_DSC–CAN-Interface.md#pt-can--frames-received-by-dsc).
+In a standalone installation the button has to be read by your own electronics and sent as frame 0x316. In the BMW pinout for dsc_85/dsc_87, pin 41 is "Not used". An independent disassembly of the M3 firmware, however, finds a hardwired button input, so whether the M3 uses 0x316 or a pin is still open; see [DSC button – open points](MK60E5-Components/DSCButton.md#open-points). See also [MK60E5 CAN interface](MK60E5-CAN/MK60E5_DSC–CAN-Interface.md#pt-can--frames-received-by-dsc).
 
 The following page describes additional technical information for [DSC button](MK60E5-Components/DSCButton.md)
 
@@ -136,6 +136,7 @@ MK60E5 is connected to PT-CAN and F-CAN. The full CAN matrix was extracted from 
 - [MK60e5 and MK60 ABS retrofit group](https://www.facebook.com/groups/807702710448164)
 - [BMW MK60 Motorsports ABS](https://www.facebook.com/groups/1056638784424876)
 - [Standalone ABS Installs (MK60 and More)](https://grassrootsmotorsports.com/forum/grm/standalone-abs-installs-mk60-and-more/248099/page1/)
+- [cmg5461/mk60e5-firmware](https://github.com/cmg5461/mk60e5-firmware) (MIT): reverse engineering of the MK60E5 firmware, including the E9x M3 firmware 7846816A used in this project. It contains a calibration handbook, an XDF definition, CAN RX/TX tables, coding bytes, an EEPROM map, the minimum PT-CAN frames for standalone use, and a firmware patch for E46 wheel speed sensors.
 
 ## Disclaimer
 

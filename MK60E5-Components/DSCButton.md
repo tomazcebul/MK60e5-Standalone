@@ -85,7 +85,7 @@ Wire colours: BL blue, VI violet, BR brown, SW black.
 
 The DSC-side pin numbers in this diagram (F-CAN 26/14, brake light switch 30, brake fluid level 5) and the handbrake warning switch on the junction box belong to the Bosch DSC 8 Plus (variants dxc_70/dxc_90, all-wheel drive), not to the MK60E5. For the MK60E5 use the BMW pinout "A65a Dynamic stability control (DSC)", which applies to dsc_85 and dsc_87; see [DSC unit – pin functions](DSCUnit.md#pin-functions). The button wiring to the junction box is the same.
 
-The button closes DSC_PASS to a ground supplied by the junction box. It is **not** wired to the DSC: in the dsc_85/dsc_87 pinout, pin 41 is "Not used". The DSC gets the button only over PT-CAN, on the M3 too.
+The button closes DSC_PASS to a ground supplied by the junction box. In this diagram it is not wired to the DSC, and in the dsc_85/dsc_87 pinout pin 41 is "Not used". Whether the M3 firmware actually uses 0x316 is open; see [Open points](#open-points).
 
 The JBE SGBD (JBBF87.prg) lists the input as DSC_BEFEHL, "Sensor DSC Schalter", read through shift-register input 3. The level at the pin is 0 when the button is pressed and 1 when released. The result `STAT_DSC_BEFEHL_EIN` inverts this: 1 = pressed.
 
@@ -95,7 +95,7 @@ The DSC decides the mode itself from how long the button is held.
 
 ### E85/E86: wired to DSC pin 41
 
-On the Z4 the button is wired directly to DSC connector X18303 pin 41 ("DTC button in the SZM, input"). On the E87/E9x, including the M3, pin 41 is not used. See [DSC unit – differences on the E85/E86](DSCUnit.md#differences-on-the-e85e86).
+On the Z4 the button is wired directly to DSC connector X18303 pin 41 ("DTC button in the SZM, input"). On the E87/E9x the BMW pinout lists pin 41 as not used. See [DSC unit – differences on the E85/E86](DSCUnit.md#differences-on-the-e85e86).
 
 ### Mode request 0x398
 
@@ -120,10 +120,16 @@ The DSC job shows the button state as the DSC sees it, whichever input it comes 
 These points follow from the BMW sources above. They have not been bench-tested.
 
 * **Button:** a momentary switch to ground, as in the car. Without a JBE, your own electronics must read it and send frame 0x316 while it is pressed. The DSC then times the hold itself.
-* **Pin 41:** "Not used" in the BMW pinout for dsc_85/dsc_87. Pin 41 is an E85/E86 input. Whether firmware 7846816A still reads it is unknown and not needed.
+* **Pin 41:** "Not used" in the BMW pinout for dsc_85/dsc_87, but possibly read by the M3 firmware (see [Open points](#open-points)). For the bench test, wire the button to your CAN electronics and, through a jumper, to pin 41.
 * **Indicators:** on the E9x the DSC has no lamp output (pin 44 is used only on the E85/E86). Drive the DSC OFF and DTC lamps from frame 0x19E.
 * **Without a button:** DSC is on after every engine start, so no button is needed for normal operation.
 
 ## Open points
 
 * Hold time for DSC off: not stated in TIS. It is given in the BMW owner's handbook, which has not been checked for this page.
+* **Which input the M3 firmware uses (conflict).** The BMW pinout for dsc_85/dsc_87 lists pin 41 as not used, and the E9x wiring sends the button through the JBE in 0x316. An independent disassembly of firmware 7846816A ([cmg5461/mk60e5-firmware](https://github.com/cmg5461/mk60e5-firmware), `FACTS.md`, "DSC driver mode") finds a different picture:
+  * The DSC mode logic reads a **hardwired, active-low button** on a digital input next to the brake light switch input. Holding it 0.5 s switches DSC off, 0.15 s switches it back on, and 10 s sets fault 5E5B.
+  * 0x316 is not tied to that logic; its value goes to a variable whose use was not identified.
+  * The firmware doesn't reveal the pin. Pin 41, the E85/E86 button input on the same connector, is the likely candidate.
+
+  **Bench test:** with nothing on pin 41, send 0x316 (`FD FF` while pressed) and read `STATUS_SCHALTER` and frame 0x19E. Then pull pin 41 to ground through the button and repeat. Then send 0x398 (DSC off request) and repeat.
