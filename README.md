@@ -89,11 +89,14 @@ The SZL used in this project (photos in [Components/SZL](Components/SZL)) is BMW
 
 ## DSC Button
 
-There is one button, labelled "DSC OFF". BMW calls it the DSC button ("Taster DSC"; SPdaten JBBF70: frame 0x316 "Bedienung Taster DSC", DSC SGBD result `STAT_DSC_TASTER_EIN`). A short press selects DTC (M3 software: M Dynamic Mode); holding it for about 3 s switches DSC off. There is no separate DTC button.
+There is one button, labelled "DSC OFF". BMW calls it the DSC button ("Taster DSC"; SPdaten JBBF70: frame 0x316 "Bedienung Taster DSC", DSC SGBD result `STAT_DSC_TASTER_EIN`). There is no separate DTC button. What the button does depends on the DSC software (button tables in the firmware):
 
-On the E87 and E9x the DSC button is not wired to the DSC. The junction box (JBE) reads the button and sends it to the DSC on PT-CAN in frame 0x316: byte 0 = 0xFC when released and 0xFD while pressed (repeated every 100 ms while held), byte 1 = 0xFF. On the E85/E86 the button is wired to DSC pin 41 instead.
+* **Non-M (e.g. 6862873A):** a short press selects DTC; holding it 2.5 s switches DSC off.
+* **M3 (7846816A, this unit):** holding it 0.5 s switches DSC off, and a press switches it back on. The button never selects M Dynamic Mode; that comes through the M Drive (frames 0x398/0x399).
 
-In a standalone installation the button has to be read by your own electronics and sent as frame 0x316. In the BMW pinout for dsc_85/dsc_87, pin 41 is "Not used". An independent disassembly of the M3 firmware, however, finds a hardwired button input, so whether the M3 uses 0x316 or a pin is still open; see [DSC button – open points](MK60E5-Components/DSCButton.md#open-points). See also [MK60E5 CAN interface](MK60E5-CAN/MK60E5_DSC–CAN-Interface.md#pt-can--frames-received-by-dsc).
+On the E87 and E9x non-M the DSC button is not wired to the DSC. The junction box (JBE) reads the button and sends it to the DSC on PT-CAN in frame 0x316: byte 0 = 0xFC when released and 0xFD while pressed (repeated every 100 ms while held), byte 1 = 0xFF. On the E85/E86 the button is wired to DSC pin 41 instead.
+
+**The M3 software ignores 0x316.** It reads the button on its own active-low input next to the brake light switch input, and BMW's diagnostic job reports that input as `STAT_DSC_TASTER_EIN`. The input is most likely pin 41, to be confirmed on the bench. In a standalone installation with this unit, wire the button between pin 41 and ground, or request the mode with frame 0x398. See [DSC button](MK60E5-Components/DSCButton.md#e9x-m3-wired-to-the-dsc) and [MK60E5 CAN interface](MK60E5-CAN/MK60E5_DSC–CAN-Interface.md#pt-can--frames-received-by-dsc).
 
 The following page describes additional technical information for [DSC button](MK60E5-Components/DSCButton.md)
 

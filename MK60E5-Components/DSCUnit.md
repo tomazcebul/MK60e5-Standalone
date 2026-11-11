@@ -125,7 +125,7 @@ The E85/E86 (Z4) uses the same connector with some pins assigned differently (TI
 | 14 | wheel-speed output FL → TCU (US without nav only) | wheel-speed output FL → M-ASK/CCC (US without nav: TCU) |
 | 17 | terminal 30 | terminal 30g, active |
 | 29 | terminal 15 | terminal 15 wake-up wire |
-| 41 | DSC button input (TIS: "DTC button in the SZM", E85/E86 only) | not used |
+| 41 | DSC button input (TIS: "DTC button in the SZM", E85/E86 only) | not used (non-M); **E9x M3: most likely the DSC button input**, see [DSC button](DSCButton.md#e9x-m3-wired-to-the-dsc) |
 | 44 | ABS indicator and warning light in the instrument cluster, output | not used |
 
 On the E87/E9x the DSC and RPA buttons and the warning lights are not wired to the DSC; they are exchanged over PT-CAN. The DSC button is described in [DSC button](DSCButton.md).
