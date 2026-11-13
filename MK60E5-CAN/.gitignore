@@ -15,3 +15,6 @@
 !BMW_E9x_PT-CAN_full.dbc
 !BMW_E9x_K-CAN_full.dbc
 !BMW_E9x_K-CAN.md
+!JBE/
+JBE/*
+!JBE/JBE_Gateway.md

@@ -45,7 +45,7 @@ Firmware table format (both buses):
 ```
 Message record, 23 bytes, big-endian:
   [0:2] CAN-ID   [2] lo-nibble DLC   [3] bit3 = TX   [4] TX cycle x10 ms (FF = event)
-  [8] #signal records   [9:11] first signal index   [11] handle   [18:20] same ID on the other bus (meaning not confirmed)
+  [8] #signal records   [9:11] first signal index   [11] handle   [18:20] gateway destination ID (bytes 16–19 as u32; byte 20 low nibble = DLC of the copy), see [Bus topology](#bus-topology)
 Signal record, 5 bytes (table starts 5 bytes before the end of the message table):
   [0] flags  [2] internal variable  [3] bits0-4 length, bit5 signed  [4] lo-nibble byte, hi-nibble bit
   -> Intel (little-endian) layout, DBC start bit = byte*8 + bit
@@ -98,6 +98,7 @@ The extractor rebuilds the record's signal range from the chain. It then identif
 | DSC_87_jobs.md | All 121 SGBD jobs: request telegram (disassembled), job comment, INPA screens/results; CAN fields evidenced by the F-CAN status jobs |
 | DSC_87_FORTTEXTE_EN.csv | English DTC texts (`EDIABAS/EnglishEcu/DSC_87.prg`) |
 | ncs_decode.py | Decoder for NCS Expert data files (coding files, keyword tables, CVT, SGET); writes `MK60E5_coding.md` |
+| [JBE/JBE_Gateway.md](./JBE/JBE_Gateway.md), JBE/jbe_gateway.py | JBE (PT-CAN/K-CAN gateway) firmware 9364820A: its own send/receive frames and the full gateway routing table, incl. signal-level copies (own frames CSV, routing CSV) |
 | prg_decode.py | Reads an EDIABAS SGBD (`.prg`): tables, jobs, job documentation, BEST/2 disassembler (Python port of BESTDIS), response-field analysis; writes `DSC_87_tables.md`, `DSC_87_jobs.md` and the DTC CSVs |
 
 Signal names come from the MEVD17.2 function description or the E65 documentation (BMW names), then from the community DBC.
@@ -385,21 +386,50 @@ Notes:
 * **Valve and pump actuation:** only do this with brake fluid in the unit and for short times, because the return pump must not run dry for long.
 * **Without the original tool:** EdiabasLib/EdiabasTest can also run the original `DSC_87.prg` jobs on a real unit through a D-CAN (K+DCAN) cable. Use `EdiabasTest.exe --ifh=STD:OBD -p COM<x> -s DSC_87.prg -j FS_LESEN`. A K+DCAN cable needs the PT-CAN connected to the OBD connector's D-CAN pins (6/14) and a 120 Ω termination.
 
+### Coding on the bench
+
+dsc_coding.py reads, decodes and writes the coding block 0x3000 with the original SGBD jobs through EdiabasLib, using the parameter names and values of the NCS coding file (default `MK60_M3.C08`, see [MK60E5_coding.md](./MK60E5_coding.md)):
+
+```powershell
+python dsc_coding.py list                                       # parameters and their NCS values
+python dsc_coding.py read --port=COM3                           # decode + backup to external/coding_backups/
+python dsc_coding.py set RPA=nicht_aktiv MSA=nicht_aktiv --port=COM3            # dry run: shows the change
+python dsc_coding.py set RPA=nicht_aktiv MSA=nicht_aktiv --port=COM3 --write    # backup, write, read back
+python dsc_coding.py restore external\coding_backups\<file>_before.bin --port=COM3 --write
+```
+
+* **Jobs:** `C_C_LESEN` sends `22 30 00`. `C_C_AUFTRAG` opens the coding session (`10 87 05`), writes (`2E 30 00` + 48 bytes) and reads back. Both take the NCS binary buffer (21-byte header, data, ETX); the layout is documented in the job and checked by it (identifier 0x3000–0x3EFF, length = 22 + data). `CODIER_DATEN` returns the same buffer with the coding filled in.
+* **Checksum:** the SGBD job itself recomputes byte 0 (XOR of bytes 1–47, plus 1), the same rule the DSC firmware checks. The script computes it too, only to show the diff.
+* **Safety:** `set` always starts from the coding read from the unit, so bytes that NCS doesn't describe stay unchanged. Without `--write` nothing is written. The DSC validates every field and rejects an invalid coding (NRC 0x31) without changing the stored one.
+* **Tested** against the EdiabasLib simulator (`--sim=<image.bin>`): read, write with read-back and restore all return `OKAY`. The simulated write only matches if the telegram is byte-identical to what the SGBD sends, which confirms the buffer layout and the checksum. Not yet tested on a real unit.
+
 ## Bus topology
 
 MK60E5 connects to **two** buses: PT-CAN (to DME/EGS/CAS/LDM…) and **F-CAN** (chassis CAN).
 On F-CAN it talks to the steering column switch cluster SZL (steering angle sensor), the DSC sensor (yaw/lateral acceleration) and Active Steering (AL, "AFS" in the SGBD).
-TIS shows the **JBE** (junction box) as the central gateway: F-CAN, PT-CAN and K-CAN (where KOMBI is) all meet there. The frames seen on K-CAN are listed in [K-CAN](#k-can).
+TIS shows the **JBE** (junction box) as the central gateway between PT-CAN and K-CAN (where KOMBI is); the F-CAN wires run through the JBE's connectors, but the JBE has no F-CAN controller ([JBE_Gateway.md](./JBE/JBE_Gateway.md)). The frames seen on K-CAN are listed in [K-CAN](#k-can).
 The MK60E5 sends the F-CAN SYNC frame 0x080.
 
-The firmware marks 0x194/0x1D6/0x2A6 (F-CAN RX) and 0x130 (F-CAN TX) with an ID for the other bus. I first read this as "DSC is the gateway".
-That reading is **not supported**: TIS routes F-CAN through the JBE, and the 320i log (MK60E, which has no F-CAN table at all) still shows 0x194/0x1D6/0x2A6 on PT-CAN.
-So the JBE forwards them, and the firmware field only marks frames that exist on both buses.
+**The DSC is the F-CAN → PT-CAN gateway for the SZL frames.**
+* Each F-CAN frame record has a destination ID field (record bytes 16–19) and a DLC override (byte 20); see [Sources and method](#sources-and-method).
+* In 7846816A the field is set on 0x0C8, 0x194, 0x1D6, 0x1D9 and 0x2A6 (received from the SZL) and on 0x130.
+* Code path [FW, after cmg5461]:
+  * The F-CAN receive handlers call `fcan_rx_queue_push` 0xC56D0. It builds a 16-byte queue entry at 0x402E74: destination ID from the record, DLC from the override or the received DLC, 8 data bytes.
+  * The 10 ms task (0x70FB6 → 0x793F0) runs `fcan_to_can_gateway_drain` 0x7A172. It sends each entry through 0x6D9CE with controller selector 1, which is the PT-CAN controller 0xDD0000 with the PT-CAN frame table 0xD7F45, in mailbox 4.
+  * The drain is skipped while 0x40288C b3 or 0x401163 b5 is set (meaning not traced).
+* 0x194, 0x1D6, 0x2A6 and 0x1D9 are copied on every received frame, with their received DLC.
+* 0x0C8 is copied only when a one-shot flag is set (0x402F49 b2, set every 20th 10 ms cycle, i.e. 200 ms) and is **shortened to DLC 6**. The E92 320i PT-CAN log has 0x0C8 with DLC 6; on K-CAN, where the JBE passes it on unchanged, the M3 trace shows a 200 ms median interval.
+* 0x130 goes the other way: the DSC receives Klemmenstatus on PT-CAN and sends it on F-CAN for the SZL (`can_rx_130_gateway` 0x7C24C; F-CAN send path 0xC5766 with controller selector 2).
+* The 6-cylinder firmware 6862873A has the same code (0xC5ACC, 0x7F3AA) and sets the field on 0x194, 0x1D6, 0x2A6 and 0x130; it doesn't copy 0x0C8 or 0x1D9.
+
+This corrects an earlier reading of this document. The field was taken as "frame also exists on the other bus" with the JBE as the router, because TIS routes the F-CAN wires through the JBE and the 320i log shows the SZL frames on PT-CAN. The JBE firmware has no F-CAN controller and takes these frames from PT-CAN.
+
+Log evidence for the copy: in the E92 320i PT-CAN log, 0x0C8 has DLC 6 and its alive counter (byte 2, high nibble) only takes the values 3, 8 and 13. A 0–14 counter sampled every 20th frame advances by 5 each time, which is exactly what the 1-in-20 copy produces. The 320i is assumed to have the 4-cylinder MK60E (see [Validation](#validation-against-the-e92-320i-pt-can-log)), whose firmware has only a PT-CAN table. Whether that DSC copies the SZL frames by other means, or the car has a different DSC, is open.
 The MK60E (`DSC81`, 4-cyl) firmware only has the PT-CAN table.
 
 ### PT-CAN, F-CAN and K-CAN compared
 
-The E9x uses three separate CAN networks, split by function. The JBE is the gateway between them.
+The E9x uses three separate CAN networks, split by function. The JBE is the gateway between PT-CAN and K-CAN; the DSC copies the SZL frames from F-CAN to PT-CAN.
 
 | | PT-CAN (powertrain CAN) | F-CAN (chassis CAN, "Fahrwerk") | K-CAN (body CAN, "Karosserie") |
 |---|---|---|---|
@@ -412,8 +442,8 @@ The E9x uses three separate CAN networks, split by function. The JBE is the gate
 
 How this shows up in the data:
 
-* **Frames from other buses appear on PT-CAN via the JBE.**
-  KOMBI frames 0x1B4, 0x310 and 0x330 originate on K-CAN; SZL frames 0x194, 0x1D6 and 0x2A6 originate on F-CAN.
+* **Frames from other buses appear on PT-CAN through two gateways.**
+  KOMBI frames 0x1B4, 0x310 and 0x330 originate on K-CAN and are copied by the JBE (it builds 0x310 from 0x2CA and 0x328). SZL frames 0x0C8, 0x194, 0x1D6, 0x1D9 and 0x2A6 originate on F-CAN and are copied by the DSC.
   The 320i log shows them on PT-CAN, although the KOMBI and SZL are not PT-CAN nodes.
 * **F-CAN keeps fast, safety-relevant sensor traffic off the busy PT-CAN.**
   The DSC sensor sends yaw rate and acceleration on F-CAN (0x0CD/0x0D1/0x0D4), and the SZL sends the steering angle there (0x0C9).
@@ -424,7 +454,7 @@ What it means for running the DSC standalone (inference):
 
 * **Wiring:** the KL15 wake-up wire and the CAN termination are described in [DSC unit – wiring for standalone operation](../MK60E5-Components/DSCUnit.md#wiring-for-standalone-operation).
 * **Emulate K-CAN frames directly on PT-CAN:** without the JBE, frames like 0x310 (outside temperature), 0x330 (mileage) and 0x1B4 must be sent on PT-CAN.
-* **F-CAN can stay a small isolated bus:** DSC + DSC sensor + SZL, terminated, with no JBE needed.
+* **F-CAN can stay a small isolated bus:** DSC + DSC sensor + SZL, terminated, with no JBE needed. The DSC still copies the SZL frames 0x0C8, 0x194, 0x1D6, 0x1D9 and 0x2A6 to PT-CAN and relays 0x130 from PT-CAN to F-CAN itself.
 
 TIS also confirms the following points (NewTIS "Dynamic Stability Control Mk60E5" and "DSC sensor"):
 
@@ -518,8 +548,8 @@ Bus-off DTCs: D347 (PT-CAN) and D34B (F-CAN).
 |---|---|---|---|
 | 0x11E | TX | 10 ms, DLC 8: 5 @0, 2 @6, 5 @8, 4 × 2 @16–22, 4 @24, 16 @32 (meaning unknown) | – |
 | 0x128 | TX | – | 10 ms, 10 fields (see above) |
-| 0x0C8 | RX | DLC 8, no signals, mirrored to the other bus as 0x0C8 | – (DTC D373 names "200 or 201") |
-| 0x1D9 | RX | DLC 3, mirrored to the other bus as 0x1D9. **M-Drive button** on the steering wheel (SPdaten `JBBF70.prg`: "Bedienung Taster M-Drive" from the SZL). Layout from the superwofy notes: bit 14 = 1 and bit 6 = 0 while pressed, 4-bit counter @16; sent every 1 s, every 100 ms while pressed | – |
+| 0x0C8 | RX | DLC 8, no signals; copied to PT-CAN 0x0C8 with DLC 6 every 200 ms (DSC gateway, see [Bus topology](#bus-topology)) | – (DTC D373 names "200 or 201") |
+| 0x1D9 | RX | DLC 3, copied unchanged to PT-CAN 0x1D9 (DSC gateway). **M-Drive button** on the steering wheel (SPdaten `JBBF70.prg`: "Bedienung Taster M-Drive" from the SZL). Layout from the superwofy notes: bit 14 = 1 and bit 6 = 0 while pressed, 4-bit counter @16; sent every 1 s, every 100 ms while pressed | – |
 | 0x0EC / 0x0ED / 0x0EF | RX | – | 16-bit channels |
 | 0x0C9, 0x0CD, 0x0D1, 0x0D4, 0x118, 0x11F, 0x130, 0x1D6, 0x2A6 | | byte-7 field (56\|8) and 0x0C9 42\|2 are not mapped (length-0 placeholder) | mapped |
 | 0x790, 0x791, 0x797, 0x798, 0x7D4–0x7D8 | TX | event, no signals | – (0x797/0x798 only on PT-CAN) |
@@ -943,3 +973,4 @@ The pin functions of connector X18303 are listed in [DSC unit – pin functions]
 * Signal layouts of the K-CAN-only frames that neither the superwofy notes nor PT-CAN describe, and the undocumented values of the note-derived signals (see [BMW_E9x_K-CAN.md](./BMW_E9x_K-CAN.md)).
 * 0x0B6 on BN2000: which field is the fast and which the slow request, the meaning of bits 38–39, and the DME receive function that produces `miasrs_w`/`miasrl_w`/`mimsr_w` (not in the MEVD17.2 document copy). See [DME side](#dme-side-mevd172--torque-intervention).
 * F-CAN checksum/CRC: needs an F-CAN log.
+* DSC F-CAN → PT-CAN gateway: what inhibits the drain (0x40288C b3, 0x401163 b5), and how the 320i (assumed MK60E without an F-CAN table) produces the 1-in-20 copy of 0x0C8 seen in its log. A PT-CAN log of an M3 with the M Drive button (0x1D9) pressed would show the copy on the bus.

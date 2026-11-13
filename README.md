@@ -87,6 +87,8 @@ The SZL used in this project (photos in [Components/SZL](Components/SZL)) is BMW
 - clock spring BMW 6 989 557-02 (Kostal 04308135-03)
 - stalk modules 01 3081 50, 01 1081 60, 01 2081 95
 
+The following page describes the SZL, its CAN messages and its connection to the DSC and the JBE: [Steering column switch cluster](MK60E5-Components/SteeringColumnSwitchCluster.md)
+
 ## DSC Button
 
 There is one button, labelled "DSC OFF". BMW calls it the DSC button ("Taster DSC"; SPdaten JBBF70: frame 0x316 "Bedienung Taster DSC", DSC SGBD result `STAT_DSC_TASTER_EIN`). There is no separate DTC button. What the button does depends on the DSC software (button tables in the firmware):
